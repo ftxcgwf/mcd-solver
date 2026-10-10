@@ -17,7 +17,7 @@ import os
 import re
 
 from .taste import (
-    ROLE_BY_CATEGORY, ROLE_ZH, base_score, infer_textures, load_overrides,
+    ROLE_ZH, base_score, infer_role, infer_textures, load_overrides,
 )
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
@@ -50,9 +50,16 @@ class Item:
 
 
 def _norm(s):
-    """品名归一化：去空格与常见括号内容，用于跨源匹配。"""
+    """
+    品名归一化，用于跨源匹配。
+
+    去掉空格、括号内容，以及品牌前缀——MCP 菜单里叫「麦咖啡™奶铁」，
+    官网营养表里叫「冰奶铁」，不剥掉前缀就对不上。
+    """
     s = (s or "").strip()
     s = re.sub(r"[（(].*?[)）]", "", s)
+    for prefix in ("麦咖啡™", "麦咖啡", "麦当劳"):
+        s = s.replace(prefix, "")
     return re.sub(r"\s+", "", s)
 
 
@@ -78,7 +85,7 @@ def items_from_nutrition(nut, prices=None, overrides=None):
         if not name:
             continue
         cat = it.get("category", "")
-        role = ROLE_BY_CATEGORY.get(cat, "side")
+        role = infer_role(name, cat)
         for v in it.get("variants", []):
             portion = v.get("portion", "1份")
             textures = infer_textures(name, it.get("desc", ""), overrides)
@@ -98,36 +105,89 @@ def items_from_nutrition(nut, prices=None, overrides=None):
                 sodium=v.get("sodium"),
                 calcium=v.get("calcium"),
                 textures=textures,
-                base=base_score(role, textures),
+                base=base_score(role, textures, v.get("energy_kcal")),
                 source="web",
             ))
     return out
 
 
+# 组合餐标识：命中任一项的 MCP 条目不作为单品价格来源
+PACK_WORDS = ("套餐", "件套", "随心选", "随心拼", "乐园餐", "双全")
+
+
+def _median_variant(group):
+    """多规格产品里挑「标准份」：按热量排序取居中的那个。"""
+    s = sorted(group, key=lambda i: i.energy_kcal or 0)
+    return s[len(s) // 2]
+
+
 def apply_mcp_menu(items, menu, prices=None):
     """
-    用 MCP 的实时菜单数据校准价格。
+    用 MCP 的实时菜单校准价格。返回成功匹配的产品数。
 
     menu 为 scripts/fetch_menu.py 产出的结构：
         {"items": [{"name": ..., "price": 12.5, "code": ...}, ...]}
 
-    匹配不上的单品保持原价（可能仍为 None）。返回被成功匹配的数量。
+    两处容易踩坑，已分别处理：
+
+    1. 名称对不齐。官网叫「可口可乐」，MCP 菜单叫「可乐」；
+       官网叫「吉士汉堡包」，MCP 叫「吉士汉堡」。所以精确匹配之外
+       再做双向子串匹配，取最长的那个候选。
+
+    2. 规格被平铺。官网的「薯条」有迷你/小/中/大四个规格，而 MCP
+       菜单里只有一条「薯条」¥13.5。若按品名无差别赋值，四个规格
+       会拿到同一个价格，求解器就会以为大份和中份同价——这是错的。
+       所以多规格产品只把价格赋给「标准份」（热量居中的规格），
+       其余规格留空，宁可缺失也不误导。
     """
     if not menu:
         return 0
+
     lookup = {}
+    skipped_pack = 0
     for m in menu.get("items", []):
         n = _norm(m.get("name"))
-        if n and m.get("price") is not None:
+        if not n or m.get("price") is None:
+            continue
+        # 组合餐的价格不能当单品价格用。MCP 菜单里「吉士汉堡包套餐」¥26
+        # 若被子串匹配当成「汉堡包」的单价，求解结果会严重失真，
+        # 所以先把套餐、件套、随心选这类组合餐剔掉。
+        if any(w in n for w in PACK_WORDS):
+            skipped_pack += 1
+            continue
+        if n not in lookup:
             lookup[n] = float(m["price"])
+    if not lookup:
+        return 0
+    names = list(lookup.keys())
+
+    # 按官网品名分组，同名的不同规格放在一起处理
+    groups = {}
+    for it in items:
+        groups.setdefault(_norm(it.name), []).append(it)
 
     hit = 0
-    for it in items:
-        n = _norm(it.name)
-        if n in lookup:
-            it.price = lookup[n]
-            it.source = "mcp"
-            hit += 1
+    for gname, group in groups.items():
+        price = lookup.get(gname)
+        if price is None:
+            best = None
+            for n in names:
+                if (n in gname or gname in n) and min(len(n), len(gname)) >= 2:
+                    if best is None or len(n) > len(best):
+                        best = n
+            if best is not None:
+                price = lookup[best]
+        if price is None:
+            continue
+
+        if len(group) == 1:
+            group[0].price = price
+            group[0].source = "mcp"
+        else:
+            target = _median_variant(group)
+            target.price = price
+            target.source = "mcp"
+        hit += 1
     return hit
 
 
@@ -150,7 +210,9 @@ def load_items(nutrition_path=None, menu_path=None, prices_path=None):
     overrides = load_overrides(os.path.join(DATA_DIR, "taste_override.json"))
     items = dedup(items_from_nutrition(nut, prices, overrides))
 
-    if menu_path and os.path.exists(menu_path):
+    # MCP 价格是可选增强：抓过就有，没抓过就静默跳过（预算约束会自动降级）
+    menu_path = menu_path or os.path.join(DATA_DIR, "menu.json")
+    if os.path.exists(menu_path):
         with open(menu_path, encoding="utf-8") as f:
             apply_mcp_menu(items, json.load(f))
 

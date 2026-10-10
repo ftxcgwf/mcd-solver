@@ -77,6 +77,24 @@ TEXTURE_BONUS = {
 }
 
 
+# 品名里的饮品/甜品标识。品名比官网分类可靠：
+# 官网会把开心乐园餐里的苹果汁归到「开心乐园餐」，
+# 按分类映射就变成「主食」了——苹果汁显然不是主食。
+DESSERT_WORDS = ("麦旋风", "新地", "圆筒", "冰淇淋", "雪冰", "蛋糕", "布丁", "派", "圣代")
+DRINK_WORDS = ("可乐", "雪碧", "咖啡", "茶", "奶", "汁", "饮", "水", "酷", "冰", "气泡")
+
+
+def infer_role(name, category):
+    """判断用餐角色。先看品名，品名判不出再退回官网分类。"""
+    for w in DESSERT_WORDS:
+        if w in name:
+            return "dessert"
+    for w in DRINK_WORDS:
+        if w in name:
+            return "drink"
+    return ROLE_BY_CATEGORY.get(category, "side")
+
+
 def load_overrides(path="data/taste_override.json"):
     if not os.path.exists(path):
         return {}
@@ -123,12 +141,24 @@ def infer_textures(name, desc="", overrides=None):
     return tags
 
 
-def base_score(role, textures):
-    """单品固有满足度（10 分制）。"""
+def base_score(role, textures, kcal=None):
+    """
+    单品固有满足度（10 分制）。
+
+    主食额外看热量。原因很实在：146kcal 的脆薯饼虽然便宜，
+    但当正餐主食用它，吃完还是饿——它撑不起一顿饭的锚点。
+    485kcal 的汉堡才顶得住。不给这个因子的话，低价小食会靠
+    「每元满足感」把正经汉堡挤出方案。
+    """
     s = ROLE_BASE.get(role, 5.0)
     for t in textures:
         s += TEXTURE_BONUS.get(t, 0.0)
-    return round(min(s, 10.0), 2)
+    if role == "main" and kcal:
+        if kcal < 250:
+            s -= 1.5
+        elif kcal >= 400:
+            s += 0.8
+    return round(min(max(s, 0.0), 10.0), 2)
 
 
 def is_cold(textures):

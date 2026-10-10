@@ -137,7 +137,9 @@ def solve(items, constraints=None, persona="indulge", beam_width=420,
                 d_price = sum(c.price for c in combo) if all(
                     c.price is not None for c in combo) else None
                 n_kc, n_na = kc + d_kc, na + d_na
-                n_spend = (spend + d_price) if d_price is not None else None
+                # 只要组合里有一个单品没有价格，总花费就不可知（None），
+                # 这时预算约束无法判定，只能放行——不能拿「部分价格」当总价
+                n_spend = (spend + d_price) if (d_price is not None and spend is not None) else None
                 if not constraints.partial_ok(n_kc, n_na, n_spend):
                     continue
                 nxt.append((p_items + list(combo), n_kc, n_na, n_spend, bsum + d_base))

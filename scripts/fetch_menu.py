@@ -36,6 +36,7 @@
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -75,7 +76,9 @@ class McpClient:
         data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         headers = {
             "Authorization": f"Bearer {self.token}",
-            "Content-Type": "application/json",
+            # 必须显式声明 charset：中文城市名若不声明，服务端按默认编码解析会得到空值，
+            # 表现为「城市名或者关键词不能为空」，很难排查
+            "Content-Type": "application/json; charset=utf-8",
             "Accept": "application/json, text/event-stream",
         }
         if self.session_id:
@@ -178,7 +181,16 @@ def extract_text(result):
 
 
 def parse_json_relaxed(text):
-    """MCP 返回的内容有时是 JSON，有时是紧凑的 TOON 文本，尽力解析。"""
+    """
+    从 MCP 返回文本里取出 JSON 对象。
+
+    返回体是「说明文字 + JSON」的混合格式，说明里还夹着
+    `data.meals.{code}` 这类占位符——所以不能简单取第一个 `{`：
+    那个花括号属于占位符，不是 JSON。
+
+    做法：逐个花括号位置尝试 raw_decode，取第一个能完整解析、
+    且看起来像接口响应的对象。
+    """
     text = (text or "").strip()
     if not text:
         return None
@@ -186,23 +198,126 @@ def parse_json_relaxed(text):
         return json.loads(text)
     except json.JSONDecodeError:
         pass
-    # 尝试截取第一个 JSON 对象
-    start = text.find("{")
-    end = text.rfind("}")
-    if start >= 0 and end > start:
+
+    decoder = json.JSONDecoder()
+    for m in re.finditer(r"\{", text):
+        seg = text[m.start():]
         try:
-            return json.loads(text[start:end + 1])
+            obj, _ = decoder.raw_decode(seg)
         except json.JSONDecodeError:
-            return None
+            continue
+        if isinstance(obj, dict) and ("success" in obj or "data" in obj):
+            return obj
     return None
+
+
+def _pick_stores(data):
+    """
+    从工具返回里找出门店数组。
+
+    麦当劳各工具的返回嵌套层级不统一（有的在 data[]、有的在 data.stores、
+    还有的混在说明文字后面），与其硬编码路径，不如递归找出第一个
+    「看起来是门店列表」的数组——即元素同时含门店名与门店编码。
+    """
+    def looks_like_store(d):
+        return isinstance(d, dict) and (
+            "storeCode" in d or "storeId" in d
+        ) and ("storeName" in d or "name" in d or "address" in d)
+
+    def walk(node):
+        if isinstance(node, list):
+            if node and looks_like_store(node[0]):
+                return node
+            for x in node:
+                r = walk(x)
+                if r:
+                    return r
+            return None
+        if isinstance(node, dict):
+            if looks_like_store(node):
+                return [node]
+            for v in node.values():
+                r = walk(v)
+                if r:
+                    return r
+        return None
+
+    return walk(data) or []
+
+
+def _to_float(v):
+    """价格字段是字符串，且可能带货币符号或为空。"""
+    if v is None:
+        return None
+    if isinstance(v, (int, float)):
+        return float(v)
+    m = re.search(r"-?\d+(?:\.\d+)?", str(v))
+    return float(m.group()) if m else None
+
+
+def parse_menu(data):
+    """
+    解析 query-meals 的返回。
+
+    实际结构是两段式：
+      data.categories[]          分类列表，每个分类下只有餐品 code
+      data.meals{code: {...}}    餐品详情映射表，含名称与现价/原价
+
+    分类和详情分开存，所以要先建立 code -> 分类名 的映射，再回填。
+    """
+    if not isinstance(data, dict):
+        return []
+    d = data.get("data", data)
+    if not isinstance(d, dict):
+        return []
+
+    cat_of = {}
+    for c in (d.get("categories") or []):
+        if not isinstance(c, dict):
+            continue
+        cname = c.get("name") or ""
+        for m in (c.get("meals") or []):
+            if isinstance(m, dict) and m.get("code"):
+                cat_of[m["code"]] = cname
+
+    items = []
+    meals = d.get("meals")
+    if isinstance(meals, dict):
+        for code, m in meals.items():
+            if not isinstance(m, dict):
+                continue
+            name = m.get("name")
+            if not name:
+                continue
+            items.append({
+                "name": name,
+                "code": m.get("code") or code,
+                "price": _to_float(m.get("currentPrice")),
+                "original_price": _to_float(m.get("originalPrice")),
+                "discount_type": m.get("discountType"),
+                "category": cat_of.get(m.get("code") or code, ""),
+            })
+    return items
 
 
 def main():
     ap = argparse.ArgumentParser(description="通过麦当劳 MCP 抓取实时菜单与价格")
     ap.add_argument("--token", default=None, help="MCP Token（默认读 MCD_MCP_TOKEN）")
-    ap.add_argument("--store-id", default=None, help="门店 ID，不填则尝试自动取第一个可配送门店")
+    ap.add_argument("--city", default=None,
+                    help="城市名，用于查询门店（如「北京」）。未收藏餐厅时必填")
+    ap.add_argument("--keyword", default=None, help="门店搜索关键词，如商圈名")
+    ap.add_argument("--search-type", type=int, default=2,
+                    help="搜索方式：1-收藏餐厅（未收藏会报错）2-按位置搜索（默认 2）")
+    ap.add_argument("--store-code", default=None,
+                    help="直接指定门店编码，跳过门店查询")
+    ap.add_argument("--be-type", type=int, default=1,
+                    help="业务类型：1-到店取餐 2-麦乐送到家 5-得来速 6-企业团餐（默认 1）")
+    ap.add_argument("--order-type", type=int, default=1,
+                    help="订单类型：1-到店 2-外送（默认 1）")
     ap.add_argument("--out", default="data/menu.json", help="输出路径")
     ap.add_argument("--list-tools", action="store_true", help="只列出可用工具")
+    ap.add_argument("--describe", default=None, help="打印指定工具的参数结构后退出")
+    ap.add_argument("--debug", action="store_true", help="打印原始返回，便于排查解析问题")
     args = ap.parse_args()
 
     client = McpClient(token=args.token)
@@ -215,69 +330,80 @@ def main():
                 print(f"  - {t.get('name')}: {(t.get('description') or '')[:60]}")
             return 0
 
+        if args.describe:
+            for t in tools:
+                if t.get("name") == args.describe:
+                    print(json.dumps(t.get("inputSchema", {}), ensure_ascii=False, indent=2))
+                    return 0
+            raise McpError(f"未找到工具 {args.describe}")
+
         names = {t.get("name") for t in tools}
 
-        # 1. 找门店（query-meals 需要门店上下文）
-        store_id = args.store_id
-        if not store_id and "query-nearby-stores" in names:
-            print("未指定门店，尝试查询附近门店 ...")
-            r = client.call_tool("query-nearby-stores", {})
-            data = parse_json_relaxed(extract_text(r))
-            stores = (data or {}).get("data", {}).get("stores") or \
-                     (data or {}).get("stores") or []
-            if stores:
-                store_id = stores[0].get("storeId") or stores[0].get("id")
-                print(f"  使用门店：{stores[0].get('storeName') or store_id}（{store_id}）")
+        # 1. 门店编码：query-meals 的必填入参，不能省
+        store_code, be_code = args.store_code, None
+        if not store_code:
+            if "query-nearby-stores" not in names:
+                raise McpError("MCP 未提供 query-nearby-stores，请用 --store-code 直接指定门店")
+            # searchType 是必填：1=搜收藏餐厅（未收藏会直接报错），2=按位置搜索。
+            # 首次使用的人通常没有收藏餐厅，所以默认走按位置搜索。
+            q = {
+                "beType": args.be_type if args.be_type in (1, 5) else 1,
+                "searchType": args.search_type,
+            }
+            if args.city:
+                q["city"] = args.city
+            if args.keyword:
+                q["keyword"] = args.keyword
+            # 实测：city 与 keyword 必须同时给。只传其中一个，服务端一律返回
+            # 「城市名或者关键词不能为空」（code 600058）。给了城市就用麦当劳补全。
+            if args.city and not args.keyword:
+                q["keyword"] = "麦当劳"
+            print(f"查询门店（beType={q['beType']}，城市={args.city or '未指定'}）...")
+            r = client.call_tool("query-nearby-stores", q)
+            raw = extract_text(r)
+            if args.debug:
+                print("--- query-nearby-stores 原始返回 ---")
+                print(raw[:2000])
+            data = parse_json_relaxed(raw) or {}
+            if data.get("success") is False:
+                raise McpError(
+                    f"门店查询失败：{data.get('message')}（code={data.get('code')}）。"
+                    f"请用 --city 指定城市，必要时加 --keyword。"
+                )
+            stores = _pick_stores(data)
+            if not stores:
+                raise McpError(
+                    "未解析到门店列表。可用 --debug 查看原始返回，"
+                    "或 --describe query-nearby-stores 核对参数。"
+                )
+            store_code = stores[0].get("storeCode") or stores[0].get("storeId")
+            be_code = stores[0].get("beCode")
+            print(f"  门店：{stores[0].get('storeName')}（storeCode={store_code}）")
+            if len(stores) > 1:
+                print(f"  另有 {len(stores) - 1} 家可选，用 --store-code 切换")
 
-        # 2. 抓菜单（含价格）
+        # 2. 抓菜单（含价格）。storeCode / orderType / beType 三个都是必填
         if "query-meals" not in names:
             raise McpError("MCP 未提供 query-meals 工具")
-        arg = {"storeId": store_id} if store_id else {}
+        arg = {"storeCode": store_code, "orderType": args.order_type, "beType": args.be_type}
+        if be_code:
+            arg["beCode"] = be_code
         print("抓取在售菜单 ...")
         r = client.call_tool("query-meals", arg)
         raw = extract_text(r)
+        if args.debug:
+            print("--- query-meals 原始返回前 2500 字符 ---")
+            print(raw[:2500])
         data = parse_json_relaxed(raw)
 
-        items = []
-        if data:
-            # 菜单结构在不同版本里有不同嵌套，逐层尝试
-            d = data.get("data", data)
-            for key in ("meals", "items", "list", "categories"):
-                if isinstance(d, dict) and key in d:
-                    d = d[key]
-                    break
-            if isinstance(d, dict):
-                # 分类 -> 餐品列表 的形态
-                for _, v in d.items():
-                    if isinstance(v, list):
-                        items.extend([x for x in v if isinstance(x, dict)])
-            elif isinstance(d, list):
-                items = [x for x in d if isinstance(x, dict)]
-
-        norm = []
-        for it in items:
-            name = it.get("name") or it.get("mealName") or it.get("productName")
-            if not name:
-                continue
-            price = None
-            for k in ("price", "salePrice", "currentPrice", "amount"):
-                if it.get(k) is not None:
-                    try:
-                        price = float(it[k])
-                        break
-                    except (TypeError, ValueError):
-                        continue
-            norm.append({
-                "name": name,
-                "code": it.get("code") or it.get("mealCode") or it.get("productCode"),
-                "price": price,
-                "category": it.get("categoryName") or it.get("category") or "",
-            })
+        norm = parse_menu(data) if data else []
 
         payload = {
             "source": "麦当劳中国 MCP Server (query-meals)",
             "mcp_url": MCP_URL,
-            "store_id": store_id,
+            "store_code": store_code,
+            "order_type": args.order_type,
+            "be_type": args.be_type,
             "fetched_at": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
             "count": len(norm),
             "items": norm,

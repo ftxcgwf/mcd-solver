@@ -111,7 +111,15 @@ def main():
         sys.exit(1)
 
     items = filter_usable(items)
-    priced = sum(1 for i in items if i.price is not None)
+    priced_items = [i for i in items if i.price is not None]
+    priced = len(priced_items)
+
+    # 用户设了预算，就必须给出真正落在预算内的方案。
+    # 若允许混入无价格单品，总价不可知，预算检查会被静默绕过——
+    # 那样给出的「35 元方案」其实不知道多少钱，是假答案。
+    # 所以预算模式下只在有价格的单品里求解，宁可选择面窄，也不给假答案。
+    if args.budget and priced_items:
+        items = priced_items
 
     con = Constraints(
         budget=args.budget, max_kcal=args.max_kcal,
@@ -157,6 +165,10 @@ def main():
     if priced == 0:
         print("  提示：未加载价格，预算约束未生效。")
         print("        运行 scripts/fetch_menu.py（需 MCP Token）可校准真实价格。")
+    elif args.budget:
+        print(f"  预算模式：只在 {priced} 个有确定价格的单品中求解。")
+        print("        MCP 菜单里其余条目多为套餐（三件套/随心选），价格不能当单品用，已排除。")
+        print("        去掉 --budget 可放开到全部单品，但总价将不可知。")
 
     for persona in personas:
         rs = out[persona]

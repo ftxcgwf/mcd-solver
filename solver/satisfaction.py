@@ -40,6 +40,15 @@ STRUCTURE_BONUS = {"main": 2.0, "side": 1.0, "drink": 1.5, "dessert": 1.0}
 NO_MAIN_PENALTY = 5.0      # 没有主食，不成一顿饭
 DRINK_ONLY_PENALTY = 8.0   # 只点了饮料
 
+# 主食热量门槛：低于此值，等于没有正经主食（146kcal 的脆薯饼撑不起一顿）
+MAIN_MIN_KCAL = 300.0
+WEAK_MAIN_PENALTY = 3.0
+
+# 边际效用递减：第五件东西带来的愉悦远小于第一件。
+# 不衰减的话，五件小食的分数之和永远压过三件正餐，
+# 模型就会给出「脆薯饼+苹果片+薯条」这种凑数方案。
+BASE_DECAY = 0.8
+
 
 def score(items, weights=None):
     """
@@ -60,8 +69,9 @@ def score(items, weights=None):
     if not items:
         return 0.0, {"total": 0.0, "note": "空组合"}
 
-    # 1. 固有满足度
-    s_base = sum(i.base for i in items)
+    # 1. 固有满足度（按边际递减累加）
+    bases = sorted((i.base for i in items), reverse=True)
+    s_base = sum(b * (BASE_DECAY ** k) for k, b in enumerate(bases))
     detail["base"] = round(s_base, 2)
 
     # 2. 口感层次：覆盖维度数 -> 递减奖励
@@ -96,6 +106,12 @@ def score(items, weights=None):
             s_struct += STRUCTURE_BONUS.get(role, 0.0)
     if counts.get("main", 0) == 0:
         s_struct -= NO_MAIN_PENALTY
+    else:
+        main_kcal = sum(i.energy_kcal or 0 for i in items if i.role == "main")
+        if main_kcal < MAIN_MIN_KCAL:
+            s_struct -= WEAK_MAIN_PENALTY
+    detail["main_kcal"] = round(
+        sum(i.energy_kcal or 0 for i in items if i.role == "main"), 1)
     if len(items) == counts.get("drink", 0):
         s_struct -= DRINK_ONLY_PENALTY
     detail["structure"] = round(s_struct, 2)

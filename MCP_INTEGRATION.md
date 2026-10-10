@@ -6,7 +6,7 @@
 
 | 项目 | 内容 |
 |---|---|
-| Server | 麦当劳中国官方 MCP Server |
+| Server | 麦当劳中国官方 MCP Server（实测开放 35 个 Tool） |
 | 接入地址 | `https://mcp.mcd.cn` |
 | 传输协议 | Streamable HTTP |
 | 鉴权 | 请求头 `Authorization: Bearer <MCP_TOKEN>` |
@@ -70,9 +70,32 @@
 
 ### 握手细节
 
-麦当劳 MCP Server 使用的协议版本较旧，直接用最新协议握手会失败。`McpClient.initialize()` 按 `2025-06-18 → 2025-03-26 → 2024-11-05` 依次尝试，成功即停。
+麦当劳 MCP Server 使用的协议版本较旧，直接用最新协议握手会失败。`McpClient.initialize()` 按 `2025-06-18 → 2025-03-26 → 2024-11-05` 依次尝试，成功即停（实测 `2025-06-18` 可用）。
 
 响应体可能是纯 JSON，也可能是 SSE 流（`text/event-stream`），`_parse()` 两种都能解析。会话 ID 从响应头 `Mcp-Session-Id` 提取并在后续请求中回传。
+
+### 踩坑记录（都是实测才发现的）
+
+1. **`query-meals` 三个参数全必填**：`storeCode`、`orderType`、`beType`。少任何一个都报错，`storeCode` 要先从 `query-nearby-stores` 拿。
+2. **`searchType` 是必填且默认不对**：`query-nearby-stores` 默认 `searchType=1`（搜收藏餐厅），未收藏就报 `600050 收藏餐厅列表为空`。必须显式传 `searchType=2`（按位置搜索）。
+3. **城市与关键词必须同时给**：只传 `city` 会报 `600058 城市名或者关键词不能为空`。给了城市就用「麦当劳」自动补关键词。
+4. **返回体是「说明文字 + JSON」混合**：说明里还夹着 `data.meals.{code}` 这种占位符，直接取第一个 `{` 会解析失败。要逐点尝试 `raw_decode`，取第一个能完整解析且含 `success`/`data` 的对象。
+5. **外送场景额外要 `beCode`**：`orderType=2` 且 `beType=2/5/6` 时必传，需先走 `delivery-query-addresses` → `delivery-query-stores`。本项目默认用 `beType=1`（到店取餐）规避。
+
+### 菜单数据结构
+
+`query-meals` 返回两段式结构，分类和详情分开存，要先建 `code → 分类名` 映射再回填：
+
+```
+data.categories[].name            分类名
+data.categories[].meals[].code    该分类下的餐品编码
+data.meals{code}.name             餐品名称
+data.meals{code}.currentPrice     现价（字符串）
+data.meals{code}.originalPrice    原价（划线价）
+data.meals{code}.discountType     优惠类型：早餐卡/促销/麦金卡…
+```
+
+实测某门店返回 125 个餐品，其中相当比例是套餐（三件套/四件套/随心选），单品约占一半。
 
 ## 4. 业务价值
 
