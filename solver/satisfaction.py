@@ -25,6 +25,8 @@
   S_value      性价比愉悦：省得越多越开心（需价格数据）
 """
 
+from .taste import MAIN_MIN_KCAL, is_cold, is_hot  # noqa: F401
+
 # 每顿各角色最多允许的数量。超过就是「怪异组合」
 ROLE_LIMIT = {"main": 2, "side": 2, "drink": 1, "dessert": 1}
 
@@ -40,8 +42,7 @@ STRUCTURE_BONUS = {"main": 2.0, "side": 1.0, "drink": 1.5, "dessert": 1.0}
 NO_MAIN_PENALTY = 5.0      # 没有主食，不成一顿饭
 DRINK_ONLY_PENALTY = 8.0   # 只点了饮料
 
-# 主食热量门槛：低于此值，等于没有正经主食（146kcal 的脆薯饼撑不起一顿）
-MAIN_MIN_KCAL = 300.0
+# 主食热量门槛（定义在 taste.py，角色判定阶段已按此降级）
 WEAK_MAIN_PENALTY = 3.0
 
 # 边际效用递减：第五件东西带来的愉悦远小于第一件。
@@ -125,13 +126,22 @@ def score(items, weights=None):
     detail["repeat"] = round(-p_repeat, 2)
 
     # 6. 健康软惩罚：钠为主，脂肪为辅
+    #
+    # 钠必须是渐进惩罚，不能只在「超过每日推荐」时才罚。
+    # 旧写法下，一餐吃掉每日推荐（2000mg）的 78% 完全不扣分——
+    # 于是均衡派会选出钠 1555mg 的组合，和嘴馋派一模一样，
+    # 控钠人设形同虚设。真实感受是：一餐就吃掉一天四分之三的钠配额，
+    # 剩下的两顿怎么办？所以从占每日推荐一半起就开始罚，超限后加陡。
     sodium = sum(i.sodium or 0 for i in items)
     fat = sum(i.fat or 0 for i in items)
     p_health = 0.0
-    if sodium > SODIUM_DAILY_LIMIT:
-        p_health += (sodium - SODIUM_DAILY_LIMIT) / 200.0
-    if fat > 60:
-        p_health += (fat - 60) / 15.0
+    ratio = sodium / SODIUM_DAILY_LIMIT
+    if ratio > 0.5:
+        p_health += (ratio - 0.5) * 6.0     # 占每日推荐一半起罚
+    if ratio > 1.0:
+        p_health += (ratio - 1.0) * 6.0     # 超限后斜率翻倍
+    if fat > 40:
+        p_health += (fat - 40) / 15.0       # 一餐 40g 脂肪已不算少
     detail["health"] = round(-p_health, 2)
 
     # 7. 性价比愉悦（无价格数据时跳过）

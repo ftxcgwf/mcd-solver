@@ -9,13 +9,18 @@
 
 无需 MCP Token 即可运行（营养数据来自官网公开营养计算器）。
 有 Token 时先跑 scripts/fetch_menu.py 校准真实价格，预算约束才会生效。
+
+加 --quote 可把方案交给麦当劳 MCP 做官方券后价复核；
+加 --place 会在复核后经人工确认创建真实订单（需 Token）。
 """
 
 import argparse
 import os
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, ROOT)
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
 from solver import (  # noqa: E402
     PERSONAS, SODIUM_DAILY_LIMIT, Constraints, filter_usable, load_items,
@@ -83,6 +88,74 @@ def print_marginal(results, persona):
         print(f"    另一个方案钠含量 {side} {abs(dns):.0f}mg")
 
 
+def run_verify(args, out, personas):
+    """
+    把求解结果交给麦当劳 MCP 做官方复核，并在确认后下单。
+
+    求解器用的是菜单单价累加，真实的券后价、打包费、取餐方式只有
+    calculate-price 知道。这一步的意义是：让「我算出来的」变成
+    「官方认可的」，差额一目了然。
+    """
+    token = os.environ.get("MCD_MCP_TOKEN")
+    if not token:
+        print("\n  复核需要 MCP Token：export MCD_MCP_TOKEN=你的Token")
+        print("  领取：https://open.mcd.cn/mcp")
+        return
+
+    from order import OrderClient, confirm_gate, lines_from_plan, render_quote, yuan
+
+    client = OrderClient(token=token, verbose=False)
+    client.initialize()
+
+    store_code = args.store_code
+    store_name = "指定门店"
+    if not store_code:
+        store = client.pick_store(args.city)
+        store_code, store_name = store.get("storeCode"), store.get("storeName", "")
+    print(f"\n{BAR}")
+    print(f"  官方复核 · {store_name}（{store_code}）")
+    print(BAR)
+
+    for persona in personas:
+        rs = out.get(persona) or []
+        if not rs:
+            continue
+        r = rs[0]
+        lines, skipped = lines_from_plan(r["items"])
+        if not lines:
+            print(f"\n  【{persona}】方案里没有带商品编码的单品，无法复核。")
+            continue
+        try:
+            data = client.quote(store_code, lines)
+        except Exception as e:                      # noqa: BLE001
+            print(f"\n  【{persona}】复核失败：{e}")
+            continue
+
+        est = r["totals"]["price"]
+        print(f"\n  【{r.get('persona_label') or persona}】")
+        print(render_quote(data, est, skipped))
+
+        if args.place:
+            ways = data.get("takeWayList") or []
+            take_way = args.take_way or (ways[0].get("code") if ways else None)
+            if not take_way:
+                print("    该门店未返回取餐方式，跳过下单。")
+                continue
+            if confirm_gate(yuan(data.get("price")), take_way, store_name):
+                res = client.place(store_code, lines, take_way, args.remark)
+                if res.get("success"):
+                    d = res.get("data") or {}
+                    print(f"    下单成功，订单号："
+                          f"{d.get('orderNo') or d.get('orderId') or '(见返回)'}")
+                    print("    请在麦当劳 APP 或支付链接完成支付。")
+                else:
+                    print(f"    下单失败：{res.get('message')}")
+            else:
+                print("    未通过确认，已取消。")
+            # 一次只下一单，避免连点产生多笔
+            break
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="今天麦什么 —— 麦当劳点单决策求解器",
@@ -102,6 +175,15 @@ def main():
     ap.add_argument("--nutrition", default=None, help="营养数据路径")
     ap.add_argument("--menu", default=None, help="MCP 菜单数据路径（含价格）")
     ap.add_argument("--json", action="store_true", help="以 JSON 输出")
+    ap.add_argument("--quote", action="store_true",
+                    help="用 MCP calculate-price 做官方券后价复核（需 Token）")
+    ap.add_argument("--place", action="store_true",
+                    help="复核后创建真实订单（需 Token，且需交互确认）")
+    ap.add_argument("--city", default="北京", help="复核/下单用的城市")
+    ap.add_argument("--store-code", default=None, help="指定门店编码，跳过自动选择")
+    ap.add_argument("--take-way", default=None,
+                    help="取餐方式 code，如 eat-in（堂食）/ take-in-store（外带）")
+    ap.add_argument("--remark", default=None, help="订单备注，最多 50 字")
     args = ap.parse_args()
 
     try:
@@ -120,6 +202,16 @@ def main():
     # 所以预算模式下只在有价格的单品里求解，宁可选择面窄，也不给假答案。
     if args.budget and priced_items:
         items = priced_items
+
+    # 要复核或下单时，只在带 productCode 的单品里求解。
+    # 没有编码的单品官方认不出来，选进去只会让复核少算一件。
+    if args.quote or args.place:
+        orderable = [i for i in items if i.code]
+        if orderable:
+            items = orderable
+        elif not args.json:
+            print("  提示：当前没有带商品编码的单品，复核可能失败。")
+            print("        请先运行 scripts/fetch_menu.py 抓取菜单（需 Token）。")
 
     con = Constraints(
         budget=args.budget, max_kcal=args.max_kcal,
@@ -181,6 +273,9 @@ def main():
         for n, r in enumerate(rs, 1):
             print_plan(n, r, persona)
         print_marginal(rs, persona)
+
+    if args.quote or args.place:
+        run_verify(args, out, personas)
 
     print(f"\n{BAR}")
     print("  数据来源：麦当劳中国官网营养计算器（2025-04 更新）")

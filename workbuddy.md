@@ -42,6 +42,8 @@ python cli.py --budget 30 --persona value --json
 | 「怎么点最划算」 | `--persona value` |
 | 「想吃爽」 | `--persona indulge` |
 | 「健康点」 | `--persona balance` |
+| 「到底多少钱」/「帮我确认下价格」 | `--quote` |
+| 「就这个，帮我下单」 | `--quote --place` |
 
 ## 对话示例
 
@@ -63,7 +65,26 @@ python cli.py --max-kcal 600 --max-sodium 1500 --persona balance
 python cli.py --min-protein 30 --budget 40 --persona all
 ```
 
-若提示价格缺失，引导用户先执行 `scripts/fetch_menu.py` 校准价格。
+若提示价格缺失，引导用户先执行 `scripts/fetch_menu.py` 抓菜单、
+再执行 `scripts/verify_prices.py` 校准结算价。
+
+**用户**：这个真的 45 块以内吗？帮我确认下。
+
+**WorkBuddy 行为**：识别到需要官方复核，执行
+
+```bash
+python cli.py --budget 45 --persona balance --quote
+```
+
+并转述复核结果：官方原价、优惠、应付金额，以及与求解器估算的差额。
+若两者不一致，说明差额来自哪里（打包费 / 券 / 价格校准差异）。
+
+**用户**：就均衡派这个，帮我下单。
+
+**WorkBuddy 行为**：执行 `python cli.py --budget 45 --persona balance --quote --place`，
+终端会显示门店、取餐方式与应付金额并要求用户手动输入金额确认。
+**WorkBuddy 不得代替用户输入金额**，必须让用户自己完成这一确认，
+并说明创建订单后仍需用户在麦当劳 APP 完成支付。
 
 ## 结果解释要点
 
@@ -77,8 +98,8 @@ WorkBuddy 在向用户转述结果时，建议遵循：
 
 ## 能力边界
 
-- 本项目只做**决策辅助**，真实下单需调用 MCP 的 `create-order`
-- 价格数据需 MCP Token，缺失时预算约束自动降级并明确提示
+- 本项目主体是**决策辅助**；下单需要用户明确要求，且必须让其自行输入金额确认
+- 预算约束依赖 MCP 价格与官方结算价校准，缺失时自动降级并明确提示
 - 服务范围为麦当劳中国大陆，不含港澳台
 - 不构成医疗或营养建议
 

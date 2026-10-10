@@ -17,8 +17,8 @@ description: 麦当劳点单决策求解器。当用户提到想吃麦当劳、�
 - 用户有预算上限，想知道这点钱怎么点最爽
 - 用户在几个套餐之间犹豫，想要一个带理由的建议
 
-**不适用**：需要真实下单、领券、查积分时，那是麦当劳 MCP 其他工具的事，
-本 Skill 可在给出方案后调用 `create-order` 完成下单。
+**不适用**：领券、查积分、查历史订单，那是麦当劳 MCP 其他工具的事。
+下单可以在给出方案后通过 `cli.py --quote --place` 完成。
 
 ## 快速开始
 
@@ -33,8 +33,13 @@ python cli.py --max-kcal 800 --max-sodium 2000 --persona all
 ```bash
 export MCD_MCP_TOKEN=你的Token
 python scripts/fetch_menu.py          # 抓取在售菜单与价格 -> data/menu.json
-python cli.py --budget 30 --max-kcal 900 --persona all
+python scripts/verify_prices.py       # 校准官方结算价 -> data/prices_verified.json
+python cli.py --budget 45 --max-kcal 1200 --persona all
 ```
+
+**注意**：菜单列表里的 `price` 字段可能是「起价」，实测有商品标 ¥9.9 而
+实际结算 ¥23.0。跳过 `verify_prices.py` 会让预算系统性低估，所以只要用了
+`--budget`，就该先跑一次校准。
 
 首次使用需先建营养快照（约 2 分钟，无需 Token）：
 
@@ -52,7 +57,23 @@ python scripts/fetch_nutrition_web.py
 | `--min-protein` | 蛋白质下限（克），健身场景用 |
 | `--max-items` | 最多几件，默认 5 |
 | `--persona` | `value` 省钱派 / `indulge` 嘴馋派 / `balance` 均衡派 / `all` |
+| `--quote` | 用 MCP `calculate-price` 复核官方券后价（需 Token） |
+| `--place` | 复核后创建真实订单（需 Token，且需人工确认） |
+| `--city` / `--store-code` | 复核与下单用的城市 / 指定门店 |
 | `--json` | 机器可读输出，便于接入其他 Agent |
+
+## 复核与下单
+
+```bash
+# 求解并让官方复核总价（推荐：求解器的估算是按单价累加的，真实券后价只有官方知道）
+python cli.py --budget 45 --persona all --quote
+
+# 确认后下单。默认只试算，--place 会要求手动输入金额才放行
+python cli.py --budget 45 --persona balance --quote --place
+```
+
+`create-order` 创建的是真实订单，但麦当劳的流程是**创建后仍需用户自己在
+APP 或支付链接完成付款**——本 Skill 不会代为支付。向用户说明时务必讲清这点。
 
 ## 三种人设
 
@@ -70,7 +91,7 @@ S = 固有满足度        # 每个单品的口感愉悦分，来自 taste.py �
   + 温度反差奖励      # 热汉堡配冰可乐 > 全是热食
   + 结构完整奖励      # 主食/小食/饮料/甜品的齐备度；没主食不成一顿饭
   - 同类堆叠惩罚      # 三个汉堡不叫一顿饭
-  - 健康软惩罚        # 钠超 2000mg、脂肪超 60g 扣分
+  - 健康软惩罚        # 钠与脂肪，渐进扣分（钠占每日推荐一半起就开始罚）
   + 性价比愉悦        # 省得越多越开心（需价格）
 ```
 
@@ -88,6 +109,7 @@ S = 固有满足度        # 每个单品的口感愉悦分，来自 taste.py �
 
 ## 边界
 
-- 本 Skill 只做**决策**，下单请调用 MCP 的 `create-order`
+- 本 Skill 主要做**决策**，下单须用户明确要求并自行确认金额
 - 价格随地区、时段、活动浮动，以门店实际为准
 - 数据范围为麦当劳中国大陆，不含港澳台
+- 营养数据只作决策辅助，不构成医疗或营养建议

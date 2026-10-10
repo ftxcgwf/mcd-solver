@@ -17,7 +17,8 @@ import os
 import re
 
 from .taste import (
-    ROLE_ZH, base_score, infer_role, infer_textures, load_overrides,
+    MAIN_MIN_KCAL, ROLE_ZH, base_score, infer_role, infer_textures,
+    load_overrides,
 )
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
@@ -27,7 +28,7 @@ class Item:
     """一个可选单品（含规格）。例如「薯条 中份」和「薯条 大份」是两个 Item。"""
 
     __slots__ = (
-        "key", "name", "slug", "category", "role", "portion", "price",
+        "key", "name", "slug", "category", "role", "portion", "price", "code",
         "energy_kcal", "protein", "fat", "carbohydrate", "sodium", "calcium",
         "textures", "base", "source",
     )
@@ -75,6 +76,41 @@ def load_prices(path=None):
         return {}
 
 
+def load_verified_prices(path=None):
+    """
+    加载官方结算价。结构：{"prices": {"商品编码": 元}, ...}
+
+    由 scripts/verify_prices.py 用 calculate-price 逐个校准得到。
+    菜单列表里的 price 字段可能是「起价」，实测有商品标 ¥9.9 而结算
+    ¥23.0，差 2.3 倍。所以只要这份文件存在，它就是最高优先级的价格来源。
+    """
+    path = path or os.path.join(DATA_DIR, "prices_verified.json")
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            return (json.load(f).get("prices") or {})
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def apply_verified_prices(items, verified):
+    """
+    用官方结算价覆盖。按商品编码精确匹配，不猜名字——
+    校准本来就是为了消灭价格歧义，匹配环节不能再引入歧义。
+    """
+    if not verified:
+        return 0
+    hit = 0
+    for it in items:
+        p = verified.get(str(it.code)) if it.code else None
+        if p is not None:
+            it.price = float(p)
+            it.source = "verified"
+            hit += 1
+    return hit
+
+
 def items_from_nutrition(nut, prices=None, overrides=None):
     """把官网营养快照展开为 Item 列表。"""
     prices = prices or {}
@@ -85,9 +121,18 @@ def items_from_nutrition(nut, prices=None, overrides=None):
         if not name:
             continue
         cat = it.get("category", "")
-        role = infer_role(name, cat)
+        base_role = infer_role(name, cat)
         for v in it.get("variants", []):
             portion = v.get("portion", "1份")
+            kcal = v.get("energy_kcal")
+            # 撑不起正餐的「主食」直接降级。官网把脆薯饼（146kcal）、
+            # 脆香油条（202kcal）挂在早餐分类下，而早餐被当作主食——
+            # 于是它们会和汉堡抢主食名额，还经常因为便宜而胜出。
+            # 只在评分里扣分不够，求解器照样会拿它们凑数；
+            # 所以在角色判定阶段就按热量门槛降为小食。
+            role = base_role
+            if role == "main" and kcal is not None and kcal < MAIN_MIN_KCAL:
+                role = "side"
             textures = infer_textures(name, it.get("desc", ""), overrides)
             price = prices.get(name) or prices.get(f"{name}|{portion}")
             out.append(Item(
@@ -111,8 +156,15 @@ def items_from_nutrition(nut, prices=None, overrides=None):
     return out
 
 
-# 组合餐标识：命中任一项的 MCP 条目不作为单品价格来源
-PACK_WORDS = ("套餐", "件套", "随心选", "随心拼", "乐园餐", "双全")
+# 组合餐标识：命中任一项的 MCP 条目不作为单品价格来源。
+#
+# 「双人餐」这类必须排除——实测「BFF四宫格小食盘双人餐」菜单标 ¥62.9，
+# 结算价 ¥122.5，差了近一倍。它是两人份的组合，价格不能当单品用，
+# 混进求解器会让预算彻底失真。
+PACK_WORDS = (
+    "套餐", "件套", "随心选", "随心拼", "乐园餐", "双全",
+    "双人餐", "三人餐", "多人餐", "分享餐", "全家餐", "超值餐",
+)
 
 
 def _median_variant(group):
@@ -143,6 +195,8 @@ def apply_mcp_menu(items, menu, prices=None):
     if not menu:
         return 0
 
+    # 值同时带价格与商品编码。productCode 是后续 calculate-price 复核
+    # 与 create-order 下单的唯一凭证，必须和价格一起带过来。
     lookup = {}
     skipped_pack = 0
     for m in menu.get("items", []):
@@ -156,7 +210,7 @@ def apply_mcp_menu(items, menu, prices=None):
             skipped_pack += 1
             continue
         if n not in lookup:
-            lookup[n] = float(m["price"])
+            lookup[n] = (float(m["price"]), m.get("code"))
     if not lookup:
         return 0
     names = list(lookup.keys())
@@ -168,25 +222,26 @@ def apply_mcp_menu(items, menu, prices=None):
 
     hit = 0
     for gname, group in groups.items():
-        price = lookup.get(gname)
-        if price is None:
+        ent = lookup.get(gname)
+        if ent is None:
             best = None
             for n in names:
                 if (n in gname or gname in n) and min(len(n), len(gname)) >= 2:
                     if best is None or len(n) > len(best):
                         best = n
             if best is not None:
-                price = lookup[best]
-        if price is None:
+                ent = lookup[best]
+        if ent is None:
             continue
+        price, code = ent
 
-        if len(group) == 1:
-            group[0].price = price
-            group[0].source = "mcp"
-        else:
-            target = _median_variant(group)
-            target.price = price
-            target.source = "mcp"
+        # 与价格同理：多规格产品只认「标准份」这一条能对应上真实商品编码，
+        # 其余规格的 code 留空，避免复核与下单时张冠李戴。
+        targets = group if len(group) == 1 else [_median_variant(group)]
+        for t in targets:
+            t.price = price
+            t.code = code
+            t.source = "mcp"
         hit += 1
     return hit
 
@@ -215,6 +270,9 @@ def load_items(nutrition_path=None, menu_path=None, prices_path=None):
     if os.path.exists(menu_path):
         with open(menu_path, encoding="utf-8") as f:
             apply_mcp_menu(items, json.load(f))
+
+    # 官方结算价优先级最高：它才是真正会扣款的数字
+    apply_verified_prices(items, load_verified_prices())
 
     return items
 
@@ -248,6 +306,16 @@ def filter_usable(items, require_price=False):
             continue
         out.append(it)
     return out
+
+
+def filter_orderable(items):
+    """
+    能被官方复核与下单的单品：必须有 productCode。
+
+    编码来自 MCP 菜单，没抓过菜单或名称没对上的单品没有编码。
+    这类单品照样能参与求解（营养是有的），只是不能进订单。
+    """
+    return [i for i in items if i.code]
 
 
 def role_label(role):
