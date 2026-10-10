@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 本地环境变量：切勿提交含真实 MCP Token 的文件
+.env
+.env.*
+!.env.example
+
+# 用户手工填写的本地价格表（含门店实际价格，可选是否提交）
+data/prices.json
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

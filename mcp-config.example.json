@@ -1,0 +1,18 @@
+{
+  "_comment": "麦当劳 MCP Server 配置示例。Token 只允许通过环境变量占位符引用，请勿在此文件或任何提交中写入真实 Token。",
+  "mcpServers": {
+    "mcd-mcp": {
+      "type": "streamablehttp",
+      "url": "https://mcp.mcd.cn",
+      "headers": {
+        "Authorization": "Bearer ${MCD_MCP_TOKEN}"
+      }
+    }
+  },
+  "_usage": {
+    "step1": "到 https://open.mcd.cn/mcp 登录并激活，申请 MCP Token",
+    "step2": "将 Token 写入环境变量：export MCD_MCP_TOKEN=你的Token（Windows: setx MCD_MCP_TOKEN 你的Token）",
+    "step3": " ${MCD_MCP_TOKEN} 会被支持变量展开的客户端自动替换；不支持的客户端请手动替换为实际 Token，并切勿提交该文件",
+    "note": "官方限流：每个 Token 每分钟最多 600 次请求。常见错误码：401 Token 无效或过期，429 触发限流。"
+  }
+}
