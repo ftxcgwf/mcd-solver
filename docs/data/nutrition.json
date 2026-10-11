@@ -1,0 +1,1999 @@
+{
+  "source": "麦当劳中国官网营养计算器（公开页面）",
+  "source_url": "https://www.mcdonalds.com.cn",
+  "note": "官网页面标注营养成分数据更新时间为 2025 年 4 月；数据由供应商信息与麦当劳全球营养程序手册标准，经国家认可实验室测定。实际出品可能因批次、产地、工艺存在差异。",
+  "data_date": "2025-04",
+  "fetched_at": "2026-10-10T18:40:30+08:00",
+  "energy_unit": "energy_kj 为千焦，energy_kcal 为千卡（由千焦除以 4.184 换算）",
+  "count": 82,
+  "items": [
+    {
+      "name": "巨无霸",
+      "slug": "Big-Mac",
+      "category": "burger",
+      "desc": "传承50年的经典之选！两块100%纯牛肉饼，搭配撒有鲜芝麻的松软面包、清新爽口的生菜、洋葱和酸黄瓜，辅以香滑顺口的芝士与美味酱汁，层层食材，口感丰富，打造极致美味体验。",
+      "url": "https://www.mcdonalds.com.cn/product/Big-Mac",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 2146.0,
+          "protein": 27.0,
+          "fat": 26.0,
+          "carbohydrate": 42.0,
+          "sodium": 961.0,
+          "calcium": 171.0,
+          "energy_kcal": 512.9
+        }
+      ]
+    },
+    {
+      "name": "汉堡包",
+      "slug": "Hamburger",
+      "category": "burger",
+      "desc": "100%纯牛肉！以少许盐和胡椒调味，搭配爽脆酸黄瓜和洋葱粒，添加美味番茄酱，打造出经典好滋味。",
+      "url": "https://www.mcdonalds.com.cn/product/Hamburger",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1039.0,
+          "protein": 13.0,
+          "fat": 8.0,
+          "carbohydrate": 29.0,
+          "sodium": 492.0,
+          "calcium": 61.0,
+          "energy_kcal": 248.3
+        }
+      ]
+    },
+    {
+      "name": "麦辣鸡腿汉堡",
+      "slug": "Spicy-Chicken-Filet",
+      "category": "burger",
+      "desc": "为“中国胃”特别研发的当家产品，金黄脆辣的外表下是鲜嫩多汁的鸡腿肉，再配上清爽的生菜和美味沙拉酱，咬一口回味无穷，打动您挑剔的味蕾。",
+      "url": "https://www.mcdonalds.com.cn/product/Spicy-Chicken-Filet",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 2029.0,
+          "protein": 24.0,
+          "fat": 24.0,
+          "carbohydrate": 42.0,
+          "sodium": 1208.0,
+          "calcium": 154.0,
+          "energy_kcal": 484.9
+        }
+      ]
+    },
+    {
+      "name": "板烧鸡腿堡",
+      "slug": "Grilled-Chicken-Sandwich",
+      "category": "burger",
+      "desc": "原块去骨鸡排嫩滑多汁，以洋葱及胡椒调味，再配上翠绿新鲜的生菜和烤味酱，0油煎制，绝对让你食指大动！从2024年10月8日起，板烧鸡腿堡全新升级。",
+      "url": "https://www.mcdonalds.com.cn/product/Grilled-Chicken-Sandwich",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1638.0,
+          "protein": 23.0,
+          "fat": 17.0,
+          "carbohydrate": 35.0,
+          "sodium": 1041.0,
+          "calcium": 93.0,
+          "energy_kcal": 391.5
+        }
+      ]
+    },
+    {
+      "name": "麦香鸡",
+      "slug": "McChicken",
+      "category": "burger",
+      "desc": "清脆爽口的生菜，给你植物纤维；金黄酥脆的鸡肉则来自精心培育的优质嫩鸡。营养配搭，让你多一个好滋味的健康选择。",
+      "url": "https://www.mcdonalds.com.cn/product/McChicken",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1546.0,
+          "protein": 15.0,
+          "fat": 17.0,
+          "carbohydrate": 39.0,
+          "sodium": 731.0,
+          "calcium": 73.0,
+          "energy_kcal": 369.5
+        }
+      ]
+    },
+    {
+      "name": "麦香鱼",
+      "slug": "Filet-O-Fish",
+      "category": "burger",
+      "desc": "深海鳕鱼烹制而成的鳕鱼饼，外皮金黄酥脆，内里鲜嫩多汁。美味鱼肉搭配滋味沙拉酱，风味独特。",
+      "url": "https://www.mcdonalds.com.cn/product/Filet-O-Fish",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1359.0,
+          "protein": 16.0,
+          "fat": 13.0,
+          "carbohydrate": 35.0,
+          "sodium": 556.0,
+          "calcium": 99.0,
+          "energy_kcal": 324.8
+        }
+      ]
+    },
+    {
+      "name": "吉士汉堡包",
+      "slug": "Cheeseburger",
+      "category": "burger",
+      "desc": "100%纯牛肉与香软芝士融为一体，搭配爽脆酸黄瓜和洋葱颗粒，辅以美味酱料，丰富口感，一咬即刻涌现！",
+      "url": "https://www.mcdonalds.com.cn/product/Cheeseburger",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1231.0,
+          "protein": 16.0,
+          "fat": 12.0,
+          "carbohydrate": 30.0,
+          "sodium": 673.0,
+          "calcium": 144.0,
+          "energy_kcal": 294.2
+        }
+      ]
+    },
+    {
+      "name": "双层吉士汉堡",
+      "slug": "Double-Cheeseburger",
+      "category": "burger",
+      "desc": "100%纯牛肉与双层香软芝士融为一体，搭配松软面包与美味酱料，两倍滋味诱惑，无人能挡！",
+      "url": "https://www.mcdonalds.com.cn/product/Double-Cheeseburger",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1796.0,
+          "protein": 27.0,
+          "fat": 22.0,
+          "carbohydrate": 31.0,
+          "sodium": 1017.0,
+          "calcium": 232.0,
+          "energy_kcal": 429.3
+        }
+      ]
+    },
+    {
+      "name": "不素之霸双层牛堡",
+      "slug": "beef-sausage",
+      "category": "burger",
+      "desc": "特选两块100%纯牛肉饼，仅以少许盐和胡椒调味，搭配德式图林根香肠，肉感十足，吃得过瘾！",
+      "url": "https://www.mcdonalds.com.cn/product/beef-sausage",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 2062.0,
+          "protein": 28.0,
+          "fat": 27.0,
+          "carbohydrate": 34.0,
+          "sodium": 1012.0,
+          "calcium": 75.0,
+          "energy_kcal": 492.8
+        }
+      ]
+    },
+    {
+      "name": "双层深海鳕鱼堡",
+      "slug": "double-fof",
+      "category": "burger",
+      "desc": "特选两整块深海鳕鱼饼，肉质洁白细腻，富含优质蛋白质，咬一口唇齿留香，满足加倍。美味与营养，两个我都要！（实际以餐厅供应为主）",
+      "url": "https://www.mcdonalds.com.cn/product/double-fof",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 2029.0,
+          "protein": 28.0,
+          "fat": 21.0,
+          "carbohydrate": 46.0,
+          "sodium": 917.0,
+          "calcium": 147.0,
+          "energy_kcal": 484.9
+        }
+      ]
+    },
+    {
+      "name": "培根安格斯厚牛堡",
+      "slug": "Thick-Angus-Beef-Burger-with-Bacon",
+      "category": "burger",
+      "desc": "精选100%安格斯牛肉饼，搭配培根、黄车打芝士片和新鲜生菜，独特热熔工艺让芝士慢慢融化，丝丝渗透进牛肉纤维中——半融化的芝士和肉饼的油脂相互交融，让口感更加丰富，浓香四溢！",
+      "url": "https://www.mcdonalds.com.cn/product/Thick-Angus-Beef-Burger-with-Bacon",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 2959.0,
+          "protein": 34.0,
+          "fat": 44.0,
+          "carbohydrate": 43.0,
+          "sodium": 1037.0,
+          "calcium": 161.0,
+          "energy_kcal": 707.2
+        }
+      ]
+    },
+    {
+      "name": "芝士安格斯厚牛堡",
+      "slug": "Cheese-Angus",
+      "category": "burger",
+      "desc": "精选100%安格斯牛肉饼，搭配秘制芝士风味酱和新鲜番茄片，独特热熔工艺让芝士慢慢融化，丝丝渗透进牛肉纤维中——半融化的芝士和肉饼的油脂相互交融，让口感更加丰富，浓香四溢！",
+      "url": "https://www.mcdonalds.com.cn/product/Cheese-Angus",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 2914.0,
+          "protein": 32.0,
+          "fat": 44.0,
+          "carbohydrate": 43.0,
+          "sodium": 897.0,
+          "calcium": 150.0,
+          "energy_kcal": 696.5
+        }
+      ]
+    },
+    {
+      "name": "培根蔬萃双层牛堡",
+      "slug": "Bacon-Lettuce-Tomato-Double-Beef-Burger",
+      "category": "burger",
+      "desc": "一层爽脆生菜，一片鲜番茄，两片培根，两片牛肉，一层特别酱料！一口咬下去，超满足啦！",
+      "url": "https://www.mcdonalds.com.cn/product/Bacon-Lettuce-Tomato-Double-Beef-Burger",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1850.0,
+          "protein": 24.0,
+          "fat": 23.0,
+          "carbohydrate": 34.0,
+          "sodium": 728.0,
+          "calcium": 73.0,
+          "energy_kcal": 442.2
+        }
+      ]
+    },
+    {
+      "name": "薯条",
+      "slug": "French-Fries",
+      "category": "snacks",
+      "desc": "精选优质土豆，表面微脆，内里绵软，用少许盐调味，美味无人能挡！",
+      "url": "https://www.mcdonalds.com.cn/product/French-Fries",
+      "variants": [
+        {
+          "portion": "迷你",
+          "energy_kj": 444.0,
+          "protein": 2.0,
+          "fat": 4.0,
+          "carbohydrate": 14.0,
+          "sodium": 61.0,
+          "calcium": 6.0,
+          "energy_kcal": 106.1
+        },
+        {
+          "portion": "小",
+          "energy_kj": 877.0,
+          "protein": 3.0,
+          "fat": 9.0,
+          "carbohydrate": 28.0,
+          "sodium": 120.0,
+          "calcium": 13.0,
+          "energy_kcal": 209.6
+        },
+        {
+          "portion": "中",
+          "energy_kj": 1210.0,
+          "protein": 4.0,
+          "fat": 12.0,
+          "carbohydrate": 38.0,
+          "sodium": 165.0,
+          "calcium": 18.0,
+          "energy_kcal": 289.2
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1587.0,
+          "protein": 6.0,
+          "fat": 16.0,
+          "carbohydrate": 50.0,
+          "sodium": 216.0,
+          "calcium": 23.0,
+          "energy_kcal": 379.3
+        }
+      ]
+    },
+    {
+      "name": "麦辣鸡翅",
+      "slug": "Spicy-McWings",
+      "category": "snacks",
+      "desc": "精选优质白羽鸡翅，火辣惹味，刺激滋味瞬间爆棚。",
+      "url": "https://www.mcdonalds.com.cn/product/Spicy-McWings",
+      "variants": [
+        {
+          "portion": "2块",
+          "energy_kj": 937.0,
+          "protein": 13.0,
+          "fat": 15.0,
+          "carbohydrate": 9.0,
+          "sodium": 537.0,
+          "calcium": 13.0,
+          "energy_kcal": 223.9
+        }
+      ]
+    },
+    {
+      "name": "薄皮焦香V翅",
+      "slug": "20250326-V-wings",
+      "category": "snacks",
+      "desc": "V翅来源于翅膀呈现V型。不同以往厚厚的外壳，全新的“薄皮配方”，在炙烤时能迅速在鸡翅表面形成保护膜，最大程度保持汁水丰盈、鸡肉嫩滑，每一口薄皮下都有肉有汁、滋味十足。独创的茄仔风味，是由熟成番茄带来的酸甜鲜美，搭配上肉汁的浓郁饱满、咸鲜馥郁、层次丰富、平衡解腻。从没吃到的鸡翅美味，新奇独特，吃过忘不了。",
+      "url": "https://www.mcdonalds.com.cn/product/20250326-V-wings",
+      "variants": [
+        {
+          "portion": "2块",
+          "energy_kj": 804.0,
+          "protein": 17.0,
+          "fat": 11.0,
+          "carbohydrate": 6.0,
+          "sodium": 594.0,
+          "calcium": 15.0,
+          "energy_kcal": 192.2
+        }
+      ]
+    },
+    {
+      "name": "麦乐鸡 (5块)",
+      "slug": "Chicken-McNuggets",
+      "category": "snacks",
+      "desc": "严格挑选优质鸡肉，精密控制火候，锁住肉汁和香味。外皮金黄酥脆，鸡肉嫩滑多汁，配以秘制蘸酱，入口难忘。",
+      "url": "https://www.mcdonalds.com.cn/product/Chicken-McNuggets",
+      "variants": [
+        {
+          "portion": "5块",
+          "energy_kj": 890.0,
+          "protein": 12.0,
+          "fat": 12.0,
+          "carbohydrate": 13.0,
+          "sodium": 422.0,
+          "calcium": 9.0,
+          "energy_kcal": 212.7
+        }
+      ]
+    },
+    {
+      "name": "那么大鸡排（椒盐风味）",
+      "slug": "Big-Chicken-Cutlet",
+      "category": "snacks",
+      "desc": "裹满咔呲爆响的黄金脆衣，椒盐辛香颗粒在热力激发下口中跳跃迸发，咸鲜提味，辛香绕舌！每一口都嚼得到扎实肉感，外酥里嫩，过瘾！",
+      "url": "https://www.mcdonalds.com.cn/product/Big-Chicken-Cutlet",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1612.0,
+          "protein": 24.0,
+          "fat": 21.0,
+          "carbohydrate": 24.0,
+          "sodium": 996.0,
+          "calcium": 13.0,
+          "energy_kcal": 385.3
+        }
+      ]
+    },
+    {
+      "name": "玉米杯",
+      "slug": "Corn-Cup",
+      "category": "snacks",
+      "desc": "粒粒饱满，颗颗多汁。香！甜！爽！",
+      "url": "https://www.mcdonalds.com.cn/product/Corn-Cup",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 223.0,
+          "protein": 2.0,
+          "fat": 1.0,
+          "carbohydrate": 7.0,
+          "sodium": 1.0,
+          "calcium": 6.0,
+          "energy_kcal": 53.3
+        },
+        {
+          "portion": "大",
+          "energy_kj": 365.0,
+          "protein": 4.0,
+          "fat": 1.0,
+          "carbohydrate": 12.0,
+          "sodium": 2.0,
+          "calcium": 10.0,
+          "energy_kcal": 87.2
+        }
+      ]
+    },
+    {
+      "name": "苹果片",
+      "slug": "Apple-Slice",
+      "category": "snacks",
+      "desc": "优选山东红富士，新鲜入口，清爽酸甜，为小朋友搭配营养均衡的一餐。",
+      "url": "https://www.mcdonalds.com.cn/product/Apple-Slice",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 133.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 7.0,
+          "sodium": 0.0,
+          "calcium": 18.0,
+          "energy_kcal": 31.8
+        }
+      ]
+    },
+    {
+      "name": "可口可乐",
+      "slug": "Coca-Cola",
+      "category": "beverage",
+      "desc": "搭配正餐小食，好带劲！",
+      "url": "https://www.mcdonalds.com.cn/product/Coca-Cola",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 446.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 26.0,
+          "sodium": 0.0,
+          "calcium": 7.0,
+          "energy_kcal": 106.6
+        },
+        {
+          "portion": "中",
+          "energy_kj": 616.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 36.0,
+          "sodium": 0.0,
+          "calcium": 10.0,
+          "energy_kcal": 147.2
+        },
+        {
+          "portion": "大",
+          "energy_kj": 936.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 55.0,
+          "sodium": 0.0,
+          "calcium": 15.0,
+          "energy_kcal": 223.7
+        }
+      ]
+    },
+    {
+      "name": "无糖可口可乐",
+      "slug": "Coca-Cola-Zero",
+      "category": "beverage",
+      "desc": "无糖畅爽，尽释美妙！",
+      "url": "https://www.mcdonalds.com.cn/product/Coca-Cola-Zero",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 0.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 0.0,
+          "sodium": 25.0,
+          "calcium": 0.0,
+          "energy_kcal": 0.0
+        },
+        {
+          "portion": "中",
+          "energy_kj": 0.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 1.0,
+          "sodium": 35.0,
+          "calcium": 0.0,
+          "energy_kcal": 0.0
+        },
+        {
+          "portion": "大",
+          "energy_kj": 0.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 1.0,
+          "sodium": 53.0,
+          "calcium": 0.0,
+          "energy_kcal": 0.0
+        }
+      ]
+    },
+    {
+      "name": "阳光柠檬红茶",
+      "slug": "Fuze-Tea",
+      "category": "beverage",
+      "desc": "甜蜜口感，清新滋润。",
+      "url": "https://www.mcdonalds.com.cn/product/Fuze-Tea",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 354.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 21.0,
+          "sodium": 12.0,
+          "calcium": 0.0,
+          "energy_kcal": 84.6
+        },
+        {
+          "portion": "中",
+          "energy_kj": 488.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 29.0,
+          "sodium": 17.0,
+          "calcium": 0.0,
+          "energy_kcal": 116.6
+        },
+        {
+          "portion": "大",
+          "energy_kj": 743.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 43.0,
+          "sodium": 25.0,
+          "calcium": 0.0,
+          "energy_kcal": 177.6
+        }
+      ]
+    },
+    {
+      "name": "雪碧",
+      "slug": "Sprite",
+      "category": "beverage",
+      "desc": "搭配正餐小食，好清爽！",
+      "url": "https://www.mcdonalds.com.cn/product/Sprite",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 319.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 19.0,
+          "sodium": 21.0,
+          "calcium": 0.0,
+          "energy_kcal": 76.2
+        },
+        {
+          "portion": "中",
+          "energy_kj": 440.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 26.0,
+          "sodium": 29.0,
+          "calcium": 0.0,
+          "energy_kcal": 105.2
+        },
+        {
+          "portion": "大",
+          "energy_kj": 669.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 39.0,
+          "sodium": 45.0,
+          "calcium": 0.0,
+          "energy_kcal": 159.9
+        }
+      ]
+    },
+    {
+      "name": "阳光橙麦炫酷",
+      "slug": "Drink-16",
+      "category": "beverage",
+      "desc": "阳光橙加冰淇淋的奇妙组合。",
+      "url": "https://www.mcdonalds.com.cn/product/Drink-16",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 955.0,
+          "protein": 1.0,
+          "fat": 2.0,
+          "carbohydrate": 50.0,
+          "sodium": 77.0,
+          "calcium": 52.0,
+          "energy_kcal": 228.3
+        }
+      ]
+    },
+    {
+      "name": "【美汁源】“黄金橙橙”",
+      "slug": "Minute-Maid-Sunshine-Orange-Juice-2",
+      "category": "beverage",
+      "desc": "维他命+纤维，营养就要新鲜的。",
+      "url": "https://www.mcdonalds.com.cn/product/Minute-Maid-Sunshine-Orange-Juice-2",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 691.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 41.0,
+          "sodium": 53.0,
+          "calcium": 0.0,
+          "energy_kcal": 165.2
+        }
+      ]
+    },
+    {
+      "name": "100%苹果汁",
+      "slug": "Minute-Maid-100-Apple-Juice",
+      "category": "beverage",
+      "desc": "100%苹果汁，纸盒包装。",
+      "url": "https://www.mcdonalds.com.cn/product/Minute-Maid-100-Apple-Juice",
+      "variants": [
+        {
+          "portion": "1盒",
+          "energy_kj": 368.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 21.0,
+          "sodium": 0.0,
+          "calcium": 0.0,
+          "energy_kcal": 88.0
+        }
+      ]
+    },
+    {
+      "name": "优品豆浆",
+      "slug": "Soybean-Milk",
+      "category": "beverage",
+      "desc": "精选黄豆，富含优质蛋白质，开启能量满满的一天。",
+      "url": "https://www.mcdonalds.com.cn/product/Soybean-Milk",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 633.0,
+          "protein": 6.0,
+          "fat": 3.0,
+          "carbohydrate": 25.0,
+          "sodium": 32.0,
+          "calcium": 15.0,
+          "energy_kcal": 151.3
+        },
+        {
+          "portion": "大",
+          "energy_kj": 844.0,
+          "protein": 8.0,
+          "fat": 4.0,
+          "carbohydrate": 33.0,
+          "sodium": 43.0,
+          "calcium": 21.0,
+          "energy_kcal": 201.7
+        }
+      ]
+    },
+    {
+      "name": "纯牛奶（盒装）",
+      "slug": "Drink-11",
+      "category": "beverage",
+      "desc": "喝牛奶，长高高。",
+      "url": "https://www.mcdonalds.com.cn/product/Drink-11",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 541.0,
+          "protein": 7.0,
+          "fat": 7.0,
+          "carbohydrate": 10.0,
+          "sodium": 73.0,
+          "calcium": 231.0,
+          "energy_kcal": 129.3
+        }
+      ]
+    },
+    {
+      "name": "锡兰红茶",
+      "slug": "Hot-Tea",
+      "category": "beverage",
+      "desc": "香浓热红茶，给你全天醒神暖意﹗",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-Tea",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 8.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 0.0,
+          "sodium": 0.0,
+          "calcium": 5.0,
+          "energy_kcal": 1.9
+        }
+      ]
+    },
+    {
+      "name": "纯悦",
+      "slug": "Drinking-Water-2",
+      "category": "beverage",
+      "desc": "多喝水，促代谢。",
+      "url": "https://www.mcdonalds.com.cn/product/Drinking-Water-2",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 0.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 0.0,
+          "sodium": 0.0,
+          "calcium": 0.0,
+          "energy_kcal": 0.0
+        }
+      ]
+    },
+    {
+      "name": "圆筒冰淇淋",
+      "slug": "Cone",
+      "category": "dessert",
+      "desc": "醇香细腻的冰淇淋搭配香脆圆筒，将清甜与松脆一口咬下！",
+      "url": "https://www.mcdonalds.com.cn/product/Cone",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 391.0,
+          "protein": 2.0,
+          "fat": 3.0,
+          "carbohydrate": 14.0,
+          "sodium": 36.0,
+          "calcium": 77.0,
+          "energy_kcal": 93.5
+        }
+      ]
+    },
+    {
+      "name": "奥利奥麦旋风",
+      "slug": "Oreo-Mcflurry",
+      "category": "dessert",
+      "desc": "冰淇淋的香滑与奥利奥饼干的香酥融为一体，奇妙黑白搭配，创造无限新奇滋味。",
+      "url": "https://www.mcdonalds.com.cn/product/Oreo-Mcflurry",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1115.0,
+          "protein": 5.0,
+          "fat": 9.0,
+          "carbohydrate": 40.0,
+          "sodium": 116.0,
+          "calcium": 185.0,
+          "energy_kcal": 266.5
+        }
+      ]
+    },
+    {
+      "name": "草莓麦旋风",
+      "slug": "Strawberry-Oreo-Mcflurry",
+      "category": "dessert",
+      "desc": "冰淇淋的香滑与奥利奥饼干的香酥融为一体，再加上一点草莓酱，混合不一样的清新口味。",
+      "url": "https://www.mcdonalds.com.cn/product/Strawberry-Oreo-Mcflurry",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1234.0,
+          "protein": 6.0,
+          "fat": 9.0,
+          "carbohydrate": 47.0,
+          "sodium": 122.0,
+          "calcium": 186.0,
+          "energy_kcal": 294.9
+        }
+      ]
+    },
+    {
+      "name": "朱古力新地",
+      "slug": "Chocolate-Sundae",
+      "category": "dessert",
+      "desc": "醇香细腻的冰淇淋搭配香醇丝滑的朱古力酱，一口沉醉在醇厚的绵滑浓香之中。",
+      "url": "https://www.mcdonalds.com.cn/product/Chocolate-Sundae",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1178.0,
+          "protein": 5.0,
+          "fat": 9.0,
+          "carbohydrate": 44.0,
+          "sodium": 126.0,
+          "calcium": 182.0,
+          "energy_kcal": 281.5
+        }
+      ]
+    },
+    {
+      "name": "草莓新地",
+      "slug": "Strawberry-Sundae",
+      "category": "dessert",
+      "desc": "醇香细腻的冰淇淋搭配鲜嫩可口的草莓酱，邂逅甜蜜回忆。",
+      "url": "https://www.mcdonalds.com.cn/product/Strawberry-Sundae",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1027.0,
+          "protein": 4.0,
+          "fat": 6.0,
+          "carbohydrate": 43.0,
+          "sodium": 84.0,
+          "calcium": 158.0,
+          "energy_kcal": 245.5
+        }
+      ]
+    },
+    {
+      "name": "香芋派",
+      "slug": "Taro-Pie",
+      "category": "dessert",
+      "desc": "软软的夹心，脆脆的外壳，咬一口，简直幸福到爆啦！",
+      "url": "https://www.mcdonalds.com.cn/product/Taro-Pie",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 971.0,
+          "protein": 2.0,
+          "fat": 12.0,
+          "carbohydrate": 28.0,
+          "sodium": 159.0,
+          "calcium": 7.0,
+          "energy_kcal": 232.1
+        }
+      ]
+    },
+    {
+      "name": "菠萝派",
+      "slug": "Pineapple-Pie",
+      "category": "dessert",
+      "desc": "软软的夹心，脆脆的外壳，咬一口，简直幸福到爆啦！",
+      "url": "https://www.mcdonalds.com.cn/product/Pineapple-Pie",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 925.0,
+          "protein": 2.0,
+          "fat": 11.0,
+          "carbohydrate": 27.0,
+          "sodium": 147.0,
+          "calcium": 5.0,
+          "energy_kcal": 221.1
+        }
+      ]
+    },
+    {
+      "name": "猪柳麦满分",
+      "slug": "Sausage-McMuffin",
+      "category": "breakfast",
+      "desc": "鲜嫩多汁的猪柳，烘烤风味的松饼，搭配微咸吉士，层层相叠，口感微脆，内部柔软，滋味无穷！",
+      "url": "https://www.mcdonalds.com.cn/product/Sausage-McMuffin",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1288.0,
+          "protein": 16.0,
+          "fat": 16.0,
+          "carbohydrate": 24.0,
+          "sodium": 781.0,
+          "calcium": 213.0,
+          "energy_kcal": 307.8
+        }
+      ]
+    },
+    {
+      "name": "猪柳蛋麦满分",
+      "slug": "Sausage-McMuffin-With-Egg",
+      "category": "breakfast",
+      "desc": "鲜嫩多汁的猪柳，搭配口感润滑的蒸鸡蛋、口感微脆的烘烤风味松饼、以及微咸芝士，层层相叠，营养与美味兼得。",
+      "url": "https://www.mcdonalds.com.cn/product/Sausage-McMuffin-With-Egg",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1618.0,
+          "protein": 23.0,
+          "fat": 21.0,
+          "carbohydrate": 25.0,
+          "sodium": 846.0,
+          "calcium": 243.0,
+          "energy_kcal": 386.7
+        }
+      ]
+    },
+    {
+      "name": "火腿扒麦满分",
+      "slug": "Ham-Muffin",
+      "category": "breakfast",
+      "desc": "火腿扒味肉饼柔润多汁，口感Q弹，配以鲜脆生菜，拿下今天从早餐开始！",
+      "url": "https://www.mcdonalds.com.cn/product/Ham-Muffin",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1092.0,
+          "protein": 14.0,
+          "fat": 12.0,
+          "carbohydrate": 24.0,
+          "sodium": 608.0,
+          "calcium": 131.0,
+          "energy_kcal": 261.0
+        }
+      ]
+    },
+    {
+      "name": "大脆鸡扒麦满分",
+      "slug": "Crispy-Chicken-Muffin",
+      "category": "breakfast",
+      "desc": "金棕黄色的麦香鸡块表面微脆，带着黑胡椒特殊的香味，松饼酥脆，内部柔软，热且新鲜！",
+      "url": "https://www.mcdonalds.com.cn/product/Crispy-Chicken-Muffin",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1510.0,
+          "protein": 16.0,
+          "fat": 17.0,
+          "carbohydrate": 35.0,
+          "sodium": 804.0,
+          "calcium": 130.0,
+          "energy_kcal": 360.9
+        }
+      ]
+    },
+    {
+      "name": "原味板烧鸡腿麦满分",
+      "slug": "Grilled-Chicken-Muffin",
+      "category": "breakfast",
+      "desc": "去骨鸡腿肉嫩滑多汁，煎制过程0油添加。更配以鲜脆生菜丝及香浓烧鸡酱，烘烤风味松饼口感微脆，内部柔软，热且新鲜地呈递到手中，口感丰富，更好味。",
+      "url": "https://www.mcdonalds.com.cn/product/Grilled-Chicken-Muffin",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 1029.0,
+          "protein": 15.0,
+          "fat": 9.0,
+          "carbohydrate": 25.0,
+          "sodium": 611.0,
+          "calcium": 133.0,
+          "energy_kcal": 245.9
+        }
+      ]
+    },
+    {
+      "name": "双层原味板烧鸡腿麦满分",
+      "slug": "Double-Grilled-Chicken-Muffin",
+      "category": "breakfast",
+      "desc": "鸡腿肉，我要双层的！双层去骨鸡腿肉，嫩滑多汁，煎制过程0油添加，辅以鲜脆生菜丝及秘制烤味酱，口感丰富，更好味。",
+      "url": "https://www.mcdonalds.com.cn/product/Double-Grilled-Chicken-Muffin",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1486.0,
+          "protein": 23.0,
+          "fat": 17.0,
+          "carbohydrate": 27.0,
+          "sodium": 984.0,
+          "calcium": 138.0,
+          "energy_kcal": 355.2
+        }
+      ]
+    },
+    {
+      "name": "猪柳炒双蛋堡",
+      "slug": "Sausage-Scrambled-Double-Egg-Burger",
+      "category": "breakfast",
+      "desc": "早餐要有两颗蛋，要对自己再好点！两颗原汁原味的优质鸡蛋搭配猪柳，口感层次更丰富。",
+      "url": "https://www.mcdonalds.com.cn/product/Sausage-Scrambled-Double-Egg-Burger",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1827.0,
+          "protein": 25.0,
+          "fat": 24.0,
+          "carbohydrate": 29.0,
+          "sodium": 705.0,
+          "calcium": 116.0,
+          "energy_kcal": 436.7
+        }
+      ]
+    },
+    {
+      "name": "皮蛋鸡肉粥",
+      "slug": "Congee-with-Chicken-and-preserved-egg",
+      "category": "breakfast",
+      "desc": "精选东北大米，星级水米比例12：1，悉心熬煮95分钟，直到粒粒开花。浓稠软糯好粥底，精选松花蛋和健康鸡肉精制而成，口感丰富，暖心暖胃。",
+      "url": "https://www.mcdonalds.com.cn/product/Congee-with-Chicken-and-preserved-egg",
+      "variants": [
+        {
+          "portion": "1份",
+          "energy_kj": 558.0,
+          "protein": 6.0,
+          "fat": 3.0,
+          "carbohydrate": 20.0,
+          "sodium": 611.0,
+          "calcium": 20.0,
+          "energy_kcal": 133.4
+        }
+      ]
+    },
+    {
+      "name": "雪菜脆笋鸡肉粥",
+      "slug": "Congee-with-Pickled-cabbage-and-bamboo-shoot",
+      "category": "breakfast",
+      "desc": "精选东北大米，星级水米比例12：1，悉心熬煮95分钟，直到粒粒开花。浓稠软糯好粥底，搭配细嫩鸡肉和鲜美雪菜笋丝，顺滑爽口，暖心暖胃。",
+      "url": "https://www.mcdonalds.com.cn/product/Congee-with-Pickled-cabbage-and-bamboo-shoot",
+      "variants": [
+        {
+          "portion": "1份",
+          "energy_kj": 504.0,
+          "protein": 4.0,
+          "fat": 2.0,
+          "carbohydrate": 22.0,
+          "sodium": 552.0,
+          "calcium": 14.0,
+          "energy_kcal": 120.5
+        }
+      ]
+    },
+    {
+      "name": "脆薯饼",
+      "slug": "Hash-Brown",
+      "category": "breakfast",
+      "desc": "外皮酥脆，内里柔软，入口微咸。",
+      "url": "https://www.mcdonalds.com.cn/product/Hash-Brown",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 612.0,
+          "protein": 1.0,
+          "fat": 9.0,
+          "carbohydrate": 14.0,
+          "sodium": 311.0,
+          "calcium": 7.0,
+          "energy_kcal": 146.3
+        }
+      ]
+    },
+    {
+      "name": "脆香油条",
+      "slug": "Asian-Dough-Stick",
+      "category": "breakfast",
+      "desc": "表面金黄，口感膨松、酥脆。",
+      "url": "https://www.mcdonalds.com.cn/product/Asian-Dough-Stick",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 844.0,
+          "protein": 5.0,
+          "fat": 12.0,
+          "carbohydrate": 19.0,
+          "sodium": 230.0,
+          "calcium": 18.0,
+          "energy_kcal": 201.7
+        }
+      ]
+    },
+    {
+      "name": "优品豆浆",
+      "slug": "Soybean-Milk-3",
+      "category": "breakfast",
+      "desc": "传统中式饮品，仅限早餐时段供应。",
+      "url": "https://www.mcdonalds.com.cn/product/Soybean-Milk-3",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 633.0,
+          "protein": 6.0,
+          "fat": 3.0,
+          "carbohydrate": 25.0,
+          "sodium": 32.0,
+          "calcium": 15.0,
+          "energy_kcal": 151.3
+        },
+        {
+          "portion": "大",
+          "energy_kj": 844.0,
+          "protein": 8.0,
+          "fat": 4.0,
+          "carbohydrate": 33.0,
+          "sodium": 43.0,
+          "calcium": 21.0,
+          "energy_kcal": 201.7
+        }
+      ]
+    },
+    {
+      "name": "儿童鱼排堡",
+      "slug": "kids-fish-filet-burger",
+      "category": "happy_meals",
+      "desc": "深海鳕鱼烹制而成的鳕鱼饼，搭配新鲜番茄，风味独特，均衡又美味。",
+      "url": "https://www.mcdonalds.com.cn/product/kids-fish-filet-burger",
+      "variants": [
+        {
+          "portion": "1个",
+          "energy_kj": 1126.0,
+          "protein": 15.0,
+          "fat": 6.0,
+          "carbohydrate": 36.0,
+          "sodium": 442.0,
+          "calcium": 58.0,
+          "energy_kcal": 269.1
+        }
+      ]
+    },
+    {
+      "name": "汉堡包",
+      "slug": "Hamburger-Happy-Meal",
+      "category": "happy_meals",
+      "desc": "100%纯牛肉！以少许盐和胡椒调味，搭配爽脆酸黄瓜和洋葱粒，添加美味番茄酱，打造出经典好滋味。",
+      "url": "https://www.mcdonalds.com.cn/product/Hamburger-Happy-Meal",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 1039.0,
+          "protein": 13.0,
+          "fat": 8.0,
+          "carbohydrate": 29.0,
+          "sodium": 492.0,
+          "calcium": 61.0,
+          "energy_kcal": 248.3
+        }
+      ]
+    },
+    {
+      "name": "麦乐鸡（4块）",
+      "slug": "Chicken-McNuggets-Happy-Meal-4pcs",
+      "category": "happy_meals",
+      "desc": "严格挑选优质鸡肉，精密控制火候，锁住肉汁和香味。外皮金黄酥脆，鸡肉嫩滑多汁，配以秘制蘸酱，入口难忘。",
+      "url": "https://www.mcdonalds.com.cn/product/Chicken-McNuggets-Happy-Meal-4pcs",
+      "variants": [
+        {
+          "portion": "4块",
+          "energy_kj": 712.0,
+          "protein": 10.0,
+          "fat": 10.0,
+          "carbohydrate": 11.0,
+          "sodium": 337.0,
+          "calcium": 7.0,
+          "energy_kcal": 170.2
+        }
+      ]
+    },
+    {
+      "name": "薯条（迷你）",
+      "slug": "mini-fries",
+      "category": "happy_meals",
+      "desc": "精选优质土豆，表面微脆，内里绵软，用少许盐调味，美味无人能挡！",
+      "url": "https://www.mcdonalds.com.cn/product/mini-fries",
+      "variants": [
+        {
+          "portion": "薯条（迷你）",
+          "energy_kj": 444.0,
+          "protein": 2.0,
+          "fat": 4.0,
+          "carbohydrate": 14.0,
+          "sodium": 61.0,
+          "calcium": 6.0,
+          "energy_kcal": 106.1
+        }
+      ]
+    },
+    {
+      "name": "玉米杯 (小)",
+      "slug": "Corn-Cup-small",
+      "category": "happy_meals",
+      "desc": "粒粒饱满，颗颗多汁。香！甜！爽！",
+      "url": "https://www.mcdonalds.com.cn/product/Corn-Cup-small",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 223.0,
+          "protein": 2.0,
+          "fat": 1.0,
+          "carbohydrate": 7.0,
+          "sodium": 1.0,
+          "calcium": 6.0,
+          "energy_kcal": 53.3
+        }
+      ]
+    },
+    {
+      "name": "苹果片",
+      "slug": "Apple-Slice-2",
+      "category": "happy_meals",
+      "desc": "优选山东红富士，新鲜入口，清爽酸甜，为小朋友搭配营养均衡的一餐。",
+      "url": "https://www.mcdonalds.com.cn/product/Apple-Slice-2",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 133.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 7.0,
+          "sodium": 0.0,
+          "calcium": 18.0,
+          "energy_kcal": 31.8
+        }
+      ]
+    },
+    {
+      "name": "纯牛奶（盒装）",
+      "slug": "Milk-UHT",
+      "category": "happy_meals",
+      "desc": "喝牛奶，长高高。",
+      "url": "https://www.mcdonalds.com.cn/product/Milk-UHT",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 541.0,
+          "protein": 7.0,
+          "fat": 7.0,
+          "carbohydrate": 10.0,
+          "sodium": 73.0,
+          "calcium": 231.0,
+          "energy_kcal": 129.3
+        }
+      ]
+    },
+    {
+      "name": "纯悦",
+      "slug": "Ice-Dew-Packaged-Drinking-Water",
+      "category": "happy_meals",
+      "desc": "多喝水，促代谢。",
+      "url": "https://www.mcdonalds.com.cn/product/Ice-Dew-Packaged-Drinking-Water",
+      "variants": [
+        {
+          "portion": "默认",
+          "energy_kj": 0.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 0.0,
+          "sodium": 0.0,
+          "calcium": 0.0,
+          "energy_kcal": 0.0
+        }
+      ]
+    },
+    {
+      "name": "美汁源100%苹果汁 (小)",
+      "slug": "Minute-Maid-100Apple-Juice-small",
+      "category": "happy_meals",
+      "desc": "100%苹果汁，纸盒包装。",
+      "url": "https://www.mcdonalds.com.cn/product/Minute-Maid-100Apple-Juice-small",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 368.0,
+          "protein": 0.0,
+          "fat": 0.0,
+          "carbohydrate": 21.0,
+          "sodium": 0.0,
+          "calcium": 0.0,
+          "energy_kcal": 88.0
+        }
+      ]
+    },
+    {
+      "name": "冰奶铁",
+      "slug": "Iced-Nai-Tie",
+      "category": "mccafe",
+      "desc": "麦咖啡现磨咖啡系列优选100%阿拉比卡拼配豆，配方获2024IIAC国际咖啡品鉴大赛“金奖”。优选拼豆配方， 100% 雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Iced-Nai-Tie",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 358.0,
+          "protein": 5.0,
+          "fat": 4.0,
+          "carbohydrate": 8.0,
+          "sodium": 44.0,
+          "calcium": 144.0,
+          "energy_kcal": 85.6
+        },
+        {
+          "portion": "中",
+          "energy_kj": 618.0,
+          "protein": 8.0,
+          "fat": 7.0,
+          "carbohydrate": 13.0,
+          "sodium": 77.0,
+          "calcium": 251.0,
+          "energy_kcal": 147.7
+        },
+        {
+          "portion": "大",
+          "energy_kj": 678.0,
+          "protein": 9.0,
+          "fat": 7.0,
+          "carbohydrate": 15.0,
+          "sodium": 85.0,
+          "calcium": 275.0,
+          "energy_kcal": 162.0
+        }
+      ]
+    },
+    {
+      "name": "热奶铁",
+      "slug": "Hot-Nai-Tie",
+      "category": "mccafe",
+      "desc": "麦咖啡现磨咖啡系列优选100%阿拉比卡拼配豆，配方获2024IIAC国际咖啡品鉴大赛“金奖”，蒸煮后充分融合咖啡和奶香，均衡浓郁的巧克力牛奶风味。优选拼豆配方，100%雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-Nai-Tie",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 559.0,
+          "protein": 8.0,
+          "fat": 6.0,
+          "carbohydrate": 12.0,
+          "sodium": 72.0,
+          "calcium": 231.0,
+          "energy_kcal": 133.6
+        },
+        {
+          "portion": "中",
+          "energy_kj": 779.0,
+          "protein": 11.0,
+          "fat": 8.0,
+          "carbohydrate": 17.0,
+          "sodium": 99.0,
+          "calcium": 320.0,
+          "energy_kcal": 186.2
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1040.0,
+          "protein": 14.0,
+          "fat": 11.0,
+          "carbohydrate": 22.0,
+          "sodium": 134.0,
+          "calcium": 431.0,
+          "energy_kcal": 248.6
+        }
+      ]
+    },
+    {
+      "name": "冰燕麦奶铁",
+      "slug": "Iced-Oatly-Nai-Tie",
+      "category": "mccafe",
+      "desc": "乳糖不耐的选择，融合蒸煮燕麦奶。100%雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Iced-Oatly-Nai-Tie",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 322.0,
+          "protein": 2.0,
+          "fat": 3.0,
+          "carbohydrate": 10.0,
+          "sodium": 50.0,
+          "calcium": 155.0,
+          "energy_kcal": 77.0
+        },
+        {
+          "portion": "中",
+          "energy_kj": 554.0,
+          "protein": 3.0,
+          "fat": 5.0,
+          "carbohydrate": 17.0,
+          "sodium": 87.0,
+          "calcium": 270.0,
+          "energy_kcal": 132.4
+        },
+        {
+          "portion": "大",
+          "energy_kj": 608.0,
+          "protein": 4.0,
+          "fat": 5.0,
+          "carbohydrate": 19.0,
+          "sodium": 96.0,
+          "calcium": 296.0,
+          "energy_kcal": 145.3
+        }
+      ]
+    },
+    {
+      "name": "热燕麦奶铁",
+      "slug": "Hot-Oatly-Nai-Tie",
+      "category": "mccafe",
+      "desc": "乳糖不耐的选择，融合蒸煮燕麦奶。100%雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-Oatly-Nai-Tie",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 500.0,
+          "protein": 3.0,
+          "fat": 5.0,
+          "carbohydrate": 16.0,
+          "sodium": 81.0,
+          "calcium": 248.0,
+          "energy_kcal": 119.5
+        },
+        {
+          "portion": "中",
+          "energy_kj": 697.0,
+          "protein": 4.0,
+          "fat": 6.0,
+          "carbohydrate": 22.0,
+          "sodium": 112.0,
+          "calcium": 345.0,
+          "energy_kcal": 166.6
+        },
+        {
+          "portion": "大",
+          "energy_kj": 929.0,
+          "protein": 5.0,
+          "fat": 8.0,
+          "carbohydrate": 29.0,
+          "sodium": 152.0,
+          "calcium": 464.0,
+          "energy_kcal": 222.0
+        }
+      ]
+    },
+    {
+      "name": "冰美式",
+      "slug": "Iced-Americano",
+      "category": "mccafe",
+      "desc": "厚厚咖啡油脂，优选拼豆配方，100% 雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Iced-Americano",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 41.0,
+          "protein": 1.0,
+          "fat": 0.0,
+          "carbohydrate": 1.0,
+          "sodium": 0.0,
+          "calcium": 6.0,
+          "energy_kcal": 9.8
+        },
+        {
+          "portion": "中",
+          "energy_kj": 54.0,
+          "protein": 1.0,
+          "fat": 0.0,
+          "carbohydrate": 2.0,
+          "sodium": 0.0,
+          "calcium": 7.0,
+          "energy_kcal": 12.9
+        },
+        {
+          "portion": "大",
+          "energy_kj": 60.0,
+          "protein": 1.0,
+          "fat": 0.0,
+          "carbohydrate": 2.0,
+          "sodium": 0.0,
+          "calcium": 8.0,
+          "energy_kcal": 14.3
+        }
+      ]
+    },
+    {
+      "name": "热美式",
+      "slug": "Hot-Americano",
+      "category": "mccafe",
+      "desc": "厚厚咖啡油脂，优选拼豆配方， 100% 雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-Americano",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 41.0,
+          "protein": 1.0,
+          "fat": 0.0,
+          "carbohydrate": 1.0,
+          "sodium": 0.0,
+          "calcium": 6.0,
+          "energy_kcal": 9.8
+        },
+        {
+          "portion": "中",
+          "energy_kj": 54.0,
+          "protein": 1.0,
+          "fat": 0.0,
+          "carbohydrate": 2.0,
+          "sodium": 0.0,
+          "calcium": 7.0,
+          "energy_kcal": 12.9
+        },
+        {
+          "portion": "大",
+          "energy_kj": 60.0,
+          "protein": 1.0,
+          "fat": 0.0,
+          "carbohydrate": 2.0,
+          "sodium": 0.0,
+          "calcium": 8.0,
+          "energy_kcal": 14.3
+        }
+      ]
+    },
+    {
+      "name": "冰焦糖玛奇朵",
+      "slug": "Iced-Caramel-Macchiato-2",
+      "category": "mccafe",
+      "desc": "焦糖糖浆融合新鲜萃取咖啡浓缩及牛奶。优选拼豆配方， 100% 雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Iced-Caramel-Macchiato-2",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 618.0,
+          "protein": 8.0,
+          "fat": 7.0,
+          "carbohydrate": 13.0,
+          "sodium": 77.0,
+          "calcium": 251.0,
+          "energy_kcal": 147.7
+        }
+      ]
+    },
+    {
+      "name": "热焦糖玛奇朵",
+      "slug": "Hot-Caramel-Macchiato-2",
+      "category": "mccafe",
+      "desc": "焦糖糖浆融合新鲜萃取咖啡浓缩及牛奶。优选拼豆配方， 100% 雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-Caramel-Macchiato-2",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 698.0,
+          "protein": 9.0,
+          "fat": 7.0,
+          "carbohydrate": 15.0,
+          "sodium": 88.0,
+          "calcium": 284.7,
+          "energy_kcal": 166.8
+        }
+      ]
+    },
+    {
+      "name": "卡布奇诺",
+      "slug": "Cappuccino",
+      "category": "mccafe",
+      "desc": "奶泡细密，新鲜萃取咖啡浓缩融合蒸煮牛奶中。优选拼豆配方， 100% 雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Cappuccino",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 698.0,
+          "protein": 9.0,
+          "fat": 7.0,
+          "carbohydrate": 15.0,
+          "sodium": 88.0,
+          "calcium": 285.0,
+          "energy_kcal": 166.8
+        },
+        {
+          "portion": "大",
+          "energy_kj": 932.0,
+          "protein": 13.0,
+          "fat": 10.0,
+          "carbohydrate": 20.0,
+          "sodium": 120.0,
+          "calcium": 385.0,
+          "energy_kcal": 222.8
+        }
+      ]
+    },
+    {
+      "name": "冰浓浓燕麦黑巧",
+      "slug": "Iced-OATLY-Chocolate",
+      "category": "mccafe",
+      "desc": "精选进口可可粉，浓郁丝滑不甜腻。",
+      "url": "https://www.mcdonalds.com.cn/product/Iced-OATLY-Chocolate",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 500.0,
+          "protein": 2.0,
+          "fat": 5.0,
+          "carbohydrate": 16.0,
+          "sodium": 87.0,
+          "calcium": 263.0,
+          "energy_kcal": 119.5
+        },
+        {
+          "portion": "大",
+          "energy_kj": 547.0,
+          "protein": 3.0,
+          "fat": 5.0,
+          "carbohydrate": 17.0,
+          "sodium": 95.0,
+          "calcium": 388.0,
+          "energy_kcal": 130.7
+        }
+      ]
+    },
+    {
+      "name": "热浓浓燕麦黑巧",
+      "slug": "Hot-OATLY-Chocolate",
+      "category": "mccafe",
+      "desc": "精选进口可可粉，浓郁丝滑不甜腻。",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-OATLY-Chocolate",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 655.0,
+          "protein": 3.0,
+          "fat": 6.0,
+          "carbohydrate": 21.0,
+          "sodium": 114.0,
+          "calcium": 344.0,
+          "energy_kcal": 156.5
+        },
+        {
+          "portion": "大",
+          "energy_kj": 893.0,
+          "protein": 4.0,
+          "fat": 8.0,
+          "carbohydrate": 28.0,
+          "sodium": 156.0,
+          "calcium": 469.0,
+          "energy_kcal": 213.4
+        }
+      ]
+    },
+    {
+      "name": "冰浓浓抹茶牛奶",
+      "slug": "Iced-Matcha-Milk",
+      "category": "mccafe",
+      "desc": "精选优质抹茶融合新鲜蒸煮的牛奶，浓郁香甜 (不含咖啡)。",
+      "url": "https://www.mcdonalds.com.cn/product/Iced-Matcha-Milk",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 821.0,
+          "protein": 8.0,
+          "fat": 6.0,
+          "carbohydrate": 25.0,
+          "sodium": 80.0,
+          "calcium": 275.0,
+          "energy_kcal": 196.2
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1004.0,
+          "protein": 9.0,
+          "fat": 7.0,
+          "carbohydrate": 33.0,
+          "sodium": 89.0,
+          "calcium": 314.0,
+          "energy_kcal": 240.0
+        }
+      ]
+    },
+    {
+      "name": "热浓浓抹茶牛奶",
+      "slug": "Hot-Matcha-Milk",
+      "category": "mccafe",
+      "desc": "精选优质抹茶融合新鲜蒸煮的牛奶，浓郁香甜 (不含咖啡)。",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-Matcha-Milk",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 996.0,
+          "protein": 11.0,
+          "fat": 8.0,
+          "carbohydrate": 29.0,
+          "sodium": 104.0,
+          "calcium": 351.0,
+          "energy_kcal": 238.0
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1393.0,
+          "protein": 14.0,
+          "fat": 12.0,
+          "carbohydrate": 41.0,
+          "sodium": 142.0,
+          "calcium": 482.0,
+          "energy_kcal": 332.9
+        }
+      ]
+    },
+    {
+      "name": "冰燕麦奶",
+      "slug": "Iced-Oatly-Milk",
+      "category": "mccafe",
+      "desc": "燕麦奶新鲜蒸煮，健康营养，乳糖不耐的选择。",
+      "url": "https://www.mcdonalds.com.cn/product/Iced-Oatly-Milk",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 547.0,
+          "protein": 3.0,
+          "fat": 5.0,
+          "carbohydrate": 17.0,
+          "sodium": 95.0,
+          "calcium": 288.0,
+          "energy_kcal": 130.7
+        },
+        {
+          "portion": "中",
+          "energy_kj": 833.0,
+          "protein": 4.0,
+          "fat": 8.0,
+          "carbohydrate": 26.0,
+          "sodium": 145.0,
+          "calcium": 438.0,
+          "energy_kcal": 199.1
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1000.0,
+          "protein": 5.0,
+          "fat": 9.0,
+          "carbohydrate": 32.0,
+          "sodium": 174.0,
+          "calcium": 525.0,
+          "energy_kcal": 239.0
+        }
+      ]
+    },
+    {
+      "name": "热燕麦奶",
+      "slug": "Hot-Oatly-Milk-3",
+      "category": "mccafe",
+      "desc": "燕麦奶新鲜蒸煮，健康营养，乳糖不耐的选择。",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-Oatly-Milk-3",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 547.0,
+          "protein": 3.0,
+          "fat": 5.0,
+          "carbohydrate": 17.0,
+          "sodium": 95.0,
+          "calcium": 288.0,
+          "energy_kcal": 130.7
+        },
+        {
+          "portion": "中",
+          "energy_kj": 655.0,
+          "protein": 3.0,
+          "fat": 6.0,
+          "carbohydrate": 21.0,
+          "sodium": 114.0,
+          "calcium": 344.0,
+          "energy_kcal": 156.5
+        },
+        {
+          "portion": "大",
+          "energy_kj": 893.0,
+          "protein": 4.0,
+          "fat": 8.0,
+          "carbohydrate": 28.0,
+          "sodium": 156.0,
+          "calcium": 469.0,
+          "energy_kcal": 213.4
+        }
+      ]
+    },
+    {
+      "name": "冰浓浓黑巧",
+      "slug": "iced-Dark-Chocolate",
+      "category": "mccafe",
+      "desc": "精选进口可可粉，浓郁丝滑不甜腻。",
+      "url": "https://www.mcdonalds.com.cn/product/iced-Dark-Chocolate",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 563.0,
+          "protein": 8.0,
+          "fat": 6.0,
+          "carbohydrate": 12.0,
+          "sodium": 77.0,
+          "calcium": 244.0,
+          "energy_kcal": 134.6
+        },
+        {
+          "portion": "大",
+          "energy_kj": 617.0,
+          "protein": 8.0,
+          "fat": 7.0,
+          "carbohydrate": 13.0,
+          "sodium": 84.0,
+          "calcium": 267.0,
+          "energy_kcal": 147.5
+        }
+      ]
+    },
+    {
+      "name": "热浓浓黑巧",
+      "slug": "Hot-Dark-Chocolate",
+      "category": "mccafe",
+      "desc": "精选进口可可粉，浓郁丝滑不甜腻。",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-Dark-Chocolate",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 738.0,
+          "protein": 10.0,
+          "fat": 8.0,
+          "carbohydrate": 15.0,
+          "sodium": 101.0,
+          "calcium": 319.0,
+          "energy_kcal": 176.4
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1006.0,
+          "protein": 13.0,
+          "fat": 11.0,
+          "carbohydrate": 21.0,
+          "sodium": 137.0,
+          "calcium": 435.0,
+          "energy_kcal": 240.4
+        }
+      ]
+    },
+    {
+      "name": "冰牛奶",
+      "slug": "Iced-Milk",
+      "category": "mccafe",
+      "desc": "严格把关的优质奶品，新鲜蒸煮，健康营养。",
+      "url": "https://www.mcdonalds.com.cn/product/Iced-Milk",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 617.0,
+          "protein": 8.0,
+          "fat": 7.0,
+          "carbohydrate": 13.0,
+          "sodium": 84.0,
+          "calcium": 267.0,
+          "energy_kcal": 147.5
+        },
+        {
+          "portion": "中",
+          "energy_kj": 939.0,
+          "protein": 13.0,
+          "fat": 11.0,
+          "carbohydrate": 19.0,
+          "sodium": 128.0,
+          "calcium": 406.0,
+          "energy_kcal": 224.4
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1127.0,
+          "protein": 15.0,
+          "fat": 13.0,
+          "carbohydrate": 23.0,
+          "sodium": 154.0,
+          "calcium": 487.0,
+          "energy_kcal": 269.4
+        }
+      ]
+    },
+    {
+      "name": "热牛奶",
+      "slug": "Hot-Milk-3",
+      "category": "mccafe",
+      "desc": "严格把关的优质奶品，新鲜蒸煮，健康营养。",
+      "url": "https://www.mcdonalds.com.cn/product/Hot-Milk-3",
+      "variants": [
+        {
+          "portion": "小",
+          "energy_kj": 617.0,
+          "protein": 8.0,
+          "fat": 7.0,
+          "carbohydrate": 13.0,
+          "sodium": 84.0,
+          "calcium": 267.0,
+          "energy_kcal": 147.5
+        },
+        {
+          "portion": "中",
+          "energy_kj": 738.0,
+          "protein": 10.0,
+          "fat": 8.0,
+          "carbohydrate": 15.0,
+          "sodium": 101.0,
+          "calcium": 319.0,
+          "energy_kcal": 176.4
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1006.0,
+          "protein": 13.0,
+          "fat": 11.0,
+          "carbohydrate": 21.0,
+          "sodium": 137.0,
+          "calcium": 435.0,
+          "energy_kcal": 240.4
+        }
+      ]
+    },
+    {
+      "name": "浓浓抹茶雪冰",
+      "slug": "Matcha-Frappe",
+      "category": "mccafe",
+      "desc": "精选优质抹茶加入鲜奶与冰块打发，甜蜜清爽（不含咖啡）。",
+      "url": "https://www.mcdonalds.com.cn/product/Matcha-Frappe",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 1208.0,
+          "protein": 7.0,
+          "fat": 11.0,
+          "carbohydrate": 39.0,
+          "sodium": 181.0,
+          "calcium": 220.0,
+          "energy_kcal": 288.7
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1418.0,
+          "protein": 8.0,
+          "fat": 12.0,
+          "carbohydrate": 48.0,
+          "sodium": 194.0,
+          "calcium": 270.0,
+          "energy_kcal": 338.9
+        }
+      ]
+    },
+    {
+      "name": "浓浓黑巧雪冰",
+      "slug": "Dark-Chocolate-Frappe",
+      "category": "mccafe",
+      "desc": "精选进口可可粉，浓郁丝滑不甜腻。",
+      "url": "https://www.mcdonalds.com.cn/product/Dark-Chocolate-Frappe",
+      "variants": [
+        {
+          "portion": "中",
+          "energy_kj": 1501.0,
+          "protein": 8.0,
+          "fat": 12.0,
+          "carbohydrate": 51.0,
+          "sodium": 224.0,
+          "calcium": 207.0,
+          "energy_kcal": 358.7
+        },
+        {
+          "portion": "大",
+          "energy_kj": 1857.0,
+          "protein": 11.0,
+          "fat": 14.0,
+          "carbohydrate": 65.0,
+          "sodium": 258.0,
+          "calcium": 251.0,
+          "energy_kcal": 443.8
+        }
+      ]
+    },
+    {
+      "name": "抹茶阿芙佳朵",
+      "slug": "Matcha-Affogato",
+      "category": "mccafe",
+      "desc": "正统抹茶味道，优选优质抹茶粉，浓郁抹茶淋在醇香细腻的冰淇淋上，口感丰富（不含咖啡）。",
+      "url": "https://www.mcdonalds.com.cn/product/Matcha-Affogato",
+      "variants": [
+        {
+          "portion": "一杯",
+          "energy_kj": 613.0,
+          "protein": 3.0,
+          "fat": 4.0,
+          "carbohydrate": 23.0,
+          "sodium": 50.0,
+          "calcium": 136.0,
+          "energy_kcal": 146.5
+        }
+      ]
+    },
+    {
+      "name": "咖啡阿芙佳朵",
+      "slug": "Affogato",
+      "category": "mccafe",
+      "desc": "新鲜萃取咖啡浓缩液，厚厚咖啡油脂淋在香草冰淇淋上，甜而不腻。采用100% 雨林联盟认证咖啡豆。",
+      "url": "https://www.mcdonalds.com.cn/product/Affogato",
+      "variants": [
+        {
+          "portion": "一杯",
+          "energy_kj": 583.0,
+          "protein": 4.0,
+          "fat": 4.0,
+          "carbohydrate": 21.0,
+          "sodium": 49.0,
+          "calcium": 111.0,
+          "energy_kcal": 139.3
+        }
+      ]
+    }
+  ]
+}

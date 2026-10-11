@@ -1,0 +1,4201 @@
+[
+  {
+    "id": "b40",
+    "title": "预算 40 元 · 常州万象城",
+    "payload": {
+      "constraints": {
+        "budget": 40,
+        "max_kcal": null,
+        "max_sodium": null,
+        "min_protein": null,
+        "max_items": 5
+      },
+      "priced": 34,
+      "plans": {
+        "value": [
+          {
+            "score": -0.2,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 22.0,
+              "kcal": 463.0,
+              "protein": 17.0,
+              "fat": 20.0,
+              "carbohydrate": 53.0,
+              "sodium": 767.0,
+              "calcium": 150.0,
+              "count": 2
+            }
+          },
+          {
+            "score": -0.29,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 28.0,
+              "kcal": 578.4,
+              "protein": 26.0,
+              "fat": 27.0,
+              "carbohydrate": 56.0,
+              "sodium": 1244.0,
+              "calcium": 231.0,
+              "count": 2
+            }
+          },
+          {
+            "score": -1.08,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 18.0,
+              "kcal": 146.8,
+              "protein": 4.0,
+              "fat": 4.0,
+              "carbohydrate": 21.0,
+              "sodium": 37.0,
+              "calcium": 83.0,
+              "count": 2
+            }
+          }
+        ],
+        "indulge": [
+          {
+            "score": 36.3,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Hot-Tea::默认",
+                "name": "锡兰红茶",
+                "slug": "Hot-Tea",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 11.5,
+                "code": "3505",
+                "energy_kcal": 1.9,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 0.0,
+                "sodium": 0.0,
+                "calcium": 5.0,
+                "base": 3.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 39.5,
+              "kcal": 580.3,
+              "protein": 26.0,
+              "fat": 27.0,
+              "carbohydrate": 56.0,
+              "sodium": 1244.0,
+              "calcium": 236.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 33.46,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 35.0,
+              "kcal": 516.3,
+              "protein": 19.0,
+              "fat": 21.0,
+              "carbohydrate": 60.0,
+              "sodium": 768.0,
+              "calcium": 156.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 33.22,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Double-Cheeseburger::1个",
+                "name": "双层吉士汉堡",
+                "slug": "Double-Cheeseburger",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1120",
+                "energy_kcal": 429.3,
+                "protein": 27.0,
+                "fat": 22.0,
+                "carbohydrate": 31.0,
+                "sodium": 1017.0,
+                "calcium": 232.0,
+                "base": 7.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy"
+                ]
+              },
+              {
+                "key": "Hot-Tea::默认",
+                "name": "锡兰红茶",
+                "slug": "Hot-Tea",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 11.5,
+                "code": "3505",
+                "energy_kcal": 1.9,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 0.0,
+                "sodium": 0.0,
+                "calcium": 5.0,
+                "base": 3.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 39.5,
+              "kcal": 524.7,
+              "protein": 29.0,
+              "fat": 25.0,
+              "carbohydrate": 45.0,
+              "sodium": 1053.0,
+              "calcium": 314.0,
+              "count": 3
+            }
+          }
+        ],
+        "balance": [
+          {
+            "score": 14.1,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 35.0,
+              "kcal": 516.3,
+              "protein": 19.0,
+              "fat": 21.0,
+              "carbohydrate": 60.0,
+              "sodium": 768.0,
+              "calcium": 156.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 13.57,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Filet-O-Fish::1个",
+                "name": "麦香鱼",
+                "slug": "Filet-O-Fish",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 22.5,
+                "code": "1600",
+                "energy_kcal": 324.8,
+                "protein": 16.0,
+                "fat": 13.0,
+                "carbohydrate": 35.0,
+                "sodium": 556.0,
+                "calcium": 99.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Hot-Tea::默认",
+                "name": "锡兰红茶",
+                "slug": "Hot-Tea",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 11.5,
+                "code": "3505",
+                "energy_kcal": 1.9,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 0.0,
+                "sodium": 0.0,
+                "calcium": 5.0,
+                "base": 3.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 39.0,
+              "kcal": 420.2,
+              "protein": 18.0,
+              "fat": 16.0,
+              "carbohydrate": 49.0,
+              "sodium": 592.0,
+              "calcium": 181.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 12.41,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Bacon-Lettuce-Tomato-Double-Beef-Burger::1个",
+                "name": "培根蔬萃双层牛堡",
+                "slug": "Bacon-Lettuce-Tomato-Double-Beef-Burger",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 24.5,
+                "code": "1106",
+                "energy_kcal": 442.2,
+                "protein": 24.0,
+                "fat": 23.0,
+                "carbohydrate": 34.0,
+                "sodium": 728.0,
+                "calcium": 73.0,
+                "base": 7.4,
+                "source": "mcp",
+                "coupon_title": null,
+                "textures": [
+                  "chewy"
+                ]
+              },
+              {
+                "key": "Coca-Cola::中",
+                "name": "可口可乐",
+                "slug": "Coca-Cola",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "中",
+                "price": 9.5,
+                "code": "9900008751",
+                "energy_kcal": 147.2,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 36.0,
+                "sodium": 0.0,
+                "calcium": 10.0,
+                "base": 3.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 39.0,
+              "kcal": 682.9,
+              "protein": 26.0,
+              "fat": 26.0,
+              "carbohydrate": 84.0,
+              "sodium": 764.0,
+              "calcium": 160.0,
+              "count": 3
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "b40_na2000",
+    "title": "预算 40 元 + 控钠 2000mg",
+    "payload": {
+      "constraints": {
+        "budget": 40,
+        "max_kcal": null,
+        "max_sodium": 2000,
+        "min_protein": null,
+        "max_items": 5
+      },
+      "priced": 34,
+      "plans": {
+        "value": [
+          {
+            "score": -0.2,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 22.0,
+              "kcal": 463.0,
+              "protein": 17.0,
+              "fat": 20.0,
+              "carbohydrate": 53.0,
+              "sodium": 767.0,
+              "calcium": 150.0,
+              "count": 2
+            }
+          },
+          {
+            "score": -0.29,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 28.0,
+              "kcal": 578.4,
+              "protein": 26.0,
+              "fat": 27.0,
+              "carbohydrate": 56.0,
+              "sodium": 1244.0,
+              "calcium": 231.0,
+              "count": 2
+            }
+          },
+          {
+            "score": -1.08,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 18.0,
+              "kcal": 146.8,
+              "protein": 4.0,
+              "fat": 4.0,
+              "carbohydrate": 21.0,
+              "sodium": 37.0,
+              "calcium": 83.0,
+              "count": 2
+            }
+          }
+        ],
+        "indulge": [
+          {
+            "score": 36.3,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Hot-Tea::默认",
+                "name": "锡兰红茶",
+                "slug": "Hot-Tea",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 11.5,
+                "code": "3505",
+                "energy_kcal": 1.9,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 0.0,
+                "sodium": 0.0,
+                "calcium": 5.0,
+                "base": 3.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 39.5,
+              "kcal": 580.3,
+              "protein": 26.0,
+              "fat": 27.0,
+              "carbohydrate": 56.0,
+              "sodium": 1244.0,
+              "calcium": 236.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 33.46,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 35.0,
+              "kcal": 516.3,
+              "protein": 19.0,
+              "fat": 21.0,
+              "carbohydrate": 60.0,
+              "sodium": 768.0,
+              "calcium": 156.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 33.22,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Double-Cheeseburger::1个",
+                "name": "双层吉士汉堡",
+                "slug": "Double-Cheeseburger",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1120",
+                "energy_kcal": 429.3,
+                "protein": 27.0,
+                "fat": 22.0,
+                "carbohydrate": 31.0,
+                "sodium": 1017.0,
+                "calcium": 232.0,
+                "base": 7.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy"
+                ]
+              },
+              {
+                "key": "Hot-Tea::默认",
+                "name": "锡兰红茶",
+                "slug": "Hot-Tea",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 11.5,
+                "code": "3505",
+                "energy_kcal": 1.9,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 0.0,
+                "sodium": 0.0,
+                "calcium": 5.0,
+                "base": 3.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 39.5,
+              "kcal": 524.7,
+              "protein": 29.0,
+              "fat": 25.0,
+              "carbohydrate": 45.0,
+              "sodium": 1053.0,
+              "calcium": 314.0,
+              "count": 3
+            }
+          }
+        ],
+        "balance": [
+          {
+            "score": 14.1,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 35.0,
+              "kcal": 516.3,
+              "protein": 19.0,
+              "fat": 21.0,
+              "carbohydrate": 60.0,
+              "sodium": 768.0,
+              "calcium": 156.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 13.57,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Filet-O-Fish::1个",
+                "name": "麦香鱼",
+                "slug": "Filet-O-Fish",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 22.5,
+                "code": "1600",
+                "energy_kcal": 324.8,
+                "protein": 16.0,
+                "fat": 13.0,
+                "carbohydrate": 35.0,
+                "sodium": 556.0,
+                "calcium": 99.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Hot-Tea::默认",
+                "name": "锡兰红茶",
+                "slug": "Hot-Tea",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 11.5,
+                "code": "3505",
+                "energy_kcal": 1.9,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 0.0,
+                "sodium": 0.0,
+                "calcium": 5.0,
+                "base": 3.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 39.0,
+              "kcal": 420.2,
+              "protein": 18.0,
+              "fat": 16.0,
+              "carbohydrate": 49.0,
+              "sodium": 592.0,
+              "calcium": 181.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 12.41,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Bacon-Lettuce-Tomato-Double-Beef-Burger::1个",
+                "name": "培根蔬萃双层牛堡",
+                "slug": "Bacon-Lettuce-Tomato-Double-Beef-Burger",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 24.5,
+                "code": "1106",
+                "energy_kcal": 442.2,
+                "protein": 24.0,
+                "fat": 23.0,
+                "carbohydrate": 34.0,
+                "sodium": 728.0,
+                "calcium": 73.0,
+                "base": 7.4,
+                "source": "mcp",
+                "coupon_title": null,
+                "textures": [
+                  "chewy"
+                ]
+              },
+              {
+                "key": "Coca-Cola::中",
+                "name": "可口可乐",
+                "slug": "Coca-Cola",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "中",
+                "price": 9.5,
+                "code": "9900008751",
+                "energy_kcal": 147.2,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 36.0,
+                "sodium": 0.0,
+                "calcium": 10.0,
+                "base": 3.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 39.0,
+              "kcal": 682.9,
+              "protein": 26.0,
+              "fat": 26.0,
+              "carbohydrate": 84.0,
+              "sodium": 764.0,
+              "calcium": 160.0,
+              "count": 3
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "b30_k800",
+    "title": "预算 30 元 + 热量 ≤ 800kcal",
+    "payload": {
+      "constraints": {
+        "budget": 30,
+        "max_kcal": 800,
+        "max_sodium": null,
+        "min_protein": null,
+        "max_items": 5
+      },
+      "priced": 34,
+      "plans": {
+        "value": [
+          {
+            "score": 5.08,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 5.0,
+              "kcal": 93.5,
+              "protein": 2.0,
+              "fat": 3.0,
+              "carbohydrate": 14.0,
+              "sodium": 36.0,
+              "calcium": 77.0,
+              "count": 1
+            }
+          },
+          {
+            "score": -0.2,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 22.0,
+              "kcal": 463.0,
+              "protein": 17.0,
+              "fat": 20.0,
+              "carbohydrate": 53.0,
+              "sodium": 767.0,
+              "calcium": 150.0,
+              "count": 2
+            }
+          },
+          {
+            "score": -0.29,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 28.0,
+              "kcal": 578.4,
+              "protein": 26.0,
+              "fat": 27.0,
+              "carbohydrate": 56.0,
+              "sodium": 1244.0,
+              "calcium": 231.0,
+              "count": 2
+            }
+          }
+        ],
+        "indulge": [
+          {
+            "score": 30.37,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 28.0,
+              "kcal": 578.4,
+              "protein": 26.0,
+              "fat": 27.0,
+              "carbohydrate": 56.0,
+              "sodium": 1244.0,
+              "calcium": 231.0,
+              "count": 2
+            }
+          },
+          {
+            "score": 27.77,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Grilled-Chicken-Sandwich::1个",
+                "name": "板烧鸡腿堡",
+                "slug": "Grilled-Chicken-Sandwich",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 24.0,
+                "code": "1406",
+                "energy_kcal": 391.5,
+                "protein": 23.0,
+                "fat": 17.0,
+                "carbohydrate": 35.0,
+                "sodium": 1041.0,
+                "calcium": 93.0,
+                "base": 7.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "juicy",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 29.0,
+              "kcal": 485.0,
+              "protein": 25.0,
+              "fat": 20.0,
+              "carbohydrate": 49.0,
+              "sodium": 1077.0,
+              "calcium": 170.0,
+              "count": 2
+            }
+          },
+          {
+            "score": 26.79,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "double-fof::1个",
+                "name": "双层深海鳕鱼堡",
+                "slug": "double-fof",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 24.0,
+                "code": "9900003586",
+                "energy_kcal": 484.9,
+                "protein": 28.0,
+                "fat": 21.0,
+                "carbohydrate": 46.0,
+                "sodium": 917.0,
+                "calcium": 147.0,
+                "base": 7.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 29.0,
+              "kcal": 578.4,
+              "protein": 30.0,
+              "fat": 24.0,
+              "carbohydrate": 60.0,
+              "sodium": 953.0,
+              "calcium": 224.0,
+              "count": 2
+            }
+          }
+        ],
+        "balance": [
+          {
+            "score": 10.81,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Coca-Cola::中",
+                "name": "可口可乐",
+                "slug": "Coca-Cola",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "中",
+                "price": 9.5,
+                "code": "9900008751",
+                "energy_kcal": 147.2,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 36.0,
+                "sodium": 0.0,
+                "calcium": 10.0,
+                "base": 3.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 27.5,
+              "kcal": 294.0,
+              "protein": 4.0,
+              "fat": 4.0,
+              "carbohydrate": 57.0,
+              "sodium": 37.0,
+              "calcium": 93.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 10.75,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Iced-Americano::中",
+                "name": "冰美式",
+                "slug": "Iced-Americano",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "中",
+                "price": 9.9,
+                "code": "507411",
+                "energy_kcal": 12.9,
+                "protein": 1.0,
+                "fat": 0.0,
+                "carbohydrate": 2.0,
+                "sodium": 0.0,
+                "calcium": 7.0,
+                "base": 3.5,
+                "source": "coupon",
+                "coupon_title": "9.9元中杯冰美式",
+                "textures": [
+                  "cold"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 27.9,
+              "kcal": 159.7,
+              "protein": 5.0,
+              "fat": 4.0,
+              "carbohydrate": 23.0,
+              "sodium": 37.0,
+              "calcium": 90.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 10.74,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Fuze-Tea::小",
+                "name": "阳光柠檬红茶",
+                "slug": "Fuze-Tea",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "小",
+                "price": 9.5,
+                "code": "515280",
+                "energy_kcal": 84.6,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 21.0,
+                "sodium": 12.0,
+                "calcium": 0.0,
+                "base": 3.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 27.5,
+              "kcal": 231.4,
+              "protein": 4.0,
+              "fat": 4.0,
+              "carbohydrate": 42.0,
+              "sodium": 49.0,
+              "calcium": 83.0,
+              "count": 3
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "b50_p30",
+    "title": "预算 50 元 + 蛋白 ≥ 30g",
+    "payload": {
+      "constraints": {
+        "budget": 50,
+        "max_kcal": null,
+        "max_sodium": null,
+        "min_protein": 30,
+        "max_items": 5
+      },
+      "priced": 34,
+      "plans": {
+        "value": [
+          {
+            "score": -3.96,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "French-Fries::中",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "中",
+                "price": 14.5,
+                "code": "4810",
+                "energy_kcal": 289.2,
+                "protein": 4.0,
+                "fat": 12.0,
+                "carbohydrate": 38.0,
+                "sodium": 165.0,
+                "calcium": 18.0,
+                "base": 6.2,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 42.5,
+              "kcal": 867.6,
+              "protein": 30.0,
+              "fat": 39.0,
+              "carbohydrate": 94.0,
+              "sodium": 1409.0,
+              "calcium": 249.0,
+              "count": 3
+            }
+          },
+          {
+            "score": -5.88,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Spicy-McWings::2块",
+                "name": "麦辣鸡翅",
+                "slug": "Spicy-McWings",
+                "category": "snacks",
+                "role": "side",
+                "portion": "2块",
+                "price": 14.5,
+                "code": "1700",
+                "energy_kcal": 223.9,
+                "protein": 13.0,
+                "fat": 15.0,
+                "carbohydrate": 9.0,
+                "sodium": 537.0,
+                "calcium": 13.0,
+                "base": 6.2,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Coca-Cola::中",
+                "name": "可口可乐",
+                "slug": "Coca-Cola",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "中",
+                "price": 9.5,
+                "code": "9900008751",
+                "energy_kcal": 147.2,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 36.0,
+                "sodium": 0.0,
+                "calcium": 10.0,
+                "base": 3.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 46.0,
+              "kcal": 834.1,
+              "protein": 30.0,
+              "fat": 35.0,
+              "carbohydrate": 98.0,
+              "sodium": 1304.0,
+              "calcium": 173.0,
+              "count": 4
+            }
+          },
+          {
+            "score": -7.86,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 45.0,
+              "kcal": 947.9,
+              "protein": 41.0,
+              "fat": 44.0,
+              "carbohydrate": 95.0,
+              "sodium": 1975.0,
+              "calcium": 304.0,
+              "count": 3
+            }
+          }
+        ],
+        "indulge": [
+          {
+            "score": 37.35,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Spicy-McWings::2块",
+                "name": "麦辣鸡翅",
+                "slug": "Spicy-McWings",
+                "category": "snacks",
+                "role": "side",
+                "portion": "2块",
+                "price": 14.5,
+                "code": "1700",
+                "energy_kcal": 223.9,
+                "protein": 13.0,
+                "fat": 15.0,
+                "carbohydrate": 9.0,
+                "sodium": 537.0,
+                "calcium": 13.0,
+                "base": 6.2,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Hot-Tea::默认",
+                "name": "锡兰红茶",
+                "slug": "Hot-Tea",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 11.5,
+                "code": "3505",
+                "energy_kcal": 1.9,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 0.0,
+                "sodium": 0.0,
+                "calcium": 5.0,
+                "base": 3.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 48.0,
+              "kcal": 688.8,
+              "protein": 30.0,
+              "fat": 35.0,
+              "carbohydrate": 62.0,
+              "sodium": 1304.0,
+              "calcium": 168.0,
+              "count": 4
+            }
+          },
+          {
+            "score": 36.2,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "French-Fries::中",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "中",
+                "price": 14.5,
+                "code": "4810",
+                "energy_kcal": 289.2,
+                "protein": 4.0,
+                "fat": 12.0,
+                "carbohydrate": 38.0,
+                "sodium": 165.0,
+                "calcium": 18.0,
+                "base": 6.2,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 42.5,
+              "kcal": 867.6,
+              "protein": 30.0,
+              "fat": 39.0,
+              "carbohydrate": 94.0,
+              "sodium": 1409.0,
+              "calcium": 249.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 34.23,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 45.0,
+              "kcal": 947.9,
+              "protein": 41.0,
+              "fat": 44.0,
+              "carbohydrate": 95.0,
+              "sodium": 1975.0,
+              "calcium": 304.0,
+              "count": 3
+            }
+          }
+        ],
+        "balance": [
+          {
+            "score": 12.07,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Bacon-Lettuce-Tomato-Double-Beef-Burger::1个",
+                "name": "培根蔬萃双层牛堡",
+                "slug": "Bacon-Lettuce-Tomato-Double-Beef-Burger",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 24.5,
+                "code": "1106",
+                "energy_kcal": 442.2,
+                "protein": 24.0,
+                "fat": 23.0,
+                "carbohydrate": 34.0,
+                "sodium": 728.0,
+                "calcium": 73.0,
+                "base": 7.4,
+                "source": "mcp",
+                "coupon_title": null,
+                "textures": [
+                  "chewy"
+                ]
+              },
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Drink-11::默认",
+                "name": "纯牛奶（盒装）",
+                "slug": "Drink-11",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 10.5,
+                "code": "3755",
+                "energy_kcal": 129.3,
+                "protein": 7.0,
+                "fat": 7.0,
+                "carbohydrate": 10.0,
+                "sodium": 73.0,
+                "calcium": 231.0,
+                "base": 4.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 48.0,
+              "kcal": 624.8,
+              "protein": 33.0,
+              "fat": 31.0,
+              "carbohydrate": 51.0,
+              "sodium": 802.0,
+              "calcium": 310.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 11.01,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "double-fof::1个",
+                "name": "双层深海鳕鱼堡",
+                "slug": "double-fof",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 24.0,
+                "code": "9900003586",
+                "energy_kcal": 484.9,
+                "protein": 28.0,
+                "fat": 21.0,
+                "carbohydrate": 46.0,
+                "sodium": 917.0,
+                "calcium": 147.0,
+                "base": 7.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy"
+                ]
+              },
+              {
+                "key": "Corn-Cup::小",
+                "name": "玉米杯",
+                "slug": "Corn-Cup",
+                "category": "snacks",
+                "role": "side",
+                "portion": "小",
+                "price": 13.0,
+                "code": "4437",
+                "energy_kcal": 53.3,
+                "protein": 2.0,
+                "fat": 1.0,
+                "carbohydrate": 7.0,
+                "sodium": 1.0,
+                "calcium": 6.0,
+                "base": 5.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "fresh",
+                  "hot"
+                ]
+              },
+              {
+                "key": "Drink-11::默认",
+                "name": "纯牛奶（盒装）",
+                "slug": "Drink-11",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 10.5,
+                "code": "3755",
+                "energy_kcal": 129.3,
+                "protein": 7.0,
+                "fat": 7.0,
+                "carbohydrate": 10.0,
+                "sodium": 73.0,
+                "calcium": 231.0,
+                "base": 4.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 47.5,
+              "kcal": 667.5,
+              "protein": 37.0,
+              "fat": 29.0,
+              "carbohydrate": 63.0,
+              "sodium": 991.0,
+              "calcium": 384.0,
+              "count": 3
+            }
+          },
+          {
+            "score": 10.65,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "McChicken::1个",
+                "name": "麦香鸡",
+                "slug": "McChicken",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 17.0,
+                "code": "1450",
+                "energy_kcal": 369.5,
+                "protein": 15.0,
+                "fat": 17.0,
+                "carbohydrate": 39.0,
+                "sodium": 731.0,
+                "calcium": 73.0,
+                "base": 6.5,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": []
+              },
+              {
+                "key": "Spicy-McWings::2块",
+                "name": "麦辣鸡翅",
+                "slug": "Spicy-McWings",
+                "category": "snacks",
+                "role": "side",
+                "portion": "2块",
+                "price": 14.5,
+                "code": "1700",
+                "energy_kcal": 223.9,
+                "protein": 13.0,
+                "fat": 15.0,
+                "carbohydrate": 9.0,
+                "sodium": 537.0,
+                "calcium": 13.0,
+                "base": 6.2,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Hot-Tea::默认",
+                "name": "锡兰红茶",
+                "slug": "Hot-Tea",
+                "category": "beverage",
+                "role": "drink",
+                "portion": "默认",
+                "price": 11.5,
+                "code": "3505",
+                "energy_kcal": 1.9,
+                "protein": 0.0,
+                "fat": 0.0,
+                "carbohydrate": 0.0,
+                "sodium": 0.0,
+                "calcium": 5.0,
+                "base": 3.4,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "hot"
+                ]
+              },
+              {
+                "key": "Cone::1个",
+                "name": "圆筒冰淇淋",
+                "slug": "Cone",
+                "category": "dessert",
+                "role": "dessert",
+                "portion": "1个",
+                "price": 5.0,
+                "code": "515837",
+                "energy_kcal": 93.5,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 14.0,
+                "sodium": 36.0,
+                "calcium": 77.0,
+                "base": 6.0,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy",
+                  "sweet"
+                ]
+              }
+            ],
+            "totals": {
+              "price": 48.0,
+              "kcal": 688.8,
+              "protein": 30.0,
+              "fat": 35.0,
+              "carbohydrate": 62.0,
+              "sodium": 1304.0,
+              "calcium": 168.0,
+              "count": 4
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "free",
+    "title": "无约束 · 自由发挥",
+    "payload": {
+      "constraints": {
+        "budget": null,
+        "max_kcal": null,
+        "max_sodium": null,
+        "min_protein": null,
+        "max_items": 5
+      },
+      "priced": 34,
+      "plans": {
+        "value": [
+          {
+            "score": 26.19,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Sausage-Scrambled-Double-Egg-Burger::1个",
+                "name": "猪柳炒双蛋堡",
+                "slug": "Sausage-Scrambled-Double-Egg-Burger",
+                "category": "breakfast",
+                "role": "main",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 436.7,
+                "protein": 25.0,
+                "fat": 24.0,
+                "carbohydrate": 29.0,
+                "sodium": 705.0,
+                "calcium": 116.0,
+                "base": 8.6,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "juicy",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "French-Fries::迷你",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "迷你",
+                "price": null,
+                "code": null,
+                "energy_kcal": 106.1,
+                "protein": 2.0,
+                "fat": 4.0,
+                "carbohydrate": 14.0,
+                "sodium": 61.0,
+                "calcium": 6.0,
+                "base": 6.2,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Hash-Brown::1个",
+                "name": "脆薯饼",
+                "slug": "Hash-Brown",
+                "category": "breakfast",
+                "role": "side",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 146.3,
+                "protein": 1.0,
+                "fat": 9.0,
+                "carbohydrate": 14.0,
+                "sodium": 311.0,
+                "calcium": 7.0,
+                "base": 6.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy"
+                ]
+              },
+              {
+                "key": "Iced-Oatly-Nai-Tie::小",
+                "name": "冰燕麦奶铁",
+                "slug": "Iced-Oatly-Nai-Tie",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "小",
+                "price": null,
+                "code": null,
+                "energy_kcal": 77.0,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 10.0,
+                "sodium": 50.0,
+                "calcium": 155.0,
+                "base": 4.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": null,
+              "kcal": 1251.0,
+              "protein": 54.0,
+              "fat": 64.0,
+              "carbohydrate": 109.0,
+              "sodium": 2335.0,
+              "calcium": 438.0,
+              "count": 5
+            }
+          },
+          {
+            "score": 24.02,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Cheese-Angus::1个",
+                "name": "芝士安格斯厚牛堡",
+                "slug": "Cheese-Angus",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 31.5,
+                "code": "511782",
+                "energy_kcal": 696.5,
+                "protein": 32.0,
+                "fat": 44.0,
+                "carbohydrate": 43.0,
+                "sodium": 897.0,
+                "calcium": 150.0,
+                "base": 8.7,
+                "source": "mcp",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "creamy",
+                  "juicy"
+                ]
+              },
+              {
+                "key": "French-Fries::迷你",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "迷你",
+                "price": null,
+                "code": null,
+                "energy_kcal": 106.1,
+                "protein": 2.0,
+                "fat": 4.0,
+                "carbohydrate": 14.0,
+                "sodium": 61.0,
+                "calcium": 6.0,
+                "base": 6.2,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Asian-Dough-Stick::1个",
+                "name": "脆香油条",
+                "slug": "Asian-Dough-Stick",
+                "category": "breakfast",
+                "role": "side",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 201.7,
+                "protein": 5.0,
+                "fat": 12.0,
+                "carbohydrate": 19.0,
+                "sodium": 230.0,
+                "calcium": 18.0,
+                "base": 5.9,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy"
+                ]
+              },
+              {
+                "key": "Iced-Oatly-Nai-Tie::小",
+                "name": "冰燕麦奶铁",
+                "slug": "Iced-Oatly-Nai-Tie",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "小",
+                "price": null,
+                "code": null,
+                "energy_kcal": 77.0,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 10.0,
+                "sodium": 50.0,
+                "calcium": 155.0,
+                "base": 4.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": null,
+              "kcal": 1566.2,
+              "protein": 65.0,
+              "fat": 87.0,
+              "carbohydrate": 128.0,
+              "sodium": 2446.0,
+              "calcium": 483.0,
+              "count": 5
+            }
+          },
+          {
+            "score": 26.16,
+            "persona_label": "省钱派",
+            "persona_desc": "把钱花在刀刃上，性价比优先",
+            "items": [
+              {
+                "key": "Sausage-Scrambled-Double-Egg-Burger::1个",
+                "name": "猪柳炒双蛋堡",
+                "slug": "Sausage-Scrambled-Double-Egg-Burger",
+                "category": "breakfast",
+                "role": "main",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 436.7,
+                "protein": 25.0,
+                "fat": 24.0,
+                "carbohydrate": 29.0,
+                "sodium": 705.0,
+                "calcium": 116.0,
+                "base": 8.6,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "juicy",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "French-Fries::迷你",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "迷你",
+                "price": null,
+                "code": null,
+                "energy_kcal": 106.1,
+                "protein": 2.0,
+                "fat": 4.0,
+                "carbohydrate": 14.0,
+                "sodium": 61.0,
+                "calcium": 6.0,
+                "base": 6.2,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Hash-Brown::1个",
+                "name": "脆薯饼",
+                "slug": "Hash-Brown",
+                "category": "breakfast",
+                "role": "side",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 146.3,
+                "protein": 1.0,
+                "fat": 9.0,
+                "carbohydrate": 14.0,
+                "sodium": 311.0,
+                "calcium": 7.0,
+                "base": 6.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy"
+                ]
+              },
+              {
+                "key": "Iced-Nai-Tie::小",
+                "name": "冰奶铁",
+                "slug": "Iced-Nai-Tie",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "小",
+                "price": null,
+                "code": null,
+                "energy_kcal": 85.6,
+                "protein": 5.0,
+                "fat": 4.0,
+                "carbohydrate": 8.0,
+                "sodium": 44.0,
+                "calcium": 144.0,
+                "base": 4.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": null,
+              "kcal": 1259.6,
+              "protein": 57.0,
+              "fat": 65.0,
+              "carbohydrate": 107.0,
+              "sodium": 2329.0,
+              "calcium": 427.0,
+              "count": 5
+            }
+          }
+        ],
+        "indulge": [
+          {
+            "score": 46.3,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Sausage-Scrambled-Double-Egg-Burger::1个",
+                "name": "猪柳炒双蛋堡",
+                "slug": "Sausage-Scrambled-Double-Egg-Burger",
+                "category": "breakfast",
+                "role": "main",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 436.7,
+                "protein": 25.0,
+                "fat": 24.0,
+                "carbohydrate": 29.0,
+                "sodium": 705.0,
+                "calcium": 116.0,
+                "base": 8.6,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "juicy",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "French-Fries::迷你",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "迷你",
+                "price": null,
+                "code": null,
+                "energy_kcal": 106.1,
+                "protein": 2.0,
+                "fat": 4.0,
+                "carbohydrate": 14.0,
+                "sodium": 61.0,
+                "calcium": 6.0,
+                "base": 6.2,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Hash-Brown::1个",
+                "name": "脆薯饼",
+                "slug": "Hash-Brown",
+                "category": "breakfast",
+                "role": "side",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 146.3,
+                "protein": 1.0,
+                "fat": 9.0,
+                "carbohydrate": 14.0,
+                "sodium": 311.0,
+                "calcium": 7.0,
+                "base": 6.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy"
+                ]
+              },
+              {
+                "key": "Iced-Oatly-Nai-Tie::小",
+                "name": "冰燕麦奶铁",
+                "slug": "Iced-Oatly-Nai-Tie",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "小",
+                "price": null,
+                "code": null,
+                "energy_kcal": 77.0,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 10.0,
+                "sodium": 50.0,
+                "calcium": 155.0,
+                "base": 4.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": null,
+              "kcal": 1251.0,
+              "protein": 54.0,
+              "fat": 64.0,
+              "carbohydrate": 109.0,
+              "sodium": 2335.0,
+              "calcium": 438.0,
+              "count": 5
+            }
+          },
+          {
+            "score": 45.24,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Cheese-Angus::1个",
+                "name": "芝士安格斯厚牛堡",
+                "slug": "Cheese-Angus",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 31.5,
+                "code": "511782",
+                "energy_kcal": 696.5,
+                "protein": 32.0,
+                "fat": 44.0,
+                "carbohydrate": 43.0,
+                "sodium": 897.0,
+                "calcium": 150.0,
+                "base": 8.7,
+                "source": "mcp",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "creamy",
+                  "juicy"
+                ]
+              },
+              {
+                "key": "French-Fries::迷你",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "迷你",
+                "price": null,
+                "code": null,
+                "energy_kcal": 106.1,
+                "protein": 2.0,
+                "fat": 4.0,
+                "carbohydrate": 14.0,
+                "sodium": 61.0,
+                "calcium": 6.0,
+                "base": 6.2,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Asian-Dough-Stick::1个",
+                "name": "脆香油条",
+                "slug": "Asian-Dough-Stick",
+                "category": "breakfast",
+                "role": "side",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 201.7,
+                "protein": 5.0,
+                "fat": 12.0,
+                "carbohydrate": 19.0,
+                "sodium": 230.0,
+                "calcium": 18.0,
+                "base": 5.9,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy"
+                ]
+              },
+              {
+                "key": "Iced-Oatly-Nai-Tie::小",
+                "name": "冰燕麦奶铁",
+                "slug": "Iced-Oatly-Nai-Tie",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "小",
+                "price": null,
+                "code": null,
+                "energy_kcal": 77.0,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 10.0,
+                "sodium": 50.0,
+                "calcium": 155.0,
+                "base": 4.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": null,
+              "kcal": 1566.2,
+              "protein": 65.0,
+              "fat": 87.0,
+              "carbohydrate": 128.0,
+              "sodium": 2446.0,
+              "calcium": 483.0,
+              "count": 5
+            }
+          },
+          {
+            "score": 46.28,
+            "persona_label": "嘴馋派",
+            "persona_desc": "预算之内，把这顿吃爽",
+            "items": [
+              {
+                "key": "Sausage-Scrambled-Double-Egg-Burger::1个",
+                "name": "猪柳炒双蛋堡",
+                "slug": "Sausage-Scrambled-Double-Egg-Burger",
+                "category": "breakfast",
+                "role": "main",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 436.7,
+                "protein": 25.0,
+                "fat": 24.0,
+                "carbohydrate": 29.0,
+                "sodium": 705.0,
+                "calcium": 116.0,
+                "base": 8.6,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "juicy",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "French-Fries::迷你",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "迷你",
+                "price": null,
+                "code": null,
+                "energy_kcal": 106.1,
+                "protein": 2.0,
+                "fat": 4.0,
+                "carbohydrate": 14.0,
+                "sodium": 61.0,
+                "calcium": 6.0,
+                "base": 6.2,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Hash-Brown::1个",
+                "name": "脆薯饼",
+                "slug": "Hash-Brown",
+                "category": "breakfast",
+                "role": "side",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 146.3,
+                "protein": 1.0,
+                "fat": 9.0,
+                "carbohydrate": 14.0,
+                "sodium": 311.0,
+                "calcium": 7.0,
+                "base": 6.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy"
+                ]
+              },
+              {
+                "key": "Iced-Nai-Tie::小",
+                "name": "冰奶铁",
+                "slug": "Iced-Nai-Tie",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "小",
+                "price": null,
+                "code": null,
+                "energy_kcal": 85.6,
+                "protein": 5.0,
+                "fat": 4.0,
+                "carbohydrate": 8.0,
+                "sodium": 44.0,
+                "calcium": 144.0,
+                "base": 4.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": null,
+              "kcal": 1259.6,
+              "protein": 57.0,
+              "fat": 65.0,
+              "carbohydrate": 107.0,
+              "sodium": 2329.0,
+              "calcium": 427.0,
+              "count": 5
+            }
+          }
+        ],
+        "balance": [
+          {
+            "score": 4.46,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Sausage-Scrambled-Double-Egg-Burger::1个",
+                "name": "猪柳炒双蛋堡",
+                "slug": "Sausage-Scrambled-Double-Egg-Burger",
+                "category": "breakfast",
+                "role": "main",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 436.7,
+                "protein": 25.0,
+                "fat": 24.0,
+                "carbohydrate": 29.0,
+                "sodium": 705.0,
+                "calcium": 116.0,
+                "base": 8.6,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "juicy",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "French-Fries::迷你",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "迷你",
+                "price": null,
+                "code": null,
+                "energy_kcal": 106.1,
+                "protein": 2.0,
+                "fat": 4.0,
+                "carbohydrate": 14.0,
+                "sodium": 61.0,
+                "calcium": 6.0,
+                "base": 6.2,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Hash-Brown::1个",
+                "name": "脆薯饼",
+                "slug": "Hash-Brown",
+                "category": "breakfast",
+                "role": "side",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 146.3,
+                "protein": 1.0,
+                "fat": 9.0,
+                "carbohydrate": 14.0,
+                "sodium": 311.0,
+                "calcium": 7.0,
+                "base": 6.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy"
+                ]
+              },
+              {
+                "key": "Iced-Oatly-Nai-Tie::小",
+                "name": "冰燕麦奶铁",
+                "slug": "Iced-Oatly-Nai-Tie",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "小",
+                "price": null,
+                "code": null,
+                "energy_kcal": 77.0,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 10.0,
+                "sodium": 50.0,
+                "calcium": 155.0,
+                "base": 4.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": null,
+              "kcal": 1251.0,
+              "protein": 54.0,
+              "fat": 64.0,
+              "carbohydrate": 109.0,
+              "sodium": 2335.0,
+              "calcium": 438.0,
+              "count": 5
+            }
+          },
+          {
+            "score": -1.89,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Cheese-Angus::1个",
+                "name": "芝士安格斯厚牛堡",
+                "slug": "Cheese-Angus",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 31.5,
+                "code": "511782",
+                "energy_kcal": 696.5,
+                "protein": 32.0,
+                "fat": 44.0,
+                "carbohydrate": 43.0,
+                "sodium": 897.0,
+                "calcium": 150.0,
+                "base": 8.7,
+                "source": "mcp",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "creamy",
+                  "juicy"
+                ]
+              },
+              {
+                "key": "French-Fries::迷你",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "迷你",
+                "price": null,
+                "code": null,
+                "energy_kcal": 106.1,
+                "protein": 2.0,
+                "fat": 4.0,
+                "carbohydrate": 14.0,
+                "sodium": 61.0,
+                "calcium": 6.0,
+                "base": 6.2,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Asian-Dough-Stick::1个",
+                "name": "脆香油条",
+                "slug": "Asian-Dough-Stick",
+                "category": "breakfast",
+                "role": "side",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 201.7,
+                "protein": 5.0,
+                "fat": 12.0,
+                "carbohydrate": 19.0,
+                "sodium": 230.0,
+                "calcium": 18.0,
+                "base": 5.9,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy"
+                ]
+              },
+              {
+                "key": "Iced-Oatly-Nai-Tie::小",
+                "name": "冰燕麦奶铁",
+                "slug": "Iced-Oatly-Nai-Tie",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "小",
+                "price": null,
+                "code": null,
+                "energy_kcal": 77.0,
+                "protein": 2.0,
+                "fat": 3.0,
+                "carbohydrate": 10.0,
+                "sodium": 50.0,
+                "calcium": 155.0,
+                "base": 4.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": null,
+              "kcal": 1566.2,
+              "protein": 65.0,
+              "fat": 87.0,
+              "carbohydrate": 128.0,
+              "sodium": 2446.0,
+              "calcium": 483.0,
+              "count": 5
+            }
+          },
+          {
+            "score": 4.42,
+            "persona_label": "均衡派",
+            "persona_desc": "控钠控油，吃得安心",
+            "items": [
+              {
+                "key": "Sausage-Scrambled-Double-Egg-Burger::1个",
+                "name": "猪柳炒双蛋堡",
+                "slug": "Sausage-Scrambled-Double-Egg-Burger",
+                "category": "breakfast",
+                "role": "main",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 436.7,
+                "protein": 25.0,
+                "fat": 24.0,
+                "carbohydrate": 29.0,
+                "sodium": 705.0,
+                "calcium": 116.0,
+                "base": 8.6,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "juicy",
+                  "tender"
+                ]
+              },
+              {
+                "key": "Spicy-Chicken-Filet::1个",
+                "name": "麦辣鸡腿汉堡",
+                "slug": "Spicy-Chicken-Filet",
+                "category": "burger",
+                "role": "main",
+                "portion": "1个",
+                "price": 23.0,
+                "code": "1440",
+                "energy_kcal": 484.9,
+                "protein": 24.0,
+                "fat": 24.0,
+                "carbohydrate": 42.0,
+                "sodium": 1208.0,
+                "calcium": 154.0,
+                "base": 9.8,
+                "source": "verified",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy",
+                  "juicy",
+                  "salty",
+                  "tender"
+                ]
+              },
+              {
+                "key": "French-Fries::迷你",
+                "name": "薯条",
+                "slug": "French-Fries",
+                "category": "snacks",
+                "role": "side",
+                "portion": "迷你",
+                "price": null,
+                "code": null,
+                "energy_kcal": 106.1,
+                "protein": 2.0,
+                "fat": 4.0,
+                "carbohydrate": 14.0,
+                "sodium": 61.0,
+                "calcium": 6.0,
+                "base": 6.2,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "crispy",
+                  "salty"
+                ]
+              },
+              {
+                "key": "Hash-Brown::1个",
+                "name": "脆薯饼",
+                "slug": "Hash-Brown",
+                "category": "breakfast",
+                "role": "side",
+                "portion": "1个",
+                "price": null,
+                "code": null,
+                "energy_kcal": 146.3,
+                "protein": 1.0,
+                "fat": 9.0,
+                "carbohydrate": 14.0,
+                "sodium": 311.0,
+                "calcium": 7.0,
+                "base": 6.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "chewy",
+                  "crispy"
+                ]
+              },
+              {
+                "key": "Iced-Nai-Tie::小",
+                "name": "冰奶铁",
+                "slug": "Iced-Nai-Tie",
+                "category": "mccafe",
+                "role": "drink",
+                "portion": "小",
+                "price": null,
+                "code": null,
+                "energy_kcal": 85.6,
+                "protein": 5.0,
+                "fat": 4.0,
+                "carbohydrate": 8.0,
+                "sodium": 44.0,
+                "calcium": 144.0,
+                "base": 4.0,
+                "source": "web",
+                "coupon_title": null,
+                "textures": [
+                  "cold",
+                  "creamy"
+                ]
+              }
+            ],
+            "totals": {
+              "price": null,
+              "kcal": 1259.6,
+              "protein": 57.0,
+              "fat": 65.0,
+              "carbohydrate": 107.0,
+              "sodium": 2329.0,
+              "calcium": 427.0,
+              "count": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+]

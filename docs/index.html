@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>今天麦什么 · 在线试算 — 麦当劳点单决策求解器</title>
+<meta name="description" content="基于麦当劳 MCP 的点单决策求解器：在预算、热量、钠、蛋白约束下，求解满足感最高的组合。浏览器内运行真实 Python 求解器。" />
+<style>
+  :root{
+    --red:#e4002b; --red-d:#b30022; --yellow:#ffc72c; --ink:#1d1d1f;
+    --muted:#6b6b70; --line:#ececf0; --bg:#fff7f2; --card:#ffffff;
+    --ok:#1a7f37; --warn:#c0392b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:24px 18px 64px}
+  header.hero{background:linear-gradient(135deg,var(--red),var(--red-d));color:#fff;border-radius:18px;
+       padding:26px 26px 22px;box-shadow:0 10px 30px rgba(228,0,43,.18)}
+  header.hero h1{margin:0 0 6px;font-size:26px;letter-spacing:.5px}
+  header.hero p{margin:0;opacity:.95;font-size:14px}
+  .badges{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+  .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;
+       font-size:12px;padding:4px 10px;border-radius:999px;text-decoration:none}
+  .badge.star{background:var(--yellow);color:#3a2a00;border-color:var(--yellow);font-weight:700}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px;margin-top:18px}
+  h2{font-size:17px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  h2 .tag{font-size:11px;font-weight:600;color:var(--red);background:#ffe9ee;padding:2px 8px;border-radius:6px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+  .field input,.field select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:9px;font-size:14px;background:#fafafa}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--red);background:#fff}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+  button{font-family:inherit;cursor:pointer;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:600}
+  .btn-primary{background:var(--red);color:#fff}
+  .btn-primary:hover{background:var(--red-d)}
+  .btn-primary:disabled{opacity:.6;cursor:default}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .chip{background:#fff;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:13px}
+  .chip:hover{border-color:var(--red);color:var(--red)}
+  .chip.active{background:var(--red);color:#fff;border-color:var(--red)}
+  .status{font-size:13px;color:var(--muted);margin-top:10px;min-height:18px}
+  .cmd{margin-top:12px;background:#1d1d1f;color:#ffd479;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+       font-size:12.5px;padding:10px 12px;border-radius:9px;overflow-x:auto;white-space:pre}
+  .persona{margin-top:16px}
+  .persona h3{font-size:15px;margin:0 0 4px;color:var(--red-d)}
+  .persona .desc{font-size:12px;color:var(--muted);margin:0 0 10px}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:12px}
+  .plan .head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .plan .title{font-weight:700;font-size:14px}
+  .plan .score{font-weight:800;color:var(--red);font-size:15px;white-space:nowrap}
+  table.items{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+  table.items th{text-align:left;color:var(--muted);font-weight:600;font-size:11px;padding:4px 6px;border-bottom:1px solid var(--line)}
+  table.items td{padding:5px 6px;border-bottom:1px dashed #f0f0f3;vertical-align:top}
+  .role{display:inline-block;font-size:11px;color:#fff;background:#9aa0a6;border-radius:5px;padding:1px 6px;margin-right:6px}
+  .role.main{background:var(--red)} .role.side{background:#f0a500} .role.drink{background:#2b7de9} .role.dessert{background:#9b59b6}
+  .tex{display:inline-block;font-size:11px;background:#eef6ff;color:#2b6cb0;border-radius:5px;padding:1px 6px;margin:1px 2px}
+  .totals{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:10px;font-size:12.5px;color:#333}
+  .totals b{color:var(--ink)}
+  .sodium-ok{color:var(--ok)} .sodium-warn{color:var(--warn);font-weight:700} .sodium-note{color:#b8860b}
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px;line-height:1.8}
+  a{color:var(--red)}
+  .empty{color:var(--muted);font-size:13px;padding:14px;text-align:center}
+  .loading{text-align:center;color:var(--muted);padding:30px;font-size:14px}
+  .spin{display:inline-block;width:16px;height:16px;border:2px solid #ddd;border-top-color:var(--red);border-radius:50%;animation:sp 1s linear infinite;vertical-align:-3px;margin-right:8px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>今天麦什么 · 在线试算</h1>
+    <p>基于麦当劳 MCP 的点单决策求解器 — 在预算 / 热量 / 钠 / 蛋白约束下，求解「满足感最高」的组合。本页在浏览器内运行真实 Python 求解器。</p>
+    <div class="badges">
+      <a class="badge star" href="https://github.com/ftxcgwf/mcd-solver" target="_blank" rel="noopener">★ 给项目点 Star</a>
+      <a class="badge" href="https://github.com/ftxcgwf/mcd-solver" target="_blank" rel="noopener">GitHub 仓库</a>
+      <a class="badge" href="https://github.com/ftxcgwf/mcd-solver/blob/main/workbuddy.md" target="_blank" rel="noopener">WorkBuddy 原生项目</a>
+      <span class="badge">前 100 名 +3000 积分凭证</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>设定你的约束 <span class="tag">实时求解</span></h2>
+    <div class="grid">
+      <div class="field"><label>预算上限（元，留空不限）</label><input id="budget" type="number" min="0" step="1" placeholder="如 40"></div>
+      <div class="field"><label>钠上限（mg，每日推荐 2000）</label><input id="max_sodium" type="number" min="0" step="100" placeholder="如 2000"></div>
+      <div class="field"><label>热量上限（kcal，留空不限）</label><input id="max_kcal" type="number" min="0" step="50" placeholder="如 800"></div>
+      <div class="field"><label>蛋白下限（g，留空不限）</label><input id="min_protein" type="number" min="0" step="5" placeholder="如 30"></div>
+      <div class="field"><label>人设</label>
+        <select id="persona">
+          <option value="all">全部（省钱/嘴馋/均衡）</option>
+          <option value="value">省钱派</option>
+          <option value="indulge">嘴馋派</option>
+          <option value="balance">均衡派</option>
+        </select>
+      </div>
+      <div class="field"><label>最多几件</label><input id="max_items" type="number" min="1" max="8" step="1" value="5"></div>
+    </div>
+    <div class="actions">
+      <button class="btn-primary" id="solveBtn">▶ 实时求解（浏览器内运行真实求解器）</button>
+    </div>
+    <div class="status" id="status">提示：首次求解会按需加载 Python 运行时（Pyodide，约 10MB），稍慢属正常。</div>
+    <div class="cmd" id="cmd">python cli.py --persona all</div>
+  </section>
+
+  <section>
+    <h2>预置案例 <span class="tag">无需加载 · 即时查看</span></h2>
+    <div class="chips" id="chips"></div>
+    <div class="status">下面展示的是用同一套求解内核、在常州万象城门店快照（营养数据 2025-04）下真实跑出的结果。</div>
+  </section>
+
+  <section id="resultSection" style="display:none">
+    <h2 id="resultTitle">求解结果</h2>
+    <div id="result"></div>
+  </section>
+
+  <footer>
+    数据来源：麦当劳中国官网营养计算器（2025-04 更新）与 MCP 实时菜单（常州万象城门店快照）。<br>
+    营养数据以官方公布为准，实际出品可能存在差异。本工具为参赛演示作品，下单请以官方为准。<br>
+    Powered by <a href="https://www.workbuddy.cn" target="_blank" rel="noopener">WorkBuddy</a> · 求解内核与仓库 <code>cli.py</code> 完全一致
+  </footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+<script>
+const PY_FILES = [
+  '/solver/__init__.py','/solver/model.py','/solver/optimize.py','/solver/satisfaction.py','/solver/taste.py',
+  '/data/nutrition.json','/data/menu.json','/data/prices_verified.json','/data/prices_coupon.json','/run_solver.py'
+];
+const TEX = {crispy:'酥脆',juicy:'多汁',tender:'嫩滑',cold:'冰爽',hot:'温热',creamy:'奶香',chewy:'嚼劲',sweet:'甜',salty:'咸香',fresh:'清爽'};
+const ROLE_ZH = {main:'主食',side:'小食',drink:'饮料',dessert:'甜品'};
+const PERSONA_ORDER = ['value','indulge','balance'];
+const SODIUM_LIMIT = 2000;
+
+const $ = id => document.getElementById(id);
+function num(v){ v = v===undefined?null:v; if(v===null||v===''||isNaN(v)) return null; return Number(v); }
+
+function buildCmd(p){
+  let c = 'python cli.py';
+  if(p.budget!=null) c += ` --budget ${p.budget}`;
+  if(p.max_kcal!=null) c += ` --max-kcal ${p.max_kcal}`;
+  if(p.max_sodium!=null) c += ` --max-sodium ${p.max_sodium}`;
+  if(p.min_protein!=null) c += ` --min-protein ${p.min_protein}`;
+  c += ` --persona ${p.persona}`;
+  if(p.max_items && p.max_items!=5) c += ` --max-items ${p.max_items}`;
+  return c;
+}
+
+function readParams(){
+  return {
+    budget: num($('budget').value),
+    max_kcal: num($('max_kcal').value),
+    max_sodium: num($('max_sodium').value),
+    min_protein: num($('min_protein').value),
+    persona: $('persona').value,
+    max_items: num($('max_items').value) || 5,
+  };
+}
+
+function fmtPrice(p){ return p==null ? '—' : '¥'+Number(p).toFixed(1); }
+function texTags(arr){ return (arr||[]).map(t=>TEX[t]||t).map(t=>`<span class="tex">${t}</span>`).join(''); }
+
+function renderPlan(plan){
+  const items = plan.items.map(it=>{
+    const role = ROLE_ZH[it.role]||it.role;
+    return `<tr>
+      <td><span class="role ${it.role}">${role}</span><b>${it.name}</b>${it.portion&&it.portion!=='1份'?` <span style="color:#888;font-size:12px">${it.portion}</span>`:''}</td>
+      <td style="white-space:nowrap">${fmtPrice(it.price)}</td>
+      <td>${it.energy_kcal!=null?Math.round(it.energy_kcal)+' kcal':'—'}</td>
+      <td>${it.sodium!=null?Math.round(it.sodium)+' mg':'—'}</td>
+      <td>${texTags(it.textures)||'—'}</td>
+    </tr>`;
+  }).join('');
+  const t = plan.totals;
+  const na = t.sodium;
+  let naCls='sodium-ok', naTxt=`钠 ${Math.round(na)} mg`;
+  if(na>SODIUM_LIMIT){ naCls='sodium-warn'; naTxt=`⚠ 钠 ${Math.round(na)} mg（超每日推荐 ${Math.round(na-SODIUM_LIMIT)}mg）`; }
+  else if(na>SODIUM_LIMIT*0.75){ naCls='sodium-note'; naTxt=`钠 ${Math.round(na)} mg（已达每日推荐 75%）`; }
+  return `<div class="plan">
+    <div class="head"><span class="title">${plan.persona_label}</span>
+      <span class="score">满足感 ${plan.score}</span></div>
+    <table class="items"><thead><tr><th>单品</th><th>价格</th><th>热量</th><th>钠</th><th>口感</th></tr></thead>
+      <tbody>${items}</tbody></table>
+    <div class="totals">
+      <span>合计 <b>${fmtPrice(t.price)}</b></span>
+      <span>热量 <b>${Math.round(t.kcal)} kcal</b></span>
+      <span>蛋白 <b>${Math.round(t.protein)} g</b></span>
+      <span>脂肪 <b>${Math.round(t.fat)} g</b></span>
+      <span>碳水 <b>${Math.round(t.carbohydrate)} g</b></span>
+      <span class="${naCls}">${naTxt}</span>
+    </div>
+  </div>`;
+}
+
+function render(data, title){
+  $('resultSection').style.display='block';
+  $('resultTitle').textContent = title || '求解结果';
+  if(!data || !data.plans){ $('result').innerHTML='<div class="empty">没有返回结果。</div>'; return; }
+  const priced = data.priced||0;
+  let html = priced>0 ? `<div class="status">已加载 ${priced} 个带价格单品（常州万象城快照）。</div>` : '';
+  for(const persona of PERSONA_ORDER){
+    const plans = data.plans[persona];
+    if(!plans || !plans.length){ continue; }
+    const label = plans[0].persona_label || persona;
+    const desc = plans[0].persona_desc || '';
+    html += `<div class="persona"><h3>${label}</h3><p class="desc">${desc}</p>`;
+    html += plans.map(renderPlan).join('');
+    html += `</div>`;
+  }
+  if(!html) html='<div class="empty">当前约束下没有可行组合，试试放宽预算或热量上限。</div>';
+  $('result').innerHTML = html;
+  $('resultSection').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ---------- 预置案例 ----------
+let examples = null;
+async function loadExamples(){
+  try{
+    const r = await fetch('./examples.json');
+    if(!r.ok) throw 0;
+    examples = await r.json();
+  }catch(e){
+    examples = [];
+  }
+  const chips = $('chips');
+  if(!examples || !examples.length){ chips.innerHTML='<span class="empty">预置案例加载失败（请通过上方实时求解体验）。</span>'; return; }
+  examples.forEach((ex,i)=>{
+    const b=document.createElement('button');
+    b.className='chip'+(i===0?' active':'');
+    b.textContent=ex.title;
+    b.onclick=()=>{ document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); b.classList.add('active');
+      render(ex.payload, '预置案例 · '+ex.title); };
+    chips.appendChild(b);
+  });
+  // 默认展示第一个
+  render(examples[0].payload, '预置案例 · '+examples[0].title);
+}
+
+// ---------- 实时求解（Pyodide） ----------
+let pyReady=null;
+function setStatus(s){ $('status').innerHTML=s; }
+async function ensurePyodide(){
+  if(pyReady) return pyReady;
+  setStatus('<span class="spin"></span>正在加载 Python 运行时（Pyodide，约 10MB，首次稍慢）…');
+  pyReady = (async()=>{
+    const py = await loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.26.2/full/'});
+    py.runPython("import os; os.makedirs('/solver',exist_ok=True); os.makedirs('/data',exist_ok=True)");
+    setStatus('<span class="spin"></span>正在写入求解器与数据文件…');
+    for(const f of PY_FILES){
+      const resp = await fetch('.'+f);
+      if(!resp.ok) throw new Error('加载失败: '+f+' ('+resp.status+')');
+      py.FS.writeFile(f, await resp.text());
+    }
+    setStatus('运行时就绪，求解中…');
+    return py;
+  })();
+  return pyReady;
+}
+
+async function liveSolve(){
+  const p = readParams();
+  $('cmd').textContent = buildCmd(p);
+  const btn = $('solveBtn');
+  btn.disabled=true;
+  try{
+    const py = await ensurePyodide();
+    py.globals.set('params', {
+      budget:p.budget, max_kcal:p.max_kcal, max_sodium:p.max_sodium,
+      min_protein:p.min_protein, max_items:p.max_items, persona:p.persona, top_k:3
+    });
+    const jsonStr = await py.runPythonAsync("import run_solver, json\njson.dumps(run_solver.run(**params), ensure_ascii=False)");
+    const data = JSON.parse(jsonStr);
+    render(data, '实时求解 · 浏览器内运行真实 Python 求解器');
+    setStatus('✓ 求解完成。结果由页面内运行的真实求解内核生成，与仓库 cli.py 一致。');
+  }catch(err){
+    setStatus('⚠ 实时求解加载失败（可能是网络无法访问 Pyodide CDN）。请用上方「预置案例」查看真实结果，或 clone 仓库本地运行。错误：'+err.message);
+  }finally{
+    btn.disabled=false;
+  }
+}
+
+$('solveBtn').addEventListener('click', liveSolve);
+document.querySelectorAll('.field input,.field select').forEach(el=>{
+  el.addEventListener('input', ()=>{ $('cmd').textContent = buildCmd(readParams()); });
+});
+loadExamples();
+</script>
+</body>
+</html>
