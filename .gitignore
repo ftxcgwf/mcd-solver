@@ -12,6 +12,10 @@ venv/
 # 用户手工填写的本地价格表（含门店实际价格，可选是否提交）
 data/prices.json
 
+# 券数据：含真实 couponCode，公开仓库泄露后他人可直接核销，切勿提交
+data/coupons.json
+data/prices_coupon.json
+
 # 编辑器与系统
 .vscode/
 .idea/

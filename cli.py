@@ -11,6 +11,7 @@
 有 Token 时先跑 scripts/fetch_menu.py 校准真实价格，预算约束才会生效。
 
 加 --quote 可把方案交给麦当劳 MCP 做官方券后价复核；
+加 --coupons 会逐张试算卡包里的券，告诉你这一单用哪张最划算；
 加 --place 会在复核后经人工确认创建真实订单（需 Token）。
 """
 
@@ -156,6 +157,81 @@ def run_verify(args, out, personas):
             break
 
 
+def run_coupons(args, out, personas):
+    """
+    券优化：把卡包里的券逐张拿去问 MCP，看这一单用哪张最划算。
+
+    券接口只给 couponId 不给面额，所以本地算不出「省多少」，
+    只能带着 couponId 调 calculate-price 一张张比。
+    """
+    token = os.environ.get("MCD_MCP_TOKEN")
+    if not token:
+        print("\n  券优化需要 MCP Token：export MCD_MCP_TOKEN=你的Token")
+        print("  领取：https://open.mcd.cn/mcp")
+        return
+
+    from coupons import (
+        CouponClient, quote_resilient, render_addons, render_coupon_choice,
+        suggest_addons, try_coupons,
+    )
+    from order import lines_from_plan, yuan
+
+    client = CouponClient(token=token, verbose=False)
+    client.initialize()
+
+    store_code = args.store_code
+    store_name = "指定门店"
+    if not store_code:
+        store = client.pick_store(args.city)
+        store_code, store_name = store.get("storeCode"), store.get("storeName", "")
+
+    mine = client.mine()
+    usable = client.store(store_code)
+    # 门店可用券是「卡包 ∩ 该店适用」的结果，两者都要看：
+    # 卡包里的不保证能用，门店列表的才是这一单真能核销的
+    pool = usable or mine
+    if not pool:
+        print(f"\n{BAR}")
+        print(f"  券优化 · {store_name}（{store_code}）")
+        print(BAR)
+        print("  当前没有可用优惠券。")
+        print("  可以先运行 scripts/coupons.py --bind 领取麦麦省当前可领的券。")
+        return
+
+    print(f"\n{BAR}")
+    print(f"  券优化 · {store_name}（{store_code}）")
+    print(BAR)
+    print(f"  卡包 {len(mine)} 张，本店可用 {len(usable)} 张")
+
+    for persona in personas:
+        rs = out.get(persona) or []
+        if not rs:
+            continue
+        r = rs[0]
+        lines, skipped = lines_from_plan(r["items"])
+        if not lines:
+            print(f"\n  【{r.get('persona_label') or persona}】方案无商品编码，跳过。")
+            continue
+        try:
+            qdata, used, sold_out = quote_resilient(client, store_code, lines)
+            base = yuan((qdata or {}).get("price"))
+            results = try_coupons(client, store_code, used, pool) if used else []
+        except Exception as e:                      # noqa: BLE001
+            print(f"\n  【{r.get('persona_label') or persona}】试算失败：{e}")
+            continue
+        print(f"\n  【{r.get('persona_label') or persona}】")
+        print(render_coupon_choice(base, results, store_name))
+        # 方案里没有券商品时，进一步回答「加一件值不值」
+        if not results:
+            adds = suggest_addons(client, store_code, used, pool, args.budget)
+            if adds:
+                print(render_addons(base, adds, args.budget))
+        if sold_out:
+            print(f"    注意：{len(sold_out)} 件当前售罄，已从试算中剔除")
+        if skipped:
+            print(f"    注意：{len(skipped)} 件无编码未纳入 —— {', '.join(skipped[:3])}")
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="今天麦什么 —— 麦当劳点单决策求解器",
@@ -177,6 +253,8 @@ def main():
     ap.add_argument("--json", action="store_true", help="以 JSON 输出")
     ap.add_argument("--quote", action="store_true",
                     help="用 MCP calculate-price 做官方券后价复核（需 Token）")
+    ap.add_argument("--coupons", action="store_true",
+                    help="逐张试算卡包里的券，输出本单最优用券（需 Token）")
     ap.add_argument("--place", action="store_true",
                     help="复核后创建真实订单（需 Token，且需交互确认）")
     ap.add_argument("--city", default="北京", help="复核/下单用的城市")
@@ -205,7 +283,7 @@ def main():
 
     # 要复核或下单时，只在带 productCode 的单品里求解。
     # 没有编码的单品官方认不出来，选进去只会让复核少算一件。
-    if args.quote or args.place:
+    if args.quote or args.place or args.coupons:
         orderable = [i for i in items if i.code]
         if orderable:
             items = orderable
@@ -273,6 +351,9 @@ def main():
         for n, r in enumerate(rs, 1):
             print_plan(n, r, persona)
         print_marginal(rs, persona)
+
+    if args.coupons:
+        run_coupons(args, out, personas)
 
     if args.quote or args.place:
         run_verify(args, out, personas)

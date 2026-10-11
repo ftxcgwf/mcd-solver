@@ -1,0 +1,41 @@
+{
+  "_说明": "券数据文件结构示例。scripts/coupons.py 抓取的真实数据会写入 data/coupons.json（含真实 couponCode，已加入 .gitignore，切勿提交）。",
+  "_安全提示": "couponCode 是核销凭证，等同于现金。公开仓库一旦泄露，他人可直接用掉你的券。",
+  "fetched_at": "2026-10-11 09:42:14",
+  "store_code": "1950970",
+  "available": [
+    {
+      "title": "免费脆薯饼",
+      "status": "可领取",
+      "image": "https://img.mcd.cn/cms/images/xxxx.png"
+    }
+  ],
+  "mine": [
+    {
+      "couponId": "示例券ID（32位十六进制）",
+      "couponCode": "MCD****************",
+      "title": "券名称",
+      "tradeDateTime": "2026-10-11 00:00:00-2026-10-17 23:59:59",
+      "productCodes": ["507411"],
+      "productNames": ["麦咖啡™冰美式中杯"]
+    }
+  ],
+  "store_usable": [
+    {
+      "couponId": "示例券ID（32位十六进制）",
+      "couponCode": "MCD****************",
+      "title": "9.9元中杯冰美式",
+      "tradeDateTime": "2026-10-11 00:00:00-2026-10-17 23:59:59",
+      "productCodes": ["507411"],
+      "productNames": ["麦咖啡™冰美式中杯"]
+    }
+  ],
+  "promotions": [
+    {
+      "promotionId": "331868002",
+      "promotionType": "33",
+      "ruleCategory": 30,
+      "beTypes": ["6"]
+    }
+  ]
+}

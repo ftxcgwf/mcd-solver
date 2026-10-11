@@ -44,6 +44,8 @@ python cli.py --budget 30 --persona value --json
 | 「健康点」 | `--persona balance` |
 | 「到底多少钱」/「帮我确认下价格」 | `--quote` |
 | 「就这个，帮我下单」 | `--quote --place` |
+| 「我有什么券」/「帮我领券」 | `scripts/coupons.py` |
+| 「用哪张券划算」/「要不要凑单」 | `--coupons` |
 
 ## 对话示例
 
@@ -100,6 +102,7 @@ WorkBuddy 在向用户转述结果时，建议遵循：
 
 - 本项目主体是**决策辅助**；下单需要用户明确要求，且必须让其自行输入金额确认
 - 预算约束依赖 MCP 价格与官方结算价校准，缺失时自动降级并明确提示
+- 券面额接口不返回，必须由 `calculate-price` 试算得出；领券（`--bind`）属账号写操作，需先征得用户同意
 - 服务范围为麦当劳中国大陆，不含港澳台
 - 不构成医疗或营养建议
 
@@ -109,6 +112,7 @@ WorkBuddy 在向用户转述结果时，建议遵循：
 |---|---|
 | `SKILL.md` | Skill 定义，供 WorkBuddy 等智能体加载 |
 | `cli.py` | 命令行入口，`--json` 输出便于智能体解析 |
-| `MCP_INTEGRATION.md` | MCP 调用说明 |
+| `scripts/coupons.py` | 券查看 / 领取 / 折算券后价 / 逐张试算 |
+| `MCP_INTEGRATION.md` | MCP 调用说明（含券工具与踩坑记录） |
 | `mcp-config.example.json` | 脱敏 MCP 配置示例 |
 | `CONTEST_DECLARATION.md` | 原创性与合规声明 |

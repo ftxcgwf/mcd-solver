@@ -34,6 +34,7 @@ python cli.py --max-kcal 800 --max-sodium 2000 --persona all
 export MCD_MCP_TOKEN=你的Token
 python scripts/fetch_menu.py          # 抓取在售菜单与价格 -> data/menu.json
 python scripts/verify_prices.py       # 校准官方结算价 -> data/prices_verified.json
+python scripts/coupons.py --calibrate # 折算券后价 -> data/prices_coupon.json（有券时）
 python cli.py --budget 45 --max-kcal 1200 --persona all
 ```
 
@@ -57,10 +58,31 @@ python scripts/fetch_nutrition_web.py
 | `--min-protein` | 蛋白质下限（克），健身场景用 |
 | `--max-items` | 最多几件，默认 5 |
 | `--persona` | `value` 省钱派 / `indulge` 嘴馋派 / `balance` 均衡派 / `all` |
+| `--coupons` | 逐张试算卡包里的券，输出本单最优用券与加购建议（需 Token） |
 | `--quote` | 用 MCP `calculate-price` 复核官方券后价（需 Token） |
 | `--place` | 复核后创建真实订单（需 Token，且需人工确认） |
 | `--city` / `--store-code` | 复核与下单用的城市 / 指定门店 |
 | `--json` | 机器可读输出，便于接入其他 Agent |
+
+## 券优化
+
+用户问「我有什么券」「用哪张券划算」「要不要凑单」时走这里：
+
+```bash
+python scripts/coupons.py --city 北京                  # 查看可领券 / 卡包 / 本店可用券
+python scripts/coupons.py --city 北京 --bind           # 一键领取（账号写操作，需用户授权）
+python scripts/coupons.py --city 北京 --calibrate       # 折算券后价，供求解器直接使用
+python cli.py --budget 45 --persona all --coupons       # 求解并逐张试算券
+```
+
+**两个必须讲清的点**：
+
+1. 券接口**不返回面额**，只给 `couponId`。所以「这张券值多少钱」只能带着
+   `couponId` 去问 `calculate-price`。别试图从券名里猜金额。
+2. 券要**先折算成券后价再求解**，而不是求解完再挑券。后者几乎永远命中不了，
+   因为方案里恰好没有那件商品。
+
+`--bind` 会改变用户账号状态（领券），属于写操作，动手前先问一句。
 
 ## 复核与下单
 

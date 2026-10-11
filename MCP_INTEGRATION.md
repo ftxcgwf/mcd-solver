@@ -25,8 +25,13 @@
 |---|---|---|
 | `query-meals` | 查询门店当前可售卖的餐品列表，含分类、餐品编码与价格 | `scripts/fetch_menu.py` 抓取 `data/menu.json` 时 |
 | `query-nearby-stores` | 查询可用门店与其营业状态，取得 `storeCode` | 用户未指定门店时自动选取，且**优先挑营业中的** |
-| `calculate-price` | 计算真实券后价，同时返回 `takeWayList`（下单必用的取餐方式） | `--quote` 复核方案时；`scripts/verify_prices.py` 批量校准结算价时 |
+| `calculate-price` | 计算真实券后价，同时返回 `takeWayList`（下单必用的取餐方式） | `--quote` 复核方案时；`scripts/verify_prices.py` 批量校准结算价时；`--coupons` 逐张试算券时 |
 | `create-order` | 创建真实订单，返回支付信息 | 用户显式 `--place` 并通过人工确认后 |
+| `query-store-coupons` | 查询指定门店 + 订单类型下**真正可用**的券，带 `couponId`/`couponCode` 与适用商品编码 | `--coupons` 时；`--quote` 时展示本店可用券 |
+| `query-my-coupons` | 卡包维度的券资产（不做门店校验） | `--coupons` 时与门店券取并集 |
+| `available-coupons` | 麦麦省当前**可领取**的券列表 | `scripts/coupons.py` 展示时 |
+| `auto-bind-coupons` | 一键领取所有可领券（账号写操作） | 用户显式 `--bind` 时 |
+| `query-promotions` | 门店满减/满折促销规则（企业团餐场景） | `--coupons` 时附带展示 |
 
 `query-meals` 是**关键依赖**：官网营养计算器只提供营养成分，不提供价格，而「预算 45 块怎么吃」里价格是硬约束。
 
@@ -39,12 +44,22 @@
 
 菜单标价疑似是「起价」或展示价。本项目早期版本直接采用它，结果求解器算 ¥44.4、官方复核 ¥57.5，低估了 30%。因此 `scripts/verify_prices.py` 会用 `calculate-price` 逐个校准，产出 `data/prices_verified.json`，优先级高于菜单标价。
 
+### 关于券的两个关键发现
+
+**发现一：所有券接口都不返回面额。** 券上写「¥5 优惠」是印在图片上的，接口只给一个 `couponId`。所以「这张券值多少钱」在本地无解——唯一办法是带着 `couponId` 调 `calculate-price` 算一遍再比价。这是全项目里 MCP 不可替代性最强的一环：不用 MCP，这件事做不了。
+
+**发现二：券必须注入价格层，而不是求解完再挑。** 最初的实现是"先求解、再看手里的券能不能用"，结果几乎永远命中不了——方案里恰好没有那件商品。正确的顺序是先用 `calculate-price` 把券折算成**券后价**写进 `data/prices_coupon.json`，让「冰美式有券只要 ¥9.9」从一开始就参与组合选择。实测：
+
+| 商品 | 菜单标价 | 用券后 |
+|---|---|---|
+| 麦咖啡™美式（code 507411） | ¥11.9 | **¥9.9** |
+
+价格优先级因此定为：`券后价` > `官方结算价` > `菜单标价` > 无价格。
+
 ### 已接入但未纳入求解（留作扩展）
 
 | Tool | 现状与扩展方向 |
 |---|---|
-| `query-store-coupons` | 已调用并在复核输出里展示门店可用券。当前测试账号无券，返回空列表；有券时可按 `products[].productCode` 匹配，把「用哪张券最划算」纳入约束求解 |
-| `query-my-coupons` | 同上，卡包维度 |
 | `list-nutrition-foods` | 未接入。官网营养快照已覆盖 82 个产品/115 个可选项，可用于交叉校验或官网数据过期时作为主数据源 |
 | `query-meal-detail` | 未接入。可展开套餐组成与特制项，支持「板烧鸡腿堡不要酱」这类定制 |
 | `delivery-query-stores` / `delivery-query-addresses` | 未接入。外送场景需先查地址与可达门店，本项目默认 `beType=1`（到店取餐）规避 |
@@ -72,10 +87,21 @@
                 data/menu.json
                         │
                         ▼
-        三源合并（品名归一化 + 商品编码精确匹配）
-                        │   优先级：结算价 > 菜单标价 > 无价格
+        POST tools/call query-store-coupons → 本店可用券（--coupons，需 Token）
+        POST tools/call calculate-price {items[].couponId} → 折算券后价
+                        │
+                        ▼
+                data/prices_coupon.json
+                        │
+                        ▼
+        四源合并（品名归一化 + 商品编码精确匹配）
+                        │   优先级：券后价 > 结算价 > 菜单标价 > 无价格
                         ▼
         分层束搜索求解 → 三套方案 → 终端 / JSON 输出
+                        │
+                        ├─►（--coupons）逐张券带进 calculate-price 试算，
+        │       输出「本单用哪张券最划算」；方案里没命中券商品时，
+        │       再给出「加一件用券只要多花多少」的建议
                         │
                         ▼  （--quote，需 Token）
         POST tools/call query-nearby-stores      → 挑营业中的门店
@@ -131,18 +157,27 @@ data.meals{code}.discountType     优惠类型：早餐卡/促销/麦金卡…
 
 ## 5. 数据一致性处理
 
-三条数据源存在四类差异，已分别处理：
+四条数据源存在五类差异，已分别处理：
 
 1. **重复条目**——官网同一产品会出现在多个分类页（如「玉米杯」同时在「小食」和「开心乐园餐」下），`dedup()` 按「归一化品名 + 热量」判重。
 2. **规格字段串位**——部分产品页（如 `mini-fries`）的规格项解析会串到品名，`fetch_nutrition_web.py` 对规格名做长度与括号校验，异常时回退为「默认」。
 3. **品名对不齐**——官网叫「可口可乐」而 MCP 叫「可乐」；官网叫「冰奶铁」而 MCP 叫「麦咖啡™奶铁」。归一化时剥离品牌前缀，精确匹配之外再做双向子串匹配取最长候选。商品编码（productCode）则严格精确匹配，不模糊——校准本来就是为了消灭歧义。
 4. **价格缺失**——未加载 MCP 菜单时价格为空，求解器自动降级：预算约束不生效，省钱派切换为「轻量派」并以热量代理花费，同时在终端明确提示，不静默给出错误结论。
+5. **商品售罄**——`calculate-price` 只要整批里有一件售罄，就整单报 60006，连累其他商品算不出价。方案通常只有三五件，所以失败时逐件探测、剔除售罄品再算整批（`quote_resilient()`），比二分更快也更好懂。早餐/深夜时段售罄很常见。
 
 ## 6. 安全
 
 - MCP Token 只从环境变量 `MCD_MCP_TOKEN` 或 `--token` 参数读取，不写入任何文件
 - `mcp-config.example.json` 只含 `${MCD_MCP_TOKEN}` 占位符，无真实凭据
 - `data/` 中的快照数据只含公开的餐品营养与价格，不含任何用户个人信息、订单或地址
+
+### 券数据安全
+
+`couponCode` 是**核销凭证，等同于现金**。公开仓库一旦泄露，任何人拿到都能直接用掉你的券。因此：
+
+- 抓取结果写入 `data/coupons.json` 与 `data/prices_coupon.json`，两者均已加入 `.gitignore`
+- 仓库只提交脱敏的结构示例 `data/coupons.example.json`（券码以 `MCD****` 形式示意）
+- 券码全程只在内存中参与试算，不写入 README、文档或任何提交文件
 
 ### 下单安全
 

@@ -30,7 +30,7 @@ class Item:
     __slots__ = (
         "key", "name", "slug", "category", "role", "portion", "price", "code",
         "energy_kcal", "protein", "fat", "carbohydrate", "sodium", "calcium",
-        "textures", "base", "source",
+        "textures", "base", "source", "coupon_title",
     )
 
     def __init__(self, **kw):
@@ -108,6 +108,48 @@ def apply_verified_prices(items, verified):
             it.price = float(p)
             it.source = "verified"
             hit += 1
+    return hit
+
+
+def load_coupon_prices(path=None):
+    """
+    加载券后价。结构：{"prices": {"商品编码": {"price": 元, "title": 券名, "name": 品名}}}
+
+    由 scripts/coupons.py --calibrate 用 calculate-price 折算得到。
+    券接口只给 couponId 不给面额，所以「这张券值多少钱」只能靠官方试算反推。
+    """
+    path = path or os.path.join(DATA_DIR, "prices_coupon.json")
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            return (json.load(f).get("prices") or {})
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def apply_coupon_prices(items, coupon_prices):
+    """
+    用券后价覆盖。按商品编码精确匹配。
+
+    放在官方结算价之后生效——券后价才是这一单真正要付的数。
+    """
+    if not coupon_prices:
+        return 0
+    hit = 0
+    for it in items:
+        if not it.code:
+            continue
+        entry = coupon_prices.get(str(it.code))
+        if not entry:
+            continue
+        p = entry.get("price") if isinstance(entry, dict) else entry
+        if p is None:
+            continue
+        it.price = float(p)
+        it.source = "coupon"
+        it.coupon_title = (entry.get("title") if isinstance(entry, dict) else "") or ""
+        hit += 1
     return hit
 
 
@@ -273,6 +315,9 @@ def load_items(nutrition_path=None, menu_path=None, prices_path=None):
 
     # 官方结算价优先级最高：它才是真正会扣款的数字
     apply_verified_prices(items, load_verified_prices())
+
+    # 券后价再盖一层：有券的话这一单实际就付这么多
+    apply_coupon_prices(items, load_coupon_prices())
 
     return items
 
