@@ -108,6 +108,13 @@ S = 固有满足度        # 单品口感愉悦分，来自口味先验，按边
 git clone https://github.com/你的用户名/mcd-solver.git
 cd mcd-solver
 
+# 一行到底（会自动建营养快照并跑三个示例）
+python scripts/quickstart.py
+```
+
+手工执行同样简单：
+
+```bash
 # 1. 建营养快照（约 2 分钟，抓自麦当劳官网公开营养计算器，无需 Token）
 python scripts/fetch_nutrition_web.py
 
@@ -217,7 +224,7 @@ python cli.py --budget 45 --persona all --quote      # 求解并让官方复核�
 
 ## 算法
 
-菜单展开后有 115+ 个可选项，穷举 3~5 件组合有上亿种。但一顿麦当劳有天然层次：主食 / 小食 / 饮料 / 甜品，每层数量上限很小。
+营养快照展开后有 125 个可选项（82 个产品 × 各自的规格档位），穷举 3~5 件组合有上亿种。但一顿麦当劳有天然层次：主食 / 小食 / 饮料 / 甜品，每层数量上限很小。
 
 于是用**分层束搜索**：逐层扩展，每层只保留 `beam_width` 个最有希望的部分解。热量、钠、花费都是单调累加的，超预算的分支当场剪掉，不必等组合完整才发现。
 
@@ -229,10 +236,12 @@ python cli.py --budget 45 --persona all --quote      # 求解并让官方复核�
 
 | 数据 | 来源 | 是否需要 Token | 实测规模 |
 |---|---|---|---|
-| 营养（热量/蛋白/脂肪/碳水/钠/钙） | 麦当劳中国官网营养计算器 | 否 | 82 个产品 / 115 个可选项（含规格） |
-| 在售菜单与商品编码 | 麦当劳 MCP `query-meals` | 是 | 125 个餐品 |
+| 营养（热量/蛋白/脂肪/碳水/钠/钙） | 麦当劳中国官网营养计算器 | 否 | 82 个产品 / 125 个规格 |
+| 在售菜单与商品编码 | 麦当劳 MCP `query-meals` | 是 | 125 个条目（其中 80 个非套餐） |
 | 官方结算价 | 麦当劳 MCP `calculate-price` | 是 | 57 个单品 |
 | 可用券与券后价 | 麦当劳 MCP `query-store-coupons` + `calculate-price` | 是 | 2 张券（随账号与时段变化） |
+
+预算模式下实际进入求解的是 52 个单品——125 个菜单条目剔除套餐后剩 80 个，再与营养快照匹配、去重、拿到确定价格后剩下 52 个。
 
 官网营养数据面向公众开放，因此**营养部分无需 Token 即可构建**，这也是本项目 clone 即能跑出结果的原因。价格官网不提供，必须走 MCP。
 
@@ -264,14 +273,27 @@ mcd-solver/
 │   ├── fetch_menu.py            从零实现的 MCP Streamable HTTP 客户端
 │   ├── verify_prices.py         用 calculate-price 校准官方结算价
 │   ├── coupons.py               券查看 / 领取 / 折算券后价 / 试算
-│   └── order.py                 官方复核与下单（含人工确认闸门）
-└── data/
-    ├── nutrition.json           营养快照
-    ├── menu.json                MCP 在售菜单
-    ├── prices_verified.json     官方结算价（不入库）
-    ├── prices_coupon.json       券后价（不入库，含真实券码）
-    └── coupons.example.json     券数据结构示例（脱敏）
+│   ├── order.py                 官方复核与下单（含人工确认闸门）
+│   ├── quickstart.py            一键体验（跨平台，无需 make）
+│   └── selftest.py              离线自检
+├── data/
+│   ├── nutrition.json           营养快照
+│   ├── menu.json                MCP 在售菜单
+│   ├── prices_verified.json     官方结算价（不入库）
+│   ├── prices_coupon.json       券后价（不入库，含真实券码）
+│   └── coupons.example.json     券数据结构示例（脱敏）
+├── .github/workflows/ci.yml     离线自检（无需 Token）
+├── Makefile                     常用命令薄封装
+└── CHANGELOG.md                 四个阶段的演进与踩坑记录
 ```
+
+## 工程
+
+- **零第三方依赖**，只用标准库，`clone` 即能跑出结果
+- **离线自检**：`python scripts/selftest.py`，26 项检查覆盖语法、数据完整性、
+  硬约束不可违反、JSON 结构、边界降级、无 Token 优雅退出、敏感数据未入库
+- **CI**：GitHub Actions 在 Python 3.9~3.13 五个版本上跑同一套自检，无需任何密钥
+- **安全**：Token 与 `couponCode` 只写进 `.gitignore` 覆盖的本地文件，提交前自检会拦截
 
 ---
 

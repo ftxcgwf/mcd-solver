@@ -1,0 +1,48 @@
+name: 离线自检
+
+# 全程不需要 MCP Token：
+# 营养数据来自麦当劳官网公开营养计算器，已随仓库快照提交，
+# 求解、JSON 输出、边界降级、安全自检都能离线验证。
+# 依赖 MCP 的脚本（菜单 / 结算价 / 券 / 下单）不在 CI 里跑，避免限流与真实下单。
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 配置 Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: 检查零第三方依赖
+        run: |
+          echo "本项目不使用任何第三方包，仅用标准库。"
+          python -c "import sys; print('Python', sys.version)"
+
+      - name: 运行离线自检
+        run: python scripts/selftest.py --quiet
+
+      - name: 冒烟：三种人设均出解
+        run: |
+          python cli.py --max-kcal 900 --persona all --json > /tmp/plans.json
+          python -c "
+          import json
+          d = json.load(open('/tmp/plans.json', encoding='utf-8'))
+          assert d['plans'], '没有任何方案'
+          for p, rs in d['plans'].items():
+              assert rs, f'{p} 无方案'
+          print('三种人设均有可行解')
+          "

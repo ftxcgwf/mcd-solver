@@ -28,6 +28,19 @@ description: 麦当劳点单决策求解器。当用户提到想吃麦当劳、�
 python cli.py --max-kcal 800 --max-sodium 2000 --persona all
 ```
 
+新人第一次用，或环境看起来不对（比如提示数据缺失）时，先跑一键体验，
+它会自动建营养快照并连跑三个示例：
+
+```bash
+python scripts/quickstart.py
+```
+
+怀疑改动破坏了什么时跑离线自检（26 项，无需 Token）：
+
+```bash
+python scripts/selftest.py
+```
+
 有 Token 时先校准真实价格，预算约束才会生效：
 
 ```bash
