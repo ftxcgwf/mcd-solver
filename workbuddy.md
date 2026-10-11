@@ -1,6 +1,29 @@
-# WorkBuddy 联动上下文
+# WorkBuddy 联动凭证 · mcd-solver
 
-本文件用于 WorkBuddy 智能体理解并驱动本项目，参与 WorkBuddy 专项奖励。
+> 本文件是 `mcd-solver`（今天麦什么）参与「麦当劳程序员创意开发大赛 · **WorkBuddy 专项奖励**」的官方凭证文件（赛事要求提交的 `workbuddy.md`）。
+> 专项规则：作品进入总榜前 100 名且提交本文件，可额外获得 **3000 积分**。
+
+## 一句话
+
+**mcd-solver 是一个「完全在 WorkBuddy 智能体中诞生、并能被 WorkBuddy 反复调用」的麦当劳点单决策求解器**——它既是 WorkBuddy 的产物，也是 WorkBuddy 的能力延伸。
+
+## 凭证要点（为什么这是一份真实的 WorkBuddy 作品）
+
+- **全程在 WorkBuddy Agent 模式下完成**：从方向选型、竞品调研、MCP 工具清单梳理、官网营养数据发现、爬虫与求解器实现、三轮数据自愈、到参赛文档撰写与代码推送，全部在 WorkBuddy 对话中由智能体读写文件、执行命令完成。
+- **零第三方依赖、clone 即跑**：只用 Python 标准库，营养快照已入库，离线可用——这是为了让任何拿到仓库的 WorkBuddy 实例都能立刻复现，无需额外安装。
+- **提供 `SKILL.md` 可被 WorkBuddy 加载**：把「自然语言 → 约束参数 → 求解 → 解释」封装成 Skill，使 WorkBuddy 能理解何时调用本求解器、如何解释结果、边界在哪里。
+- **`--json` 机器可读输出**：求解结果可直供其他智能体二次加工，是 Agent-to-Agent 协作的天然接口。
+
+## 核验方式（评委 / 其他 WorkBuddy 用户均可复现）
+
+1. 克隆本仓库：`git clone https://github.com/ftxcgwf/mcd-solver`
+2. 无需 Token 直接体验（营养数据已随仓库入库）：
+   ```bash
+   python cli.py --max-kcal 800 --max-sodium 2000 --persona all
+   python scripts/quickstart.py      # 一键连跑三个示例
+   ```
+3. 将 `SKILL.md` 作为 Skill 加载后，用自然语言驱动 WorkBuddy 调用本求解器（详见下文「对话示例」）。
+4. 怀疑环境被破坏时跑离线自检：`python scripts/selftest.py`（26 项断言，无需 Token，CI 覆盖 Python 3.9–3.13）。
 
 ## 项目概述
 
@@ -148,9 +171,12 @@ WorkBuddy 在向用户转述结果时，建议遵循：
 
 | 文件 | 用途 |
 |---|---|
+| `workbuddy.md` | **本文件**：WorkBuddy 专项奖励凭证，记录 WorkBuddy 联动方式与可复现路径 |
 | `SKILL.md` | Skill 定义，供 WorkBuddy 等智能体加载 |
 | `cli.py` | 命令行入口，`--json` 输出便于智能体解析 |
+| `solver/` | 分层束搜索求解器与满足感模型（仅标准库） |
 | `scripts/coupons.py` | 券查看 / 领取 / 折算券后价 / 逐张试算 |
+| `scripts/selftest.py` | 26 项离线自检，CI 覆盖 Python 3.9–3.13 |
 | `MCP_INTEGRATION.md` | MCP 调用说明（含券工具与踩坑记录） |
 | `mcp-config.example.json` | 脱敏 MCP 配置示例 |
 | `CONTEST_DECLARATION.md` | 赛事方统一参赛声明（内容不可改动） |
