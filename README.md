@@ -1,5 +1,7 @@
 # 今天麦什么
 
+[![离线自检](https://github.com/ftxcgwf/mcd-solver/actions/workflows/ci.yml/badge.svg)](https://github.com/ftxcgwf/mcd-solver/actions/workflows/ci.yml)
+
 **给我预算、热量上限和一个心情，我给你麦当劳的最优解。**
 
 基于麦当劳 MCP 能力的点单决策求解器。不是菜单查询，不是领券脚本——它把「怎么点」建模成一个带约束的优化问题：预算、热量、钠、蛋白质是约束，目标函数是**满足感**，而不是「最便宜」。
@@ -314,6 +316,7 @@ mcd-solver/
 - `MCP_INTEGRATION.md` 说明了实际使用的 MCP Server、Tool、调用流程与业务价值
 - `mcp-config.example.json` 为脱敏配置示例，只含环境变量占位符
 - `CONTEST_DECLARATION.md` 为原创性与合规声明
+- `NOTICE.md` 集中说明服务依赖、商标归属与数据来源
 
 ---
 
@@ -325,3 +328,9 @@ mcd-solver/
 - `--place` 会创建真实订单（仍需你在麦当劳 APP 完成支付）。默认只试算，下单须手动输入金额确认
 - 本项目只做**决策辅助**，不构成医疗或营养建议；有特殊健康需求请遵医嘱
 - 本项目为个人开源作品，与麦当劳官方无隶属关系。使用麦当劳 MCP 服务须遵守其《使用条款》与《MCP 服务规则》
+
+---
+
+## 许可
+
+代码采用 [MIT License](LICENSE)。服务依赖、商标归属与数据来源见 [NOTICE.md](NOTICE.md)。
