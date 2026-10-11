@@ -40,6 +40,9 @@ DATA_DIR = os.path.join(ROOT, "data")
 BATCH = 10          # 单批商品数，太大容易被单个售罄品拖垮
 MAX_SPLIT_DEPTH = 4  # 二分拆分上限，防止无限递归
 
+# 结算端返回的官方明细名，带规格（如「小杯玉米杯」），比菜单名更有权威
+_OFFICIAL_NAMES = {}
+
 
 def _quote_batch(client, store_code, codes):
     """
@@ -72,6 +75,12 @@ def _quote_batch(client, store_code, codes):
             sub, qty = p.get("subtotal"), (p.get("quantity") or 1)
             if sub is not None and qty:
                 out[code] = round(sub / 100.0 / qty, 2)
+            # 官方返回的明细名常常带规格（菜单里只有泛称「玉米杯」，
+            # 结算明细却是「小杯玉米杯」）。这个口径最接近真实下单，
+            # 用它反推规格，避免把价格挂到错误的档位上。
+            nm = p.get("name") or p.get("productName")
+            if nm:
+                _OFFICIAL_NAMES[code] = str(nm)
         return out
 
     return rec(list(codes), 0)
@@ -154,6 +163,8 @@ def main():
         "count": len(prices),
         "prices": prices,
         "names": names,
+        # 结算端口径的明细名，常带规格；求解器用它把价格挂到正确的规格档位
+        "official_names": {c: v for c, v in _OFFICIAL_NAMES.items() if c in prices},
     }
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)

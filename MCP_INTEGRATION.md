@@ -60,7 +60,7 @@
 
 | Tool | 现状与扩展方向 |
 |---|---|
-| `list-nutrition-foods` | 未接入。官网营养快照已覆盖 82 个产品/115 个可选项，可用于交叉校验或官网数据过期时作为主数据源 |
+| `list-nutrition-foods` | 未接入。官网营养快照已覆盖 82 个产品 / 125 个规格，可用于交叉校验或官网数据过期时作为主数据源 |
 | `query-meal-detail` | 未接入。可展开套餐组成与特制项，支持「板烧鸡腿堡不要酱」这类定制 |
 | `delivery-query-stores` / `delivery-query-addresses` | 未接入。外送场景需先查地址与可达门店，本项目默认 `beType=1`（到店取餐）规避 |
 

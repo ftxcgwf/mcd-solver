@@ -94,6 +94,24 @@ def load_verified_prices(path=None):
         return {}
 
 
+def load_official_names(path=None):
+    """
+    加载结算端返回的官方明细名：{"商品编码": "小杯玉米杯"}。
+
+    与 `names`（菜单里的泛称）不同，这份来自 `calculate-price` 的实际返回，
+    常常自带规格，是把价格挂到正确档位的依据。文件缺失时返回空字典，
+    退化到热量居中的启发式，不影响离线可用性。
+    """
+    path = path or os.path.join(DATA_DIR, "prices_verified.json")
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            return (json.load(f).get("official_names") or {})
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
 def apply_verified_prices(items, verified):
     """
     用官方结算价覆盖。按商品编码精确匹配，不猜名字——
@@ -209,8 +227,28 @@ PACK_WORDS = (
 )
 
 
-def _median_variant(group):
-    """多规格产品里挑「标准份」：按热量排序取居中的那个。"""
+def _pick_variant(group, official_name=None):
+    """
+    多规格产品里挑该承接商品编码的那一档。
+
+    菜单（MCP）通常只有一条泛称记录，而官网营养数据按规格分档，
+    所以必须决定这个编码对应哪一档。两级判断：
+
+    1. 结算端 `calculate-price` 返回的明细名往往带规格（「小杯玉米杯」），
+       这是最接近真实下单口径的信息，优先拿它的文字去匹配规格档位。
+    2. 没有明细名可读时，退回「热量居中」这条保守启发式——宁可偏中间档，
+       也不要默认最小或最大，那样误差更大。
+
+    实测若不用明细名，玉米杯会把菜单那条价格挂到「大」（87kcal），
+    而官方结算明细写的是「小杯玉米杯」（53kcal），热量会多算六成。
+    """
+    if official_name:
+        short = str(official_name)
+        for it in group:
+            p = (it.portion or "").strip()
+            # 只在规格词够长时才认，避免「中」被任意一个长名字误命中
+            if len(p) >= 1 and p in short:
+                return it
     s = sorted(group, key=lambda i: i.energy_kcal or 0)
     return s[len(s) // 2]
 
@@ -256,15 +294,19 @@ def apply_mcp_menu(items, menu, prices=None):
     if not lookup:
         return 0
     names = list(lookup.keys())
+    # 结算端的权威明细名，用来把价格挂到正确的规格档位
+    official_names = load_official_names()
 
     # 按官网品名分组，同名的不同规格放在一起处理
     groups = {}
     for it in items:
         groups.setdefault(_norm(it.name), []).append(it)
 
-    hit = 0
-    for gname, group in groups.items():
+    # 先为每个官网品名组解析出候选菜单条目，不急着写入
+    resolved = []
+    for order, (gname, group) in enumerate(groups.items()):
         ent = lookup.get(gname)
+        mname = gname if ent is not None else None
         if ent is None:
             best = None
             for n in names:
@@ -273,13 +315,51 @@ def apply_mcp_menu(items, menu, prices=None):
                         best = n
             if best is not None:
                 ent = lookup[best]
+                mname = best
         if ent is None:
             continue
         price, code = ent
+        resolved.append((order, gname, group, mname, price, code))
 
-        # 与价格同理：多规格产品只认「标准份」这一条能对应上真实商品编码，
-        # 其余规格的 code 留空，避免复核与下单时张冠李戴。
-        targets = group if len(group) == 1 else [_median_variant(group)]
+    # 商品编码必须全局唯一。
+    #
+    # MCP 菜单的粒度比官网营养数据粗：MCP 只有一条「美式」，官网却拆成了
+    # 「冰美式」「热美式」；MCP 只有「新地」，官网是「朱古力新地」「草莓新地」。
+    # 放任多个官网品名组抢同一个 code 会出两件事：
+    #   1. 求解器输出两个共享同一商品编码的选项，下单时无法区分到底要哪个
+    #   2. 券被赋给不适用的变体——实测「9.9元中杯冰美式」被赋给了「热美式」
+    # 因此按 code 归拢，挑出唯一承接者，其余竞争者留空（宁缺勿错）。
+    by_code = {}
+    for r in resolved:
+        if r[5]:
+            by_code.setdefault(str(r[5]), []).append(r)
+
+    def owner_key(r):
+        # 精确同名 > 匹配的菜单名更长（更具体） > 数据源中的原始顺序
+        _order, gname, _group, mname, _price, _code = r
+        exact = 0 if (mname is not None and mname == gname) else 1
+        return (exact, -(len(mname) if mname else 0), _order)
+
+    owners = {}
+    for code, cands in by_code.items():
+        owners[code] = min(cands, key=owner_key)
+
+    hit = 0
+    for r in resolved:
+        order, _gname, group, _mname, price, code = r
+        # 同一商品编码若已被更匹配的组别承接，这里就让位，不再占用
+        owner = owners.get(str(code)) if code else None
+        if owner is not None and owner[0] != order:
+            continue
+
+        # 与价格同理：多规格产品只认能对应上真实商品编码的那一档，
+        # 其余规格留空，避免复核与下单时张冠李戴。
+        # 规格到底是哪一档，优先听结算端明细名（如「小杯玉米杯」），
+        # 没有明细名时才退回「热量居中」这条启发式。
+        if len(group) == 1:
+            targets = group
+        else:
+            targets = [_pick_variant(group, (official_names or {}).get(str(code)))]
         for t in targets:
             t.price = price
             t.code = code
