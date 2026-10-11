@@ -105,7 +105,7 @@ S = 固有满足度        # 单品口感愉悦分，来自口味先验，按边
 零第三方依赖，Python 3.9+，**不需要 MCP Token 就能跑**。
 
 ```bash
-git clone https://github.com/你的用户名/mcd-solver.git
+git clone https://github.com/ftxcgwf/mcd-solver.git
 cd mcd-solver
 
 # 一行到底（会自动建营养快照并跑三个示例）
