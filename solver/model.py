@@ -222,9 +222,34 @@ def items_from_nutrition(nut, prices=None, overrides=None):
 # 结算价 ¥122.5，差了近一倍。它是两人份的组合，价格不能当单品用，
 # 混进求解器会让预算彻底失真。
 PACK_WORDS = (
-    "套餐", "件套", "随心选", "随心拼", "乐园餐", "双全",
+    "套餐", "件套", "随心选", "随心拼", "随心配", "乐园餐", "乐园", "双全",
     "双人餐", "三人餐", "多人餐", "分享餐", "全家餐", "超值餐",
+    "拼盘", "小食盘", "双拼", "精选", "十翅", "桶",
 )
+
+# 组合餐分类标识。MCP 的 category 字段比品名更可靠——品名里不带「套餐」
+# 二字不代表它不是组合：「堡堡随心拼（7件任选）」看着像活动名，实际是七件
+# 组合。按分类整类拦掉，比逐个猜名字防得住漏网。
+PACK_CATEGORIES = (
+    "套餐", "拼盘", "多人餐", "单人餐", "随心配", "随心选", "乐园", "组合",
+)
+
+
+def _clean_cat(s):
+    """抹掉分类字段里的换行。MCP 返回的分类自带换行符，如「巨无霸\n牛鱼肉堡」。"""
+    return re.sub(r"\s+", "", s or "")
+
+
+def is_pack(name, category=None):
+    """
+    是否为不可当单品使用的组合餐：品名或分类命中任意一项即算。
+
+    求解器与价格校准脚本共用这一个判断——两边若各自按自己的口径过滤，
+    就会出现「校准过的商品求解器里被排除」或反之，价格层与实际可选项对不上。
+    """
+    if any(w in _norm(name) for w in PACK_WORDS):
+        return True
+    return any(w in _clean_cat(category) for w in PACK_CATEGORIES)
 
 
 def _pick_variant(group, official_name=None):
@@ -251,6 +276,72 @@ def _pick_variant(group, official_name=None):
                 return it
     s = sorted(group, key=lambda i: i.energy_kcal or 0)
     return s[len(s) // 2]
+
+
+def _official_fit(gname, official_name):
+    """
+    候选产品与官方明细名的契合度；返回 None 表示没有明细名、无从判断。
+
+    MCP 的一个编码常常代表一类商品，官网却按冷热、口味拆成多个产品，
+    所以不能只看「谁的品名更像菜单名」来决定由谁承接这个编码——
+    那本质是在猜。而结算端 calculate-price 返回的明细名是权威口径：
+
+        菜单写「牛奶」，官方明细写「热牛奶中杯」
+        菜单写「燕麦奶」，官方明细写「热燕麦奶中杯」
+
+    光凭品名相似度，「热牛奶」和「冰浓浓抹茶牛奶」一样都含「牛奶」，
+    谁排前面谁就拿到编码；而明细名明确说这个编码对应的是热的那款。
+    忽略这层证据，就会把热饮的编码挂到冰饮头上（热量、钠、口感全反）。
+
+    契合计分：核心名能对上给 +10，冷热标记一致再 +3，冷热冲突 -6。
+    """
+    if not official_name:
+        return None
+    o = _norm(official_name)
+    g = _norm(gname)
+    if not o or not g:
+        return None
+    # 剥离冷热前缀再比核心名：「冰燕麦奶」与「燕麦奶中杯」应判为同一物
+    core_g = g[1:] if g[:1] in ("冰", "热") else g
+    core_o = o[1:] if o[:1] in ("冰", "热") else o
+    if not core_g or not core_o:
+        return None
+    score = 10 if (core_g in core_o or core_o in core_g) else 0
+    temp_g = g[:1] if g[:1] in ("冰", "热") else None
+    temp_o = next((ch for ch in o if ch in ("冰", "热")), None)
+    if temp_g and temp_o:
+        score += 3 if temp_g == temp_o else -6
+    return score
+
+
+def _assign_owners(resolved, official_names):
+    """
+    给每个商品编码挑唯一承接者。双向唯一：一个编码只归一个产品，
+    一个产品也只占一个编码。
+
+    按契合度全局排序后贪心分配：有官方明细名佐证的配对先落定，
+    剩下没有佐证的再按「精确同名 > 菜单名更长 > 原始顺序」兜底。
+    """
+    pairs = []
+    for r in resolved:
+        order, gname, _group, mname, _price, code = r
+        if not code:
+            continue
+        fit = _official_fit(gname, (official_names or {}).get(str(code)))
+        exact = 0 if (mname is not None and mname == gname) else 1
+        key = (fit or 0, -exact, len(mname or ""), -order)
+        pairs.append((key, r))
+    pairs.sort(key=lambda p: p[0], reverse=True)
+
+    used_codes, used_groups, out = set(), set(), []
+    for _key, r in pairs:
+        ckey, gkey = str(r[5]), r[1]
+        if ckey in used_codes or gkey in used_groups:
+            continue
+        used_codes.add(ckey)
+        used_groups.add(gkey)
+        out.append(r)
+    return out
 
 
 def apply_mcp_menu(items, menu, prices=None):
@@ -286,7 +377,7 @@ def apply_mcp_menu(items, menu, prices=None):
         # 组合餐的价格不能当单品价格用。MCP 菜单里「吉士汉堡包套餐」¥26
         # 若被子串匹配当成「汉堡包」的单价，求解结果会严重失真，
         # 所以先把套餐、件套、随心选这类组合餐剔掉。
-        if any(w in n for w in PACK_WORDS):
+        if is_pack(n, m.get("category")):
             skipped_pack += 1
             continue
         if n not in lookup:
@@ -321,36 +412,17 @@ def apply_mcp_menu(items, menu, prices=None):
         price, code = ent
         resolved.append((order, gname, group, mname, price, code))
 
-    # 商品编码必须全局唯一。
+    # 全局唯一分配。编码被多个产品争抢时必须仲裁，且仲裁要讲证据。
     #
     # MCP 菜单的粒度比官网营养数据粗：MCP 只有一条「美式」，官网却拆成了
     # 「冰美式」「热美式」；MCP 只有「新地」，官网是「朱古力新地」「草莓新地」。
-    # 放任多个官网品名组抢同一个 code 会出两件事：
+    # 放任多个官网产品抢同一个 code 会出两件事：
     #   1. 求解器输出两个共享同一商品编码的选项，下单时无法区分到底要哪个
     #   2. 券被赋给不适用的变体——实测「9.9元中杯冰美式」被赋给了「热美式」
-    # 因此按 code 归拢，挑出唯一承接者，其余竞争者留空（宁缺勿错）。
-    by_code = {}
-    for r in resolved:
-        if r[5]:
-            by_code.setdefault(str(r[5]), []).append(r)
-
-    def owner_key(r):
-        # 精确同名 > 匹配的菜单名更长（更具体） > 数据源中的原始顺序
-        _order, gname, _group, mname, _price, _code = r
-        exact = 0 if (mname is not None and mname == gname) else 1
-        return (exact, -(len(mname) if mname else 0), _order)
-
-    owners = {}
-    for code, cands in by_code.items():
-        owners[code] = min(cands, key=owner_key)
-
+    # 仲裁的优先级：先看结算端明细名的证据，没有证据才比品名相似度。
     hit = 0
-    for r in resolved:
-        order, _gname, group, _mname, price, code = r
-        # 同一商品编码若已被更匹配的组别承接，这里就让位，不再占用
-        owner = owners.get(str(code)) if code else None
-        if owner is not None and owner[0] != order:
-            continue
+    for r in _assign_owners(resolved, official_names):
+        _order, _gname, group, _mname, price, code = r
 
         # 与价格同理：多规格产品只认能对应上真实商品编码的那一档，
         # 其余规格留空，避免复核与下单时张冠李戴。
