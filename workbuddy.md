@@ -115,4 +115,4 @@ WorkBuddy 在向用户转述结果时，建议遵循：
 | `scripts/coupons.py` | 券查看 / 领取 / 折算券后价 / 逐张试算 |
 | `MCP_INTEGRATION.md` | MCP 调用说明（含券工具与踩坑记录） |
 | `mcp-config.example.json` | 脱敏 MCP 配置示例 |
-| `CONTEST_DECLARATION.md` | 原创性与合规声明 |
+| `CONTEST_DECLARATION.md` | 赛事方统一参赛声明（内容不可改动） |

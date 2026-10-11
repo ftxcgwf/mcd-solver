@@ -327,7 +327,12 @@ mcd-solver/
 ├── assets/social-preview.png    分享卡面 1280×640
 ├── .github/workflows/ci.yml     离线自检（无需 Token，Python 3.9~3.13）
 ├── Makefile                     常用命令薄封装
-├── NOTICE.md                    服务依赖 / 商标归属 / 数据来源
+├── README.md                    本文件：项目介绍 / 安装 / 使用示例 / 目标用户
+├── MCP_INTEGRATION.md           MCP 接入说明（Server / Tool / 调用流程 / 业务价值）
+├── CONTEST_DECLARATION.md       赛事方统一参赛声明（内容不可改动）
+├── mcp-config.example.json      脱敏 MCP 配置示例（仅环境变量占位符）
+├── workbuddy.md                 WorkBuddy 联动上下文（专项奖励用）
+├── NOTICE.md                    服务依赖 / 商标归属 / 数据来源 / 原创明细
 ├── LICENSE                      MIT
 └── CHANGELOG.md                 四个阶段的演进与踩坑记录
 ```
@@ -358,7 +363,8 @@ mcd-solver/
 
 - `MCP_INTEGRATION.md` 说明了实际使用的 MCP Server、Tool、调用流程与业务价值
 - `mcp-config.example.json` 为脱敏配置示例，只含环境变量占位符
-- `CONTEST_DECLARATION.md` 为原创性与合规声明
+- `CONTEST_DECLARATION.md` 为赛事方统一参赛声明（按规定使用官方文本、内容不可改动），
+  本项目的原创与合规明细见 `NOTICE.md`
 - `NOTICE.md` 集中说明服务依赖、商标归属与数据来源
 
 ---
