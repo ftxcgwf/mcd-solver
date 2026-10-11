@@ -82,11 +82,14 @@ python scripts/fetch_nutrition_web.py
 用户问「我有什么券」「用哪张券划算」「要不要凑单」时走这里：
 
 ```bash
-python scripts/coupons.py --city 北京                  # 查看可领券 / 卡包 / 本店可用券
-python scripts/coupons.py --city 北京 --bind           # 一键领取（账号写操作，需用户授权）
-python scripts/coupons.py --city 北京 --calibrate       # 折算券后价，供求解器直接使用
+python scripts/coupons.py --city 常州                  # 查看可领券 / 卡包 / 本店可用券
+python scripts/coupons.py --city 常州 --bind           # 一键领取（账号写操作，需用户授权）
+python scripts/coupons.py --city 常州 --calibrate       # 折算券后价，供求解器直接使用
 python cli.py --budget 45 --persona all --coupons       # 求解并逐张试算券
 ```
+
+> 仓库内置的 menu / price 快照来自 **常州市 · 麦当劳常州万象城餐厅**。
+> 换城市时三个脚本都要用同一个 `--city` 重跑一遍。
 
 **两个必须讲清的点**：
 

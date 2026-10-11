@@ -1,17 +1,17 @@
 {
   "source": "麦当劳中国 MCP Server (query-meals)",
   "mcp_url": "https://mcp.mcd.cn",
-  "store_code": "1950970",
+  "store_code": "1990558",
   "order_type": 1,
   "be_type": 1,
-  "fetched_at": "2026-10-10T20:20:50",
-  "count": 125,
+  "fetched_at": "2026-10-11T12:13:55",
+  "count": 104,
   "items": [
     {
       "name": "麦辣鸡腿汉堡三件套",
       "code": "9900005456",
-      "price": 33.5,
-      "original_price": 46.0,
+      "price": 34.0,
+      "original_price": 47.5,
       "discount_type": null,
       "category": "鸡肉汉堡\n/卷"
     },
@@ -26,8 +26,8 @@
     {
       "name": "阳光橙麦炫酷",
       "code": "6352",
-      "price": 13.0,
-      "original_price": 13.0,
+      "price": 13.5,
+      "original_price": 13.5,
       "discount_type": null,
       "category": "饮品"
     },
@@ -40,14 +40,6 @@
       "category": "安格斯MAX\n厚牛堡"
     },
     {
-      "name": "脆薯饼",
-      "code": "521741",
-      "price": 8.5,
-      "original_price": 8.5,
-      "discount_type": null,
-      "category": "小食甜品\n/其他"
-    },
-    {
       "name": "【美汁源】“黄金橙橙”",
       "code": "2430",
       "price": 13.0,
@@ -56,12 +48,12 @@
       "category": "饮品"
     },
     {
-      "name": "马苏里拉拉丝芝士条",
-      "code": "521986",
-      "price": 11.0,
-      "original_price": 15.0,
-      "discount_type": "促销优惠",
-      "category": "小食甜品\n/其他"
+      "name": "全明星双人分享餐八件套",
+      "code": "9900011056",
+      "price": 49.9,
+      "original_price": 117.5,
+      "discount_type": "随单购麦金卡优惠",
+      "category": "小食拼盘\n/多人餐"
     },
     {
       "name": "蘸酱麦麦脆汁鸡",
@@ -72,18 +64,10 @@
       "category": "蘸酱炸鸡"
     },
     {
-      "name": "蘸酱脆皮鸡柳",
-      "code": "9900016079",
-      "price": 11.9,
-      "original_price": 17.5,
-      "discount_type": null,
-      "category": "蘸酱炸鸡"
-    },
-    {
       "name": "“我就喜欢”鸡薯双全盒",
       "code": "9900016076",
       "price": 15.9,
-      "original_price": 28.5,
+      "original_price": 30.0,
       "discount_type": null,
       "category": "小食拼盘\n/多人餐"
     },
@@ -96,34 +80,10 @@
       "category": "人气热卖"
     },
     {
-      "name": "泷盐星星麦旋风",
-      "code": "521750",
-      "price": 16.5,
-      "original_price": 16.5,
-      "discount_type": null,
-      "category": "小食甜品\n/其他"
-    },
-    {
-      "name": "美禄可可雪冰",
-      "code": "521871",
-      "price": 9.9,
-      "original_price": 23.0,
-      "discount_type": "促销优惠",
-      "category": "麦咖啡™"
-    },
-    {
-      "name": "龙焰芝士棒鸡腿堡三件套",
-      "code": "9900016075",
-      "price": 29.9,
-      "original_price": 50.5,
-      "discount_type": null,
-      "category": "鸡肉汉堡\n/卷"
-    },
-    {
       "name": "龙焰鸡腿堡三件套",
       "code": "9900016073",
       "price": 26.9,
-      "original_price": 47.5,
+      "original_price": 49.0,
       "discount_type": null,
       "category": "鸡肉汉堡\n/卷"
     },
@@ -131,31 +91,47 @@
       "name": "麦香鱼套餐",
       "code": "9900005460",
       "price": 33.5,
-      "original_price": 46.0,
+      "original_price": 47.0,
       "discount_type": null,
       "category": "巨无霸\n牛鱼肉堡"
     },
     {
       "name": "板烧鸡腿堡三件套",
       "code": "9900005462",
-      "price": 34.5,
-      "original_price": 47.0,
+      "price": 35.0,
+      "original_price": 48.5,
       "discount_type": null,
       "category": "鸡肉汉堡\n/卷"
+    },
+    {
+      "name": "纯牛奶(盒装)",
+      "code": "3755",
+      "price": 10.5,
+      "original_price": 10.5,
+      "discount_type": null,
+      "category": "饮品"
     },
     {
       "name": "双层吉士汉堡套餐",
       "code": "9900005464",
       "price": 34.0,
-      "original_price": 46.5,
+      "original_price": 47.5,
       "discount_type": null,
       "category": "巨无霸\n牛鱼肉堡"
     },
     {
+      "name": "人气超值四件套随心选",
+      "code": "9900004236",
+      "price": 28.0,
+      "original_price": 58.0,
+      "discount_type": "随单购麦金卡优惠",
+      "category": "精选单人餐"
+    },
+    {
       "name": "巨无霸三件套",
       "code": "9900005466",
-      "price": 36.5,
-      "original_price": 49.0,
+      "price": 37.0,
+      "original_price": 50.5,
       "discount_type": null,
       "category": "巨无霸\n牛鱼肉堡"
     },
@@ -176,28 +152,28 @@
       "category": "饮品"
     },
     {
-      "name": "泷愿成真麦旋风——大米风味",
-      "code": "521917",
-      "price": 16.5,
-      "original_price": 16.5,
+      "name": "枫糖风味厚松饼猪柳蛋堡三件套",
+      "code": "9900014838",
+      "price": 27.9,
+      "original_price": 40.0,
       "discount_type": null,
-      "category": "小食甜品\n/其他"
+      "category": "人气热卖"
     },
     {
       "name": "吉士汉堡包套餐",
       "code": "9900005449",
       "price": 26.0,
-      "original_price": 38.5,
+      "original_price": 39.5,
       "discount_type": null,
       "category": "巨无霸\n牛鱼肉堡"
     },
     {
-      "name": "酥酥多笋卷三件套",
-      "code": "9900015008",
-      "price": 31.5,
-      "original_price": 44.0,
+      "name": "枫糖风味厚松饼猪柳蛋堡三件套",
+      "code": "9900014837",
+      "price": 27.9,
+      "original_price": 40.0,
       "discount_type": null,
-      "category": "鸡肉汉堡\n/卷"
+      "category": "精选单人餐"
     },
     {
       "name": "雪碧",
@@ -211,7 +187,7 @@
       "name": "鱼牛汉堡四件套随心选",
       "code": "9900010110",
       "price": 32.0,
-      "original_price": 58.5,
+      "original_price": 59.0,
       "discount_type": "随单购麦金卡优惠",
       "category": "精选单人餐"
     },
@@ -226,8 +202,8 @@
     {
       "name": "巨无霸",
       "code": "1100",
-      "price": 25.5,
-      "original_price": 25.5,
+      "price": 26.0,
+      "original_price": 26.0,
       "discount_type": null,
       "category": "巨无霸\n牛鱼肉堡"
     },
@@ -235,7 +211,7 @@
       "name": "麦辣鸡翅4块套餐",
       "code": "9900005451",
       "price": 36.5,
-      "original_price": 49.0,
+      "original_price": 50.0,
       "discount_type": null,
       "category": "炸鸡"
     },
@@ -243,7 +219,7 @@
       "name": "麦香鸡套餐",
       "code": "9900005453",
       "price": 28.0,
-      "original_price": 40.5,
+      "original_price": 41.5,
       "discount_type": null,
       "category": "鸡肉汉堡\n/卷"
     },
@@ -258,16 +234,16 @@
     {
       "name": "鸡肉堡单品精选",
       "code": "9900008746",
-      "price": 23.5,
-      "original_price": 23.5,
+      "price": 24.0,
+      "original_price": 24.0,
       "discount_type": null,
       "category": "鸡肉汉堡\n/卷"
     },
     {
       "name": "新地",
       "code": "9900008745",
-      "price": 12.0,
-      "original_price": 12.0,
+      "price": 13.0,
+      "original_price": 13.0,
       "discount_type": null,
       "category": "小食甜品\n/其他"
     },
@@ -278,6 +254,14 @@
       "original_price": 14.0,
       "discount_type": null,
       "category": "巨无霸\n牛鱼肉堡"
+    },
+    {
+      "name": "怡泉+C",
+      "code": "515520",
+      "price": 11.5,
+      "original_price": 11.5,
+      "discount_type": null,
+      "category": "饮品"
     },
     {
       "name": "双层吉士汉堡",
@@ -296,26 +280,10 @@
       "category": "炸鸡"
     },
     {
-      "name": "麦咖啡冰爽一夏",
-      "code": "9900015561",
-      "price": 9.9,
-      "original_price": 23.0,
-      "discount_type": null,
-      "category": "麦咖啡™"
-    },
-    {
-      "name": "奶铁雪冰",
-      "code": "520361",
-      "price": 23.0,
-      "original_price": 23.0,
-      "discount_type": null,
-      "category": "麦咖啡™"
-    },
-    {
       "name": "蘸酱韩式甜辣酱鸡块",
       "code": "9900016096",
       "price": 11.9,
-      "original_price": 18.0,
+      "original_price": 18.5,
       "discount_type": null,
       "category": "蘸酱炸鸡"
     },
@@ -331,7 +299,7 @@
       "name": "薄皮V翅双拼十翅",
       "code": "9900006332",
       "price": 49.9,
-      "original_price": 77.0,
+      "original_price": 74.5,
       "discount_type": null,
       "category": "小食拼盘\n/多人餐"
     },
@@ -346,8 +314,8 @@
     {
       "name": "经典麦旋风",
       "code": "9900008754",
-      "price": 15.5,
-      "original_price": 15.5,
+      "price": 15.0,
+      "original_price": 15.0,
       "discount_type": null,
       "category": "小食甜品\n/其他"
     },
@@ -355,47 +323,71 @@
       "name": "培根蔬萃双层牛堡三件套",
       "code": "9900005468",
       "price": 35.5,
-      "original_price": 48.0,
+      "original_price": 49.0,
       "discount_type": null,
       "category": "巨无霸\n牛鱼肉堡"
-    },
-    {
-      "name": "脆脆薯条",
-      "code": "514782",
-      "price": 16.0,
-      "original_price": 16.0,
-      "discount_type": null,
-      "category": "小食甜品\n/其他"
     },
     {
       "name": "安格斯厚牛堡四件套随心选",
       "code": "9900006957",
       "price": 37.0,
-      "original_price": 66.0,
+      "original_price": 66.5,
       "discount_type": "随单购麦金卡优惠",
+      "category": "精选单人餐"
+    },
+    {
+      "name": "枫糖风味厚松饼猪柳蛋堡",
+      "code": "521730",
+      "price": 22.0,
+      "original_price": 22.0,
+      "discount_type": null,
+      "category": "巨无霸\n牛鱼肉堡"
+    },
+    {
+      "name": "枫糖风味厚松饼猪柳堡",
+      "code": "521731",
+      "price": 18.0,
+      "original_price": 18.0,
+      "discount_type": null,
+      "category": "巨无霸\n牛鱼肉堡"
+    },
+    {
+      "name": "枫糖风味厚松饼猪柳堡三件套",
+      "code": "9900014974",
+      "price": 23.9,
+      "original_price": 36.0,
+      "discount_type": null,
       "category": "精选单人餐"
     },
     {
       "name": "麦乐鸡",
       "code": "1401",
-      "price": 14.0,
-      "original_price": 14.0,
+      "price": 14.5,
+      "original_price": 14.5,
       "discount_type": null,
       "category": "炸鸡"
     },
     {
+      "name": "麦麦周末双人餐",
+      "code": "9900015151",
+      "price": 51.4,
+      "original_price": 87.5,
+      "discount_type": null,
+      "category": "小食拼盘\n/多人餐"
+    },
+    {
       "name": "心形薯饼5块",
       "code": "9900016082",
-      "price": 14.5,
-      "original_price": 14.5,
+      "price": 15.5,
+      "original_price": 15.5,
       "discount_type": null,
       "category": "小食甜品\n/其他"
     },
     {
       "name": "板烧鸡腿堡",
       "code": "1406",
-      "price": 23.5,
-      "original_price": 23.5,
+      "price": 24.0,
+      "original_price": 24.0,
       "discount_type": null,
       "category": "鸡肉汉堡\n/卷"
     },
@@ -411,41 +403,25 @@
       "name": "双层深海鳕鱼堡三件套",
       "code": "9900005413",
       "price": 35.0,
-      "original_price": 47.5,
+      "original_price": 48.5,
       "discount_type": null,
       "category": "巨无霸\n牛鱼肉堡"
-    },
-    {
-      "name": "咖啡阿芙佳朵",
-      "code": "514851",
-      "price": 15.0,
-      "original_price": 15.0,
-      "discount_type": null,
-      "category": "麦咖啡™"
     },
     {
       "name": "龙焰鸡腿堡四件套",
       "code": "9900016309",
       "price": 29.0,
-      "original_price": 57.0,
+      "original_price": 58.0,
       "discount_type": "随单购麦金卡优惠",
       "category": "鸡肉汉堡\n/卷"
     },
     {
       "name": "BFF四宫格小食盘",
       "code": "9900015730",
-      "price": 39.8,
+      "price": 40.3,
       "original_price": 54.5,
       "discount_type": null,
       "category": "小食拼盘\n/多人餐"
-    },
-    {
-      "name": "龙焰芝士棒鸡腿堡四件套",
-      "code": "9900016310",
-      "price": 32.0,
-      "original_price": 57.0,
-      "discount_type": "随单购麦金卡优惠",
-      "category": "鸡肉汉堡\n/卷"
     },
     {
       "name": "那么大鸡排（椒盐风味）",
@@ -458,8 +434,8 @@
     {
       "name": "麦乐鸡套餐",
       "code": "9900004835",
-      "price": 25.0,
-      "original_price": 37.5,
+      "price": 25.5,
+      "original_price": 39.0,
       "discount_type": null,
       "category": "炸鸡"
     },
@@ -491,14 +467,14 @@
       "name": "板烧鸡腿堡四件套",
       "code": "9900000890",
       "price": 28.0,
-      "original_price": 57.0,
+      "original_price": 58.0,
       "discount_type": "随单购麦金卡优惠",
       "category": "鸡肉汉堡\n/卷"
     },
     {
       "name": "蘸酱BFF四宫格小食盘",
       "code": "9900015729",
-      "price": 42.8,
+      "price": 43.3,
       "original_price": 57.5,
       "discount_type": null,
       "category": "蘸酱炸鸡"
@@ -506,8 +482,8 @@
     {
       "name": "蓝莓爆爆珠麦旋风",
       "code": "521950",
-      "price": 16.5,
-      "original_price": 16.5,
+      "price": 16.0,
+      "original_price": 16.0,
       "discount_type": null,
       "category": "小食甜品\n/其他"
     },
@@ -523,7 +499,7 @@
       "name": "韩式甜辣酱鸡块8块",
       "code": "9900015726",
       "price": 19.9,
-      "original_price": 30.0,
+      "original_price": 31.0,
       "discount_type": null,
       "category": "小食拼盘\n/多人餐"
     },
@@ -554,8 +530,8 @@
     {
       "name": "龙焰鸡腿堡",
       "code": "521952",
-      "price": 24.0,
-      "original_price": 24.0,
+      "price": 24.5,
+      "original_price": 24.5,
       "discount_type": null,
       "category": "鸡肉汉堡\n/卷"
     },
@@ -563,41 +539,9 @@
       "name": "大堡口福三件套",
       "code": "9900015602",
       "price": 22.9,
-      "original_price": 47.0,
+      "original_price": 48.5,
       "discount_type": null,
       "category": "大堡口福\n单人餐"
-    },
-    {
-      "name": "龙焰芝士棒鸡腿堡",
-      "code": "521953",
-      "price": 27.0,
-      "original_price": 27.0,
-      "discount_type": null,
-      "category": "鸡肉汉堡\n/卷"
-    },
-    {
-      "name": "日式鲜磨山葵酱",
-      "code": "521799",
-      "price": 3.0,
-      "original_price": 3.0,
-      "discount_type": null,
-      "category": "炸鸡"
-    },
-    {
-      "name": "“堡”你欢乐套餐",
-      "code": "9900011128",
-      "price": 28.0,
-      "original_price": 42.5,
-      "discount_type": null,
-      "category": "500\n大卡套餐"
-    },
-    {
-      "name": "麦当劳联名复古棒球帽",
-      "code": "521954",
-      "price": 34.9,
-      "original_price": 39.9,
-      "discount_type": "随单购麦金卡优惠",
-      "category": "小食甜品\n/其他"
     },
     {
       "name": "高达吉士双牛堡",
@@ -608,28 +552,12 @@
       "category": "巨无霸\n牛鱼肉堡"
     },
     {
-      "name": "“苹”水相“鱼”套餐",
-      "code": "9900011121",
-      "price": 36.0,
-      "original_price": 54.0,
-      "discount_type": null,
-      "category": "500\n大卡套餐"
-    },
-    {
       "name": "精选超值随心配",
       "code": "9900015568",
       "price": 13.9,
       "original_price": 13.9,
       "discount_type": null,
       "category": "随心配\n1+1"
-    },
-    {
-      "name": "新加坡蟹酱风味海鲜堡三件套",
-      "code": "9900015601",
-      "price": 26.9,
-      "original_price": 48.0,
-      "discount_type": null,
-      "category": "大堡口福\n单人餐"
     },
     {
       "name": "“辣”么快乐套餐",
@@ -640,10 +568,18 @@
       "category": "500\n大卡套餐"
     },
     {
+      "name": "枫糖风味厚松饼猪柳蛋堡四件套",
+      "code": "9900016301",
+      "price": 28.0,
+      "original_price": 52.0,
+      "discount_type": "随单购麦金卡优惠",
+      "category": "巨无霸\n牛鱼肉堡"
+    },
+    {
       "name": "麦辣鸡翅",
       "code": "1700",
-      "price": 15.0,
-      "original_price": 15.0,
+      "price": 14.5,
+      "original_price": 14.5,
       "discount_type": null,
       "category": "炸鸡"
     },
@@ -651,7 +587,7 @@
       "name": "巨无霸四件套",
       "code": "9900000888",
       "price": 32.0,
-      "original_price": 58.5,
+      "original_price": 59.0,
       "discount_type": "随单购麦金卡优惠",
       "category": "巨无霸\n牛鱼肉堡"
     },
@@ -659,31 +595,23 @@
       "name": "不素之霸双层牛堡四件套",
       "code": "9900000886",
       "price": 32.0,
-      "original_price": 58.5,
+      "original_price": 59.0,
       "discount_type": "随单购麦金卡优惠",
       "category": "巨无霸\n牛鱼肉堡"
-    },
-    {
-      "name": "酥酥多笋卷四件套",
-      "code": "9900000884",
-      "price": 28.0,
-      "original_price": 55.0,
-      "discount_type": "随单购麦金卡优惠",
-      "category": "鸡肉汉堡\n/卷"
     },
     {
       "name": "培根蔬萃双层牛堡四件套",
       "code": "9900000885",
       "price": 32.0,
-      "original_price": 58.5,
+      "original_price": 59.0,
       "discount_type": "随单购麦金卡优惠",
       "category": "巨无霸\n牛鱼肉堡"
     },
     {
       "name": "薯条",
       "code": "4810",
-      "price": 13.5,
-      "original_price": 13.5,
+      "price": 14.5,
+      "original_price": 14.5,
       "discount_type": null,
       "category": "小食甜品\n/其他"
     },
@@ -699,23 +627,15 @@
       "name": "芝士安格斯厚牛堡四件套",
       "code": "9900000882",
       "price": 37.0,
-      "original_price": 66.0,
+      "original_price": 66.5,
       "discount_type": "随单购麦金卡优惠",
       "category": "安格斯MAX\n厚牛堡"
-    },
-    {
-      "name": "浓浓抹茶牛奶",
-      "code": "512937",
-      "price": 23.0,
-      "original_price": 23.0,
-      "discount_type": null,
-      "category": "麦咖啡™"
     },
     {
       "name": "不素之霸双层牛堡三件套",
       "code": "9900005411",
       "price": 37.5,
-      "original_price": 50.0,
+      "original_price": 51.0,
       "discount_type": null,
       "category": "巨无霸\n牛鱼肉堡"
     },
@@ -723,41 +643,33 @@
       "name": "培根安格斯厚牛堡四件套",
       "code": "9900000881",
       "price": 37.0,
-      "original_price": 66.0,
+      "original_price": 66.5,
       "discount_type": "随单购麦金卡优惠",
       "category": "安格斯MAX\n厚牛堡"
     },
     {
       "name": "堡堡随心拼（7件任选）",
       "code": "9900004066",
-      "price": 72.5,
-      "original_price": 101.5,
+      "price": 73.0,
+      "original_price": 104.0,
       "discount_type": null,
       "category": "小食拼盘\n/多人餐"
     },
     {
       "name": "精选单人餐三件套",
       "code": "9900004064",
-      "price": 34.5,
-      "original_price": 46.0,
+      "price": 35.0,
+      "original_price": 47.5,
       "discount_type": null,
       "category": "精选单人餐"
     },
     {
       "name": "麦辣鸡腿汉堡",
       "code": "1440",
-      "price": 22.5,
-      "original_price": 22.5,
+      "price": 23.0,
+      "original_price": 23.0,
       "discount_type": null,
       "category": "鸡肉汉堡\n/卷"
-    },
-    {
-      "name": "新加坡蟹酱风味海鲜堡",
-      "code": "521884",
-      "price": 24.5,
-      "original_price": 24.5,
-      "discount_type": null,
-      "category": "巨无霸\n牛鱼肉堡"
     },
     {
       "name": "阳光柠檬红茶",
@@ -784,22 +696,6 @@
       "category": "开心乐园"
     },
     {
-      "name": "麦当劳素龙限定饼干",
-      "code": "521770",
-      "price": 2.0,
-      "original_price": 2.0,
-      "discount_type": null,
-      "category": "小食甜品\n/其他"
-    },
-    {
-      "name": "“苹板”支撑Pro套餐",
-      "code": "9900009242",
-      "price": 39.5,
-      "original_price": 53.5,
-      "discount_type": null,
-      "category": "500\n大卡套餐"
-    },
-    {
       "name": "浓缩咖啡",
       "code": "507389",
       "price": 15.0,
@@ -810,7 +706,7 @@
     {
       "name": "牛气满满套餐",
       "code": "9900009245",
-      "price": 35.0,
+      "price": 34.0,
       "original_price": 47.5,
       "discount_type": null,
       "category": "500\n大卡套餐"
@@ -827,23 +723,15 @@
       "name": "双层深海鳕鱼堡四件套",
       "code": "9900000893",
       "price": 32.0,
-      "original_price": 58.5,
+      "original_price": 59.0,
       "discount_type": "随单购麦金卡优惠",
       "category": "巨无霸\n牛鱼肉堡"
-    },
-    {
-      "name": "浓浓燕麦黑巧（冰/热）",
-      "code": "515955",
-      "price": 15.9,
-      "original_price": 23.0,
-      "discount_type": "促销优惠",
-      "category": "麦咖啡™"
     },
     {
       "name": "BFF四宫格小食盘双人餐",
       "code": "9900005321",
       "price": 62.9,
-      "original_price": 122.5,
+      "original_price": 124.5,
       "discount_type": "随单购麦金卡优惠",
       "category": "小食拼盘\n/多人餐"
     },
@@ -851,7 +739,7 @@
       "name": "麦辣鸡腿堡四件套",
       "code": "9900000891",
       "price": 28.0,
-      "original_price": 57.0,
+      "original_price": 58.0,
       "discount_type": "随单购麦金卡优惠",
       "category": "鸡肉汉堡\n/卷"
     },
@@ -864,34 +752,10 @@
       "category": "小食甜品\n/其他"
     },
     {
-      "name": "酥酥多笋卷",
-      "code": "521816",
-      "price": 20.5,
-      "original_price": 20.5,
-      "discount_type": null,
-      "category": "鸡肉汉堡\n/卷"
-    },
-    {
-      "name": "【美汁源】“多汁柠柠”",
-      "code": "521817",
-      "price": 12.0,
-      "original_price": 12.0,
-      "discount_type": null,
-      "category": "饮品"
-    },
-    {
-      "name": "苹果片",
-      "code": "6102",
-      "price": 7.0,
-      "original_price": 7.0,
-      "discount_type": null,
-      "category": "小食甜品\n/其他"
-    },
-    {
       "name": "培根安格斯厚牛堡三件套",
       "code": "9900005428",
       "price": 45.5,
-      "original_price": 58.0,
+      "original_price": 59.0,
       "discount_type": null,
       "category": "安格斯MAX\n厚牛堡"
     },
@@ -906,16 +770,16 @@
     {
       "name": "薄皮焦香V翅",
       "code": "520445",
-      "price": 16.0,
-      "original_price": 16.0,
+      "price": 15.5,
+      "original_price": 15.5,
       "discount_type": null,
       "category": "炸鸡"
     },
     {
       "name": "鲜萃咖啡",
       "code": "520689",
-      "price": 9.5,
-      "original_price": 9.5,
+      "price": 10.0,
+      "original_price": 10.0,
       "discount_type": null,
       "category": "饮品"
     },
@@ -952,34 +816,10 @@
       "category": "麦咖啡™"
     },
     {
-      "name": "学生专享饮品随心选",
-      "code": "9900003538",
-      "price": 10.0,
-      "original_price": 10.0,
-      "discount_type": null,
-      "category": "饮品"
-    },
-    {
-      "name": "学生专享汉堡小食随心选",
-      "code": "9900003537",
-      "price": 27.0,
-      "original_price": 27.0,
-      "discount_type": null,
-      "category": "鸡肉汉堡\n/卷"
-    },
-    {
-      "name": "浓浓黑巧雪冰",
-      "code": "515949",
-      "price": 23.0,
-      "original_price": 23.0,
-      "discount_type": null,
-      "category": "麦咖啡™"
-    },
-    {
       "name": "芝士安格斯厚牛堡三件套",
       "code": "9900005430",
       "price": 42.5,
-      "original_price": 55.0,
+      "original_price": 56.0,
       "discount_type": null,
       "category": "安格斯MAX\n厚牛堡"
     },
@@ -998,14 +838,6 @@
       "original_price": 15.0,
       "discount_type": null,
       "category": "炸鸡"
-    },
-    {
-      "name": "浓浓黑巧（冰/热）",
-      "code": "515946",
-      "price": 13.9,
-      "original_price": 21.0,
-      "discount_type": "促销优惠",
-      "category": "麦咖啡™"
     }
   ]
 }
